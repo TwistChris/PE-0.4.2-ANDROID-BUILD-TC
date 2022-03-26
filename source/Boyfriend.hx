@@ -11,6 +11,8 @@ class Boyfriend extends Character
 {
 	public var startedDeath:Bool = false;
 
+        public var sprTracker:FlxSprite;
+
 	public function new(x:Float, y:Float, ?char:String = 'bf')
 	{
 		super(x, y, char, true);
@@ -39,5 +41,12 @@ class Boyfriend extends Character
 		}
 
 		super.update(elapsed);
+
+                // LOLOLOLOLOLOL
+		if (sprTracker != null)
+		{
+			x = (sprTracker.y * 2) + 90 - 350;
+			y = FlxG.height / 3 - 68;
+		}
 	}
 }
