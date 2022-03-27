@@ -228,7 +228,7 @@ class MainMenuState extends MusicBeatState
 									case 'options':
 										MusicBeatState.switchState(new OptionsState());
 							                case 'chaselect':
-										MusicBeatState.switchState(new CharacterSelection());
+										LoadingState.loadAndSwitchState(new CharacterSelection());
 								}
 							});
 						}
