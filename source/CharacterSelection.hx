@@ -157,6 +157,8 @@ class CharacterSelection extends MusicBeatState
                     alreadySelected = true;
                     var daSelected:String = menuItems[curSelected];
                     PlayState.hasPlayedOnce = true;
+                    if (menuItems[curSelected] != 'bf')
+                        FlxG.switchState(new MainMenuState());
                     if (menuItems[curSelected] != daSelected)  
                         PlayState.bfsel = daSelected;
 
