@@ -756,11 +756,6 @@ class PlayState extends MusicBeatState
 		                startCharacterPos(boyfriend);
 		                boyfriendGroup.add(boyfriend);
                    
-                        case 'bf':
-                                boyfriend = new Boyfriend(0, 0, SONG.player1);
-		                startCharacterPos(boyfriend);
-		                boyfriendGroup.add(boyfriend);
-
                         default:
                                 boyfriend = new Boyfriend(0, 0, SONG.player1);
 		                startCharacterPos(boyfriend);
