@@ -759,17 +759,12 @@ class PlayState extends MusicBeatState
 					bfsel = 'bf-christmas';
 				case 'school' | 'schoolEvil':
 					bfsel = 'bf-pixel';
-				default:
-					bfsel = 'bf';
                         }
 
-                        switch (songName)
+                        if (songName == 'strees')
 			{
-				case 'stress':
-			                bfsel = 'bf-holding-gf';
-                                default:
-					bfsel = 'bf';
-                       }
+			        bfsel = 'bf-holding-gf';
+                        }
                 }
 
                 switch (bfsel)
