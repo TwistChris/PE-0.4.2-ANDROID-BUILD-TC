@@ -71,8 +71,7 @@ function onUpdate()
 	    if getProperty('boyfriend.animation.curAnim.name') == 'idle' then
                 triggerEvent('Camera Follow Pos',xx2,yy2)
             end
-         end
-     else
+        else
 
             if getProperty('dad2.animation.curAnim.name') == 'singLEFT' then
                 triggerEvent('Camera Follow Pos',xx3-ofs,yy3)
@@ -89,10 +88,9 @@ function onUpdate()
 	    if getProperty('dad2.animation.curAnim.name') == 'idle' then
                 triggerEvent('Camera Follow Pos',xx3,yy3)
             end
-         end
-      end
-  else
-    triggerEvent('Camera Follow Pos','','')
-  end
+        end
+    else
+        triggerEvent('Camera Follow Pos','','')
+    end
     
 end
