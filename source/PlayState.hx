@@ -749,23 +749,10 @@ class PlayState extends MusicBeatState
 				dadGroup.add(dad2);
 			}
 
-                if (bfsel == 'bf') 
-                {
-                        switch (curStage)
-			{
-				case 'limo':
-			                bfsel = 'bf-car';
-				case 'mall' | 'mallEvil':
-					bfsel = 'bf-christmas';
-				case 'school' | 'schoolEvil':
-					bfsel = 'bf-pixel';
+                if (bfsel == 'bf')
+                        {
+                                gf.visible = false;
                         }
-
-                        if (songName == 'strees')
-			{
-			        bfsel = 'bf-holding-gf';
-                        }
-                }
 
                 switch (bfsel)
                 {
@@ -773,7 +760,12 @@ class PlayState extends MusicBeatState
                                 boyfriend = new Boyfriend(0, 0, bfsel);
 		                startCharacterPos(boyfriend);
 		                boyfriendGroup.add(boyfriend);
-                   
+
+                        case 'bf':
+                                boyfriend = new Boyfriend(0, 0, SONG.player1);
+		                startCharacterPos(boyfriend);
+		                boyfriendGroup.add(boyfriend);
+           
                         default:
                                 boyfriend = new Boyfriend(0, 0, SONG.player1);
 		                startCharacterPos(boyfriend);
