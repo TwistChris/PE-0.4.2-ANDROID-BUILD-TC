@@ -749,17 +749,6 @@ class PlayState extends MusicBeatState
 				dadGroup.add(dad2);
 			}
 
-                if (bfsel == 'bf')
-                        {
-                                boyfriend = new Boyfriend(0, 0, SONG.player1);
-		                startCharacterPos(boyfriend);
-		                boyfriendGroup.add(boyfriend);
-                        }
-                        else
-                        {
-                                bfsel.visible = false;
-                        }
-
                 switch (bfsel)
                 {
                         case bfsel:
@@ -771,6 +760,13 @@ class PlayState extends MusicBeatState
 		                startCharacterPos(boyfriend);
 		                boyfriendGroup.add(boyfriend);
                 }
+
+                if (bfsel == 'bf')
+                        {
+                                boyfriend = new Boyfriend(0, 0, SONG.player1);
+		                startCharacterPos(boyfriend);
+		                boyfriendGroup.add(boyfriend);
+                        }
 
 		var camPos:FlxPoint = new FlxPoint(gf.getGraphicMidpoint().x, gf.getGraphicMidpoint().y);
 		camPos.x += gf.cameraPosition[0];
