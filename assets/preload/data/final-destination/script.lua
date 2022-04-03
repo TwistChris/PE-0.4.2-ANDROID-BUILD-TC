@@ -19,6 +19,9 @@ function onUpdate()
 	if del2 > 0 then
 		del2 = del2 - 1
 	end
+        if del3 > 0 then
+		del3 = del3 - 1
+	end
     if followchars == true then
         if mustHitSection == false then
             if getProperty('dad.animation.curAnim.name') == 'singLEFT' then
@@ -68,44 +71,26 @@ function onUpdate()
 	    if getProperty('boyfriend.animation.curAnim.name') == 'idle' then
                 triggerEvent('Camera Follow Pos',xx2,yy2)
             end
-
-if(dad2.curCharacter.startsWith('matt-final')
+        else if (dad2.curCharacter.startsWith('matt-final'))
+    
+             if getProperty('dad2.animation.curAnim.name') == 'singLEFT' then
+                 triggerEvent('Camera Follow Pos',xx3-ofs,yy3)
+             end
+             if getProperty('dad2.animation.curAnim.name') == 'singRIGHT' then
+                 triggerEvent('Camera Follow Pos',xx3+ofs,yy3)
+             end
+             if getProperty('dad2.animation.curAnim.name') == 'singUP' then
+                 triggerEvent('Camera Follow Pos',xx3,yy3-ofs)
+             end
+             if getProperty('dad2.animation.curAnim.name') == 'singDOWN' then
+                 triggerEvent('Camera Follow Pos',xx3,yy3+ofs)
+             end
+	     if getProperty('dad2.animation.curAnim.name') == 'idle' then
+                 triggerEvent('Camera Follow Pos',xx3,yy3)
+             end
         end
     else
         triggerEvent('Camera Follow Pos','','')
     end
-    
-end
-function onEvent(name,value1,value2)
- if del3 > 0 then
-         del3 = del3 - 1
- end
-    if followchars == true then
-        if mustHitSection == false then
-	     if name == 'cansing' then 
-	         if valuif(dad.curCharacter.startsWithe1 == 'dad2' then
-                     if value2 == 'yes' then
-		         if getProperty('dad2.animation.curAnim.name') == 'singLEFT' then
-                             triggerEvent('Camera Follow Pos',xx3-ofs,yy3)
-                         end
-                         if getProperty('dad2.animation.curAnim.name') == 'singRIGHT' then
-                            triggerEvent('Camera Follow Pos',xx3+ofs,yy3)
-                         end
-                         if getProperty('dad2.animation.curAnim.name') == 'singUP' then
-                            triggerEvent('Camera Follow Pos',xx3,yy3-ofs)
-                         end
-                         if getProperty('dad2.animation.curAnim.name') == 'singDOWN' then
-                            triggerEvent('Camera Follow Pos',xx3,yy3+ofs)
-                         end
-	                 if getProperty('dad2.animation.curAnim.name') == 'idle' then
-                            triggerEvent('Camera Follow Pos',xx3,yy3)
-                         end
-                      end
-                  end
-              end
-         end
-     else
-         triggerEvent('Camera Follow Pos','','')
-     end
     
 end
