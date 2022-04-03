@@ -68,6 +68,8 @@ function onUpdate()
 	    if getProperty('boyfriend.animation.curAnim.name') == 'idle' then
                 triggerEvent('Camera Follow Pos',xx2,yy2)
             end
+
+if(dad2.curCharacter.startsWith('matt-final')
         end
     else
         triggerEvent('Camera Follow Pos','','')
@@ -81,7 +83,7 @@ function onEvent(name,value1,value2)
     if followchars == true then
         if mustHitSection == false then
 	     if name == 'cansing' then 
-	         if value1 == 'dad2' then
+	         if valuif(dad.curCharacter.startsWithe1 == 'dad2' then
                      if value2 == 'yes' then
 		         if getProperty('dad2.animation.curAnim.name') == 'singLEFT' then
                              triggerEvent('Camera Follow Pos',xx3-ofs,yy3)
