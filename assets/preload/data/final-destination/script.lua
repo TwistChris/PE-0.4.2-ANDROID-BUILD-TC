@@ -63,7 +63,7 @@ function onUpdate()
             if getProperty('dad2.animation.curAnim.name') == 'singDOWN' then
                 triggerEvent('Camera Follow Pos',xx3,yy3+ofs)
             end
-	    if getProperty('dad.animation.curAnim.name' | 'dad2.animation.curAnim.name') == 'idle' then
+	    if getProperty('dad.animation.curAnim.name') == 'idle' or getProperty('dad2.animation.curAnim.name') == 'idle' then
                 triggerEvent('Camera Follow Pos','','')
             end
         else
