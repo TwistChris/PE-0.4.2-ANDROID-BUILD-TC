@@ -758,18 +758,13 @@ class PlayState extends MusicBeatState
 				case 'mall' | 'mallEvil':
 				        SONG.player1 = 'bf-christmas';
 				case 'school' | 'schoolEvil':
-                                        SONG.player1 = 'bf-pixel';
-				default:
-					SONG.player1 = 'bf';	
+                                        SONG.player1 = 'bf-pixel'
                         }
 
-                        switch (songName)
-			{
-				case 'stress':
-			                SONG.player1 = 'bf-holding-gf';
-                                default:
-					SONG.player1 = 'bf';
-                       }
+                        if (songName == 'strees')
+                        {
+                                SONG.player1 = 'bf-holding-gf;
+                        }
                 }
 
                 switch (bfsel)
@@ -798,23 +793,23 @@ class PlayState extends MusicBeatState
                         switch (bfsel)
                         {
                                 case 'beta':
-                                        boyfriend.x += 200;
-		                        boyfriend.y += 220;
+                                        boyfriend.x += -200;
+		                        boyfriend.y += -220;
                                 case 'blue':
-                                        boyfriend.x += 200;
-		                        boyfriend.y += 220;
+                                        boyfriend.x += -200;
+		                        boyfriend.y += -220;
                                 case 'mean':
-                                        boyfriend.x += 200;
-		                        boyfriend.y += 220;
+                                        boyfriend.x += -200;
+		                        boyfriend.y += -220;
                                 case 'bf':
-                                        boyfriend.x += 0;
-		                        boyfriend.y += 0;
+                                        boyfriend.x += -220;
+		                        boyfriend.y += -220;
                                 case 'bf-pixel':
                                         boyfriend.x += 0;
 		                        boyfriend.y += 0;
                                 default:
-                                        boyfriend.x += 200;
-		                        boyfriend.y += 220;
+                                        boyfriend.x += -200;
+		                        boyfriend.y += -220;
                         }
                 }
 
@@ -823,14 +818,14 @@ class PlayState extends MusicBeatState
                         switch (bfsel)
                         {
                                 case 'beta':
-                                        boyfriend.x += 200;
-		                        boyfriend.y += 220;
+                                        boyfriend.x += -200;
+		                        boyfriend.y += -220;
                                 case 'blue':
-                                        boyfriend.x += 200;
-		                        boyfriend.y += 220;
+                                        boyfriend.x += -200;
+		                        boyfriend.y += -220;
                                 case 'mean':
-                                        boyfriend.x += 200;
-		                        boyfriend.y += 220;
+                                        boyfriend.x += -200;
+		                        boyfriend.y += -220;
                                 case 'bf':
                                         boyfriend.x += 0;
 		                        boyfriend.y += 0;
@@ -838,8 +833,8 @@ class PlayState extends MusicBeatState
                                         boyfriend.x += 0;
 		                        boyfriend.y += 0;
                                 default:
-                                        boyfriend.x += 200;
-		                        boyfriend.y += 220;
+                                        boyfriend.x += -200;
+		                        boyfriend.y += -220;
                         }
                 }
 
