@@ -749,6 +749,29 @@ class PlayState extends MusicBeatState
 				dadGroup.add(dad2);
 			}
 
+                if (SONG.player1 == 'bf') 
+                {
+                        switch (curStage)
+			{
+				case 'limo':
+			                SONG.player1 = 'bf-car';
+				case 'mall' | 'mallEvil':
+				        SONG.player1 = 'bf-christmas';
+				case 'school' | 'schoolEvil':
+                                        SONG.player1 = 'bf-pixel';
+				default:
+					SONG.player1 = 'bf';	
+                        }
+
+                        switch (songName)
+			{
+				case 'stress':
+			                SONG.player1 = 'bf-holding-gf';
+                                default:
+					SONG.player1 = 'bf';
+                       }
+                }
+
                 switch (bfsel)
                 {
                         case bfsel:
@@ -761,13 +784,6 @@ class PlayState extends MusicBeatState
 		                boyfriendGroup.add(boyfriend);
                 }
 
-                if (bfsel == 'bf')
-                        {
-                                boyfriend = new Boyfriend(0, 0, SONG.player1);
-		                startCharacterPos(boyfriend);
-		                boyfriendGroup.add(boyfriend);
-                        }
-
 		var camPos:FlxPoint = new FlxPoint(gf.getGraphicMidpoint().x, gf.getGraphicMidpoint().y);
 		camPos.x += gf.cameraPosition[0];
 		camPos.y += gf.cameraPosition[1];
@@ -775,6 +791,56 @@ class PlayState extends MusicBeatState
 		if(dad.curCharacter.startsWith('gf')) {
 			dad.setPosition(GF_X, GF_Y);
 			gf.visible = false;
+                }
+
+                if (curStage == 'school')
+                {
+                        switch (bfsel)
+                        {
+                                case 'beta':
+                                        boyfriend.x += 200;
+		                        boyfriend.y += 220;
+                                case 'blue':
+                                        boyfriend.x += 200;
+		                        boyfriend.y += 220;
+                                case 'mean':
+                                        boyfriend.x += 200;
+		                        boyfriend.y += 220;
+                                case 'bf':
+                                        boyfriend.x += 0;
+		                        boyfriend.y += 0;
+                                case 'bf-pixel':
+                                        boyfriend.x += 0;
+		                        boyfriend.y += 0;
+                                default:
+                                        boyfriend.x += 200;
+		                        boyfriend.y += 220;
+                        }
+                }
+
+                if (curStage == 'schoolEvil')
+                {
+                        switch (bfsel)
+                        {
+                                case 'beta':
+                                        boyfriend.x += 200;
+		                        boyfriend.y += 220;
+                                case 'blue':
+                                        boyfriend.x += 200;
+		                        boyfriend.y += 220;
+                                case 'mean':
+                                        boyfriend.x += 200;
+		                        boyfriend.y += 220;
+                                case 'bf':
+                                        boyfriend.x += 0;
+		                        boyfriend.y += 0;
+                                case 'bf-pixel':
+                                        boyfriend.x += 0;
+		                        boyfriend.y += 0;
+                                default:
+                                        boyfriend.x += 200;
+		                        boyfriend.y += 220;
+                        }
                 }
 
 		switch(curStage)
