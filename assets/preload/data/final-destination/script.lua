@@ -1,10 +1,10 @@
 
 local xx = 520;
-local yy = 450;
+local yy = 300;
 local xx2 = 820;
 local yy2 = 550;
 local xx3 = 520;
-local yy3 = 550;
+local yy3 = 470;
 local ofs = 35;
 local followchars = true;
 local del = 0;
