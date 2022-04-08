@@ -766,7 +766,7 @@ class PlayState extends MusicBeatState
 
                         if (songName == 'strees')
                         {
-                                SONG.player1 = 'bf-holding-gf;
+                                SONG.player1 = 'bf-holding-gf';
                                 bfsel = 'bf-holding-gf';
                         }
                 }
