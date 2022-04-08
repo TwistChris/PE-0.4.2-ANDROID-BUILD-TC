@@ -749,50 +749,6 @@ class PlayState extends MusicBeatState
 				dadGroup.add(dad2);
 			}
 
-                if (SONG.player1 == 'bf')
-                {
-                        switch (curStage)
-			{
-				case 'limo':
-			                SONG.player1 = 'bf-car';
-                                        bfsel = 'bf-car';
-				case 'mall' | 'mallEvil':
-				        SONG.player1 = 'bf-christmas';
-                                        bfsel = 'bf-christmas';
-				case 'school' | 'schoolEvil':
-                                        SONG.player1 = 'bf-pixel';
-                                        bfsel = 'bf-pixel';
-                        }
-
-                        if (songName == 'strees')
-                        {
-                                SONG.player1 = 'bf-holding-gf';
-                                bfsel = 'bf-holding-gf';
-                        }
-                }
-
-                if (bfsel == 'bf')
-                {
-                        switch (curStage)
-			{
-				case 'limo':
-			                SONG.player1 = 'bf-car';
-                                        bfsel = 'bf-car';
-				case 'mall' | 'mallEvil':
-				        SONG.player1 = 'bf-christmas';
-                                        bfsel = 'bf-christmas';
-				case 'school' | 'schoolEvil':
-                                        SONG.player1 = 'bf-pixel';
-                                        bfsel = 'bf-pixel';
-                        }
-
-                        if (songName == 'strees')
-                        {
-                                SONG.player1 = 'bf-holding-gf';
-                                bfsel = 'bf-holding-gf';
-                        }
-                }
-
                 switch (bfsel)
                 {
                         case bfsel:
@@ -819,21 +775,27 @@ class PlayState extends MusicBeatState
                         switch (bfsel)
                         {
                                 case 'beta':
+                                        camPos.y += 220;
                                         boyfriend.x += -200;
 		                        boyfriend.y += -220;
                                 case 'blue':
+                                        camPos.y += 220;
                                         boyfriend.x += -200;
 		                        boyfriend.y += -220;
                                 case 'mean':
+                                        camPos.y += 220;
                                         boyfriend.x += -200;
 		                        boyfriend.y += -220;
                                 case 'bf':
-                                        boyfriend.x += -220;
-		                        boyfriend.y += -220;
+                                        camPos.y += 220; 
+                                        boyfriend.x += 0;
+		                        boyfriend.y += 0;
                                 case 'bf-pixel':
+                                        camPos.y += 220;
                                         boyfriend.x += 0;
 		                        boyfriend.y += 0;
                                 default:
+                                        camPos.y += 220;
                                         boyfriend.x += -200;
 		                        boyfriend.y += -220;
                         }
@@ -844,21 +806,27 @@ class PlayState extends MusicBeatState
                         switch (bfsel)
                         {
                                 case 'beta':
+                                        camPos.y += 220;
                                         boyfriend.x += -200;
 		                        boyfriend.y += -220;
                                 case 'blue':
+                                        camPos.y += 220;
                                         boyfriend.x += -200;
 		                        boyfriend.y += -220;
                                 case 'mean':
+                                        camPos.y += 220;
                                         boyfriend.x += -200;
 		                        boyfriend.y += -220;
                                 case 'bf':
+                                        camPos.y += 220; 
                                         boyfriend.x += 0;
 		                        boyfriend.y += 0;
                                 case 'bf-pixel':
+                                        camPos.y += 220;
                                         boyfriend.x += 0;
 		                        boyfriend.y += 0;
                                 default:
+                                        camPos.y += 220;
                                         boyfriend.x += -200;
 		                        boyfriend.y += -220;
                         }
