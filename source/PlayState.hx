@@ -749,7 +749,29 @@ class PlayState extends MusicBeatState
 				dadGroup.add(dad2);
 			}
 
-                if (SONG.player1 == 'bf'); or (bfsel == 'bf')
+                if (SONG.player1 == 'bf')
+                {
+                        switch (curStage)
+			{
+				case 'limo':
+			                SONG.player1 = 'bf-car';
+                                        bfsel = 'bf-car';
+				case 'mall' | 'mallEvil':
+				        SONG.player1 = 'bf-christmas';
+                                        bfsel = 'bf-christmas';
+				case 'school' | 'schoolEvil':
+                                        SONG.player1 = 'bf-pixel';
+                                        bfsel = 'bf-pixel';
+                        }
+
+                        if (songName == 'strees')
+                        {
+                                SONG.player1 = 'bf-holding-gf';
+                                bfsel = 'bf-holding-gf';
+                        }
+                }
+
+                if (bfsel == 'bf')
                 {
                         switch (curStage)
 			{
