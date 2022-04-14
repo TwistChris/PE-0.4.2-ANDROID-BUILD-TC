@@ -166,15 +166,6 @@ class CharacterSelection extends MusicBeatState
                         {
                             LoadingState.loadAndSwitchState(new MainMenuState());
                         });
-
-                    if (menuItems[curSelected] != 'bf')
-                        PlayState.SONG.player1 = PlayState.SONG.player1;
-
-                    FlxFlicker.flicker(iconArray[curSelected], 0);
-                    new FlxTimer().start(1, function(tmr:FlxTimer)
-                        {
-                            LoadingState.loadAndSwitchState(new MainMenuState());
-                        });
                 }
             
             if (controls.BACK)
