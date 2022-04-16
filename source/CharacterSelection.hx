@@ -157,7 +157,7 @@ class CharacterSelection extends MusicBeatState
                     alreadySelected = true;
                     var daSelected:String = menuItems[curSelected];
                     PlayState.hasPlayedOnce = true;
-                    if (menuItems[curSelected] = 'bf')
+                    if (menuItems[curSelected] != 'bf')
                         PlayState.SONG.player1 = PlayState.SONG.player1;
                         PlayState.bfsel = PlayState.bfsel;
 
