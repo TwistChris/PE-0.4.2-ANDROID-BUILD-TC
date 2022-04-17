@@ -749,7 +749,7 @@ class PlayState extends MusicBeatState
 				dadGroup.add(dad2);
 			}
 
-                if (!bfsel)
+                if (bfsel != bfsel)
                 {
                         switch (bfsel)
                         {
