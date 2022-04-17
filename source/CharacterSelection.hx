@@ -166,7 +166,7 @@ class CharacterSelection extends MusicBeatState
 				case 'mall' | 'mallEvil':
 					PlayState.SONG.player1 = 'bf-christmas';
 				case 'school' | 'schoolEvil':
-					PlayState.SONG.player = 'bf-pixel';
+					PlayState.SONG.player1 = 'bf-pixel';
                         }
                     }
                     if (menuItems[curSelected] != daSelected)
