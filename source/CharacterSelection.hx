@@ -157,22 +157,9 @@ class CharacterSelection extends MusicBeatState
                     alreadySelected = true;
                     var daSelected:String = menuItems[curSelected];
                     PlayState.hasPlayedOnce = true;
-                    if (menuItems[curSelected] != 'bf')
-                    {
-                        switch (PlayState.SONG.stage)
-                        {
-				case 'limo':
-			                PlayState.SONG.player1 = 'bf-car';
-				case 'mall' | 'mallEvil':
-					PlayState.SONG.player1 = 'bf-christmas';
-				case 'school' | 'schoolEvil':
-					PlayState.SONG.player1 = 'bf-pixel';
-                        }
-                    }
                     if (menuItems[curSelected] != daSelected)
-                    {
                         PlayState.SONG.player1 = daSelected;
-                    }
+                        PlayState.bfsel = daSelected;
 
                     FlxFlicker.flicker(iconArray[curSelected], 0);
                     new FlxTimer().start(1, function(tmr:FlxTimer)
