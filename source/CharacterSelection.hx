@@ -162,11 +162,11 @@ class CharacterSelection extends MusicBeatState
                         switch (PlayState.SONG.stage)
                         {
 				case 'limo':
-			                SONG.player1 = 'bf-car';
+			                PlayState.SONG.player1 = 'bf-car';
 				case 'mall' | 'mallEvil':
-					SONG.player1 = 'bf-christmas';
+					PlayState.SONG.player1 = 'bf-christmas';
 				case 'school' | 'schoolEvil':
-					SONG.player = 'bf-pixel';
+					PlayState.SONG.player = 'bf-pixel';
                         }
                     }
                     if (menuItems[curSelected] != daSelected)
