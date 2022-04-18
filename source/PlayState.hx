@@ -753,11 +753,11 @@ class PlayState extends MusicBeatState
                 {
                         case 'bf':
                                 SONG.player1 = 'bf';
-                        case 'bf-car:
+                        case 'bf-car':
                                 SONG.player1 = 'bf-car';
-                        case 'bf-christmas:
+                        case 'bf-christmas':
                                 SONG.player1 = 'bf-christmas';
-                        case 'bf-pixel:
+                        case 'bf-pixel':
                                 SONG.player1 = 'bf-pixel';       
                         default:
                                 SONG.player1 = 'bfsel';
