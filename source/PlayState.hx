@@ -749,7 +749,7 @@ class PlayState extends MusicBeatState
 				dadGroup.add(dad2);
 			}
 
-                if (bfsel == bfsel)
+                if (hasPlayedOnce)
                 {
                         SONG.player1 = bfsel;
                 }
