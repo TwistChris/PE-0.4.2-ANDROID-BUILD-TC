@@ -754,13 +754,13 @@ class PlayState extends MusicBeatState
                         case 'bf':
                                 SONG.player1 = 'bf';
                         case 'bf-car:
-                                SONG.player1 = 'bf-car;
+                                SONG.player1 = 'bf-car';
                         case 'bf-christmas:
-                                SONG.player1 = 'bf-christmas;
+                                SONG.player1 = 'bf-christmas';
                         case 'bf-pixel:
-                                SONG.player1 = 'bf-pixel;       
+                                SONG.player1 = 'bf-pixel';       
                         default:
-                                SONG.player1 = bfsel;
+                                SONG.player1 = 'bfsel';
                 }
                                   
                 boyfriend = new Boyfriend(0, 0, SONG.player1);           
