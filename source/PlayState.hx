@@ -749,19 +749,6 @@ class PlayState extends MusicBeatState
 				dadGroup.add(dad2);
 			}
 
-                if (SONG.player1 == 'bf')
-                {
-                        switch (curStage)
-			{
-				case 'limo':
-			                SONG.player1 = 'bf-car';
-				case 'mall' | 'mallEvil':
-					SONG.player1 = 'bf-christmas';
-				case 'school' | 'schoolEvil':
-					SONG.player1 = 'bf-pixel';
-                        }
-                }
-
                 if (hasPlayedOnce)
                 {
                         SONG.player1 = bfsel;
