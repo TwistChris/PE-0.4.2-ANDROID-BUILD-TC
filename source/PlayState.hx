@@ -772,10 +772,11 @@ class PlayState extends MusicBeatState
                         switch (SONG.player1)
                         {
                                 case 'bf-pixel':
+                                        camPos.y += 0;
                                         boyfriend.x += 0;
 		                        boyfriend.y += 0;
                                 default:
-                                        camPos.y += 220;
+                                        camPos.y += -220;
                                         boyfriend.x += -200;
 		                        boyfriend.y += -220;
                         }
@@ -786,11 +787,11 @@ class PlayState extends MusicBeatState
                         switch (SONG.player1)
                         {
                                 case 'bf-pixel':
-                                        camPos.y += 220;
+                                        camPos.y += 0;
                                         boyfriend.x += 0;
 		                        boyfriend.y += 0;
                                 default:
-                                        camPos.y += 220;
+                                        camPos.y += -220;
                                         boyfriend.x += -200;
 		                        boyfriend.y += -220;
                         }
