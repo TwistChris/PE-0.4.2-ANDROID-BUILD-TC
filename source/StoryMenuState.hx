@@ -127,13 +127,12 @@ class StoryMenuState extends MusicBeatState
 			weekCharacterThing.y += 70;
 			grpWeekCharacters.add(weekCharacterThing);
 
-                        switch (bfsel)
-                        {
-                                case 'beta':
-                                       charArray[char[2]] = 'dad';
+                        if (FlxG.save.data.selectedCharcter == 'beta') {
+                                charArray[char[2]] = 'dad';
+                        }
 
-                                default:
-                                       charArray[char[2]] = charArray[char[2]];
+                        if (FlxG.save.data.selectedCharcter == '') {
+                                    charArray[char[2]] = charArray[char[2]];
                         }
 		}
 
