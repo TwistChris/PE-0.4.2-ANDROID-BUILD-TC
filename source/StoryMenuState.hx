@@ -37,6 +37,8 @@ class StoryMenuState extends MusicBeatState
 
 	private static var curWeek:Int = 0;
 
+        public static var bfsel:String = '';
+
 	var txtTracklist:FlxText;
 
 	var grpWeekText:FlxTypedGroup<MenuItem>;
@@ -125,12 +127,13 @@ class StoryMenuState extends MusicBeatState
 			weekCharacterThing.y += 70;
 			grpWeekCharacters.add(weekCharacterThing);
 
-                        if (CharacterSelection.menuItems == 'beta') {
-                                charArray[char[2]] = 'dad';
-                        }
+                        switch (bfsel)
+                        {
+                                case 'beta':
+                                       charArray[char[2]] = 'dad';
 
-                        if (CharacterSelection.menuItems == '') {
-                                charArray[char[2]] = charArray[char[2]];
+                                default:
+                                       charArray[char[2]] = charArray[char[2]];
                         }
 		}
 
