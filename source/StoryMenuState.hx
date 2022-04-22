@@ -126,15 +126,15 @@ class StoryMenuState extends MusicBeatState
 			var weekCharacterThing:MenuCharacter = new MenuCharacter((FlxG.width * 0.25) * (1 + char) - 150, charArray[char]);
 			weekCharacterThing.y += 70;
 			grpWeekCharacters.add(weekCharacterThing);
-
-                        if (FlxG.save.data.selectedCharcter == 'beta') {
-                                charArray[char[2]] = 'dad';
-                        }
-
-                        if (FlxG.save.data.selectedCharcter == '') {
-                                    charArray[char[2]] = charArray[char[2]];
-                        }
 		}
+
+                if (FlxG.save.data.selectedCharcter == 'beta') {
+                        charArray[char[2]] = 'dad';
+                }
+
+                if (FlxG.save.data.selectedCharcter == '') {
+                        charArray[char[2]] = charArray[char[2]];
+                }
 
 		difficultySelectors = new FlxGroup();
 		add(difficultySelectors);
