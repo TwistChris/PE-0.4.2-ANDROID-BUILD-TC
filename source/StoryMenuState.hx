@@ -133,7 +133,7 @@ class StoryMenuState extends MusicBeatState
                         case 'beta':
                                charArray[2] = 'mom';
                         default:
-                               charArray[2] = charArray[char[2]];
+                               charArray[2] = charArray[2];
                 }
 
 		difficultySelectors = new FlxGroup();
