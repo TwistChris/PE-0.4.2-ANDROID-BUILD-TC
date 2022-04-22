@@ -126,7 +126,11 @@ class StoryMenuState extends MusicBeatState
 			grpWeekCharacters.add(weekCharacterThing);
 
                         if (CharacterSelection.menuItems == 'beta') {
-                                charArray[char[2]] = 'dad'
+                                charArray[char[2]] = 'dad';
+                        }
+
+                        if (CharacterSelection.menuItems == '') {
+                                charArray[char[2]] = charArray[char[2]];
                         }
 		}
 
