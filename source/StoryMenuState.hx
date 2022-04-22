@@ -128,12 +128,15 @@ class StoryMenuState extends MusicBeatState
 			grpWeekCharacters.add(weekCharacterThing);
 		}
 
-                switch (bfsel)
+                if (charArray[1] == 'bf')
                 {
-                        case 'beta':
-                               charArray[2] = 'mom';
-                        default:
-                               charArray[2] = charArray[2];
+                        switch (bfsel)
+                        {
+                               case 'beta':
+                                      charArray[1] = 'mom';
+                               default:
+                                      charArray[1] = charArray[1];
+                        }
                 }
 
 		difficultySelectors = new FlxGroup();
