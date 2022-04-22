@@ -187,8 +187,6 @@ class CharacterSelection extends MusicBeatState
             if (curSelected >= menuItems.length)
                 curSelected = 0;
 
-            menuBG.loadGraphic(Paths.image('BG'+(curSelected + 1)));
-
             var otherInt:Int = 0;
             
             for (i in 0...iconArray.length)
@@ -221,6 +219,20 @@ class CharacterSelection extends MusicBeatState
                 var daSelected:String = menuItems[curSelected];
                 var storedColor:FlxColor = 0xFFFFFF;
                 remove(icon);
+
+                switch (daSelected)
+                {
+                    case "bf":
+                        menuBG.loadGraphic('BG1');
+                    case "beta":
+                        menuBG.loadGraphic('BG2');
+                    case "blue":
+                        menuBG.loadGraphic('BG3');
+                    case "mean":
+                        menuBG.loadGraphic('BG4');
+                    default:
+                        menuBG.loadGraphic('BG5');
+                }
 
                 //shitCharacter.updateHitbox();
 		        //shitCharacter.screenCenter(XY);
