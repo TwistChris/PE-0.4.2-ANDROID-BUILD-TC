@@ -162,6 +162,7 @@ class CharacterSelection extends MusicBeatState
                     if (menuItems[curSelected] != daSelected)
                         PlayState.SONG.player1 = daSelected;
                         PlayState.bfsel = daSelected;
+                        StoryMenuState.bfsel = daSelected;
 
 
                     FlxFlicker.flicker(iconArray[curSelected], 0);
