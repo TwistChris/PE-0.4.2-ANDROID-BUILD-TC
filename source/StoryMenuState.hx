@@ -131,9 +131,9 @@ class StoryMenuState extends MusicBeatState
                 switch (bfsel)
                 {
                         case 'beta':
-                               charArray[char[2]] = 'mom';
+                               charArray[2] = 'mom';
                         default:
-                               charArray[char[2]] = charArray[char[2]];
+                               charArray[2] = charArray[char[2]];
                 }
 
 		difficultySelectors = new FlxGroup();
