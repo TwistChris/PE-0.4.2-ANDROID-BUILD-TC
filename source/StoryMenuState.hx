@@ -134,8 +134,8 @@ class StoryMenuState extends MusicBeatState
                         {
                                case 'beta':
                                       charArray[1] = 'mom';
-                               default:
-                                      charArray[1] = charArray[1];
+                               case 'beta':
+                                      charArray[1] = 'mom';
                         }
                 }
 
