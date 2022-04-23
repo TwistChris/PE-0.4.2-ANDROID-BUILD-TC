@@ -6,6 +6,6 @@
 		-40
 	],
 	"scale": 1,
-	"idle_anim": "BF 2 HEY!!",
-	"confirm_anim": "BF 2 idle dance white"
+	"idle_anim": "BF 2 idle dance white",
+	"confirm_anim": "BF 2 HEY!!"
 }
