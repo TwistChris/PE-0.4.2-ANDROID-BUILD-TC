@@ -132,8 +132,8 @@ class StoryMenuState extends MusicBeatState
                 {
                         switch (bfsel)
                         {
-                               case 'beta':
-                                      charArray[1] = 'mom';
+                               case 'blue':
+                                      charArray[1] = 'blue';
                                default:
                                       charArray[1] = charArray[1];
                         }
@@ -400,8 +400,8 @@ class StoryMenuState extends MusicBeatState
 
                 switch (bfsel)
                 {
-                         case 'beta':
-                                weekArray[1] = 'mom';
+                         case 'blue':
+                                weekArray[1] = 'blue';
                          default:
                                 weekArray[1] = weekArray[1];
                 }
