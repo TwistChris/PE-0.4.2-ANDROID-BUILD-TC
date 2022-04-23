@@ -223,13 +223,13 @@ class CharacterSelection extends MusicBeatState
 
                 switch (daSelected)
                 {
-                    case "bf":
+                    case 'bf':
                         menuBG.loadGraphic('BG1');
-                    case "beta":
+                    case 'beta':
                         menuBG.loadGraphic('BG2');
-                    case "blue":
+                    case 'blue':
                         menuBG.loadGraphic('BG3');
-                    case "mean":
+                    case 'mean':
                         menuBG.loadGraphic('BG4');
                     default:
                         menuBG.loadGraphic('BG5');
