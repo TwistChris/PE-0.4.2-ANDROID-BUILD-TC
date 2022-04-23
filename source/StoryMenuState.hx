@@ -134,8 +134,8 @@ class StoryMenuState extends MusicBeatState
                         {
                                case 'beta':
                                       charArray[1] = 'mom';
-                               case 'beta':
-                                      charArray[1] = 'mom';
+                               default:
+                                      charArray[1] = charArray[1];
                         }
                 }
 
@@ -397,6 +397,14 @@ class StoryMenuState extends MusicBeatState
 		for (i in 0...grpWeekCharacters.length) {
 			grpWeekCharacters.members[i].changeCharacter(weekArray[i]);
 		}
+
+                switch (bfsel)
+                {
+                         case 'beta':
+                                weekArray[1] = 'mom';
+                         default:
+                                weekArray[1] = weekArray[1];
+                }
 
 		var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]);
 		var stringThing:Array<String> = [];
