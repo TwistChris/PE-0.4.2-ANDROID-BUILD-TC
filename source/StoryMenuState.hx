@@ -401,9 +401,9 @@ class StoryMenuState extends MusicBeatState
                 switch (bfsel)
                 {
                          case 'blue':
-                                weekArray[1] = 'blue';
+                                grpWeekCharacters.members[2].changeCharacter('blue');
                          default:
-                                weekArray[1] = weekArray[1];
+                                grpWeekCharacters.members[2].changeCharacter(weekArray[2]);
                 }
 
 		var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[curWeek]);
