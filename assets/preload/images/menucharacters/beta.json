@@ -2,10 +2,10 @@
 	
 	"image": "Menu_Minus",
 	"position": [
-		90,
-		35
+		30,
+		0
 	],
-	"scale": 0.85,
-	"idle_anim": "BF 2 idle dance white",
-	"confirm_anim": "BF 2 HEY!!"
+	"scale": 0.9,
+	"idle_anim": "BF idle dance white",
+	"confirm_anim": "BF HEY!!"
 }
