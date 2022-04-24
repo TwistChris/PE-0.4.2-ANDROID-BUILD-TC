@@ -50,7 +50,7 @@ class CharacterSelection extends MusicBeatState
 
     override function create() 
     {
-        menuBG = new FlxSprite().loadGraphic(Paths.image('BG1'));
+        menuBG = new FlxSprite().loadGraphic(Paths.image('BG5'));
         menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
         menuBG.updateHitbox();
         menuBG.screenCenter();
