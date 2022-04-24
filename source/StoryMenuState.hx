@@ -132,8 +132,12 @@ class StoryMenuState extends MusicBeatState
                 {
                         switch (bfsel)
                         {
+                               case 'beta':
+                                      charArray[1] = 'beta';
                                case 'blue':
                                       charArray[1] = 'blue';
+                               case 'mean':
+                                      charArray[1] = 'mean';
                                default:
                                       charArray[1] = charArray[1];
                         }
@@ -400,8 +404,12 @@ class StoryMenuState extends MusicBeatState
 
                 switch (bfsel)
                 {
+                         case 'beta':
+                                grpWeekCharacters.members[1].changeCharacter('beta');
                          case 'blue':
                                 grpWeekCharacters.members[1].changeCharacter('blue');
+                         case 'mean':
+                                grpWeekCharacters.members[1].changeCharacter('mean');
                          default:
                                 grpWeekCharacters.members[1].changeCharacter(weekArray[1]);
                 }
