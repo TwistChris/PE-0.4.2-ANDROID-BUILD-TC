@@ -3,24 +3,24 @@
 		{
 			"loop": false,
 			"offsets": [
-				-26,
-				-12
+				0,
+				-37
 			],
 			"fps": 24,
 			"anim": "deathConfirm",
 			"indices": [],
-			"name": "RETRY CONFIRM"
+			"name": "RETRY confirm holding gf"
 		},
 		{
 			"loop": true,
 			"offsets": [
-				-30,
-				-12
+				0,
+				-37
 			],
 			"fps": 24,
 			"anim": "deathLoop",
 			"indices": [],
-			"name": "Retry Loop"
+			"name": "BF Dead with GF Loop"
 		},
 		{
 			"loop": false,
@@ -31,26 +31,26 @@
 			"fps": 24,
 			"anim": "firstDeath",
 			"indices": [],
-			"name": "BF Dies pixel"
+			"name": "BF Dies with GF"
 		}
 	],
-	"no_antialiasing": true,
-	"image": "characters/bfPixelsDEAD",
+	"no_antialiasing": false,
+	"image": "characters/bfholdingGFDEAD",
 	"position": [
 		0,
-		350
+		327
 	],
-	"healthicon": "bf-pixel",
+	"healthicon": "bf",
 	"flip_x": true,
 	"healthbar_colors": [
-		123,
-		214,
-		246
+		49,
+		176,
+		209
 	],
 	"camera_position": [
-		50,
-		-60
+		47,
+		0
 	],
 	"sing_duration": 4,
-	"scale": 6
+	"scale": 1
 }
