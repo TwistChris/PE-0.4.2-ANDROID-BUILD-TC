@@ -42,10 +42,8 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		Conductor.songPosition = 0;
 
-                if (PlayState.SONG.player1 == 'bf-holding-gf')
-                       bf = new Boyfriend(x, y, 'bf-holding-gf-dead');
-
-                switch PlayState.bfsel{
+                switch (PlayState.SONG.player1)
+                {
                        case 'bf':
                                bf = new Boyfriend(x, y, 'bf');
                        case 'beta':
@@ -54,6 +52,8 @@ class GameOverSubstate extends MusicBeatSubstate
                                bf = new Boyfriend(x, y, 'blue');
                        case 'mean':
                                bf = new Boyfriend(x, y, 'mean');
+                       case 'bf-holding-gf':
+                               bf = new Boyfriend(x, y, 'bf-holding-gf-dead');
                        default:
                                bf = new Boyfriend(x, y, characterName);
                 }
