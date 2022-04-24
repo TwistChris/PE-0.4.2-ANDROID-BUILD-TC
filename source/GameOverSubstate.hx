@@ -42,6 +42,9 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		Conductor.songPosition = 0;
 
+                if (PlayState.SONG.player1 == 'bf-holding-gf')
+                       bf = new Boyfriend(x, y, 'bf-holding-gf-dead');
+
                 switch PlayState.bfsel{
                        case 'bf':
                                bf = new Boyfriend(x, y, 'bf');
