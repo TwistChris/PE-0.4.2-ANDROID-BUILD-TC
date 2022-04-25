@@ -32,8 +32,6 @@ class StrumNote extends FlxSprite
 				skin = 'NOTE_assets';
 			case 'gf':
 				skin = 'NOTE2_assets';
-			case 'dad':
-				skin = 'NOTE3_assets';
 		}
 
 		if(PlayState.isPixelStage)
@@ -79,7 +77,7 @@ class StrumNote extends FlxSprite
 			animation.addByPrefix('red', 'arrowRIGHT');
 
 			antialiasing = ClientPrefs.globalAntialiasing;
-			setGraphicSize(Std.int(width * 0.7));
+			setGraphicSize(Std.int(width * ClientPrefs.noteSize));
 
 			switch (Math.abs(leData))
 			{
