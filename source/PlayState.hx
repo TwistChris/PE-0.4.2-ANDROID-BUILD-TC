@@ -1728,17 +1728,13 @@ class PlayState extends MusicBeatState
 				{
 
 					if (dad.curCharacter == 'gf')
+                                        {
 						babyArrow = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player,'gf');
-				}
-                        if (player == 1)
-				{
-					babyArrow = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player,'normal');
-				}
-				else
-				{
-
-					if (dad.curCharacter == 'dad')
-						babyArrow = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player,'dad');
+                                        }
+                                        else if (dad.curCharacter == 'dad')
+                                        {
+                                                babyArrow = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player,'dad');
+                                        }
 				}
 			if (!isStoryMode)
 			{
