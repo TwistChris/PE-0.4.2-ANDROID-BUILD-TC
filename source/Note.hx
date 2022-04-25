@@ -23,7 +23,7 @@ class Note extends FlxSprite
 	public var hitByOpponent:Bool = false;
 	public var noteWasHit:Bool = false;
 	public var prevNote:Note;
-
+        public var noteSkin:String = 'normal';
 	public var sustainLength:Float = 0;
 	public var isSustainNote:Bool = false;
 	public var noteType(default, set):String = null;
@@ -221,6 +221,15 @@ class Note extends FlxSprite
 			skin = PlayState.SONG.arrowSkin;
 			if(skin == null || skin.length < 1) {
 				skin = 'NOTE_assets';
+                                switch (noteSkin)
+				{
+					case 'NOTE_assets':
+						skin = 'NOTE_assets';
+					case 'NOTE2_assets':
+						skin = 'NOTE2_assets';
+					case 'NOTE3_assets':
+						skin = 'NOTE3_ASSETS;
+				}
 			}
 		}
 
