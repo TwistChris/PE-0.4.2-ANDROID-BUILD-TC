@@ -1714,7 +1714,7 @@ class PlayState extends MusicBeatState
 		return FlxSort.byValues(FlxSort.ASCENDING, Obj1[0] - earlyTime1, Obj2[0] - earlyTime2);
 	}
 
-	private function generateStaticArrows(player:Int,notetype:String):Void
+	private function generateStaticArrows(player:Int):Void
 	{
 		for (i in 0...4)
 		{
@@ -1722,12 +1722,21 @@ class PlayState extends MusicBeatState
 			var babyArrow:StrumNote;
                         if (player == 1)
 				{
-					babyArrow = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player,notetype);
+					babyArrow = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player,'normal');
 				}
 				else
 				{
-			                babyArrow = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player,notetype);
+			                babyArrow = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player,'normal');
 		                }
+                        if (dad.curCharacter == 'gf')
+                                if (player == 1)
+				{
+					babyArrow = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player,'normal');
+				}
+				else
+				{
+					babyArrow = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player,'gf');
+				}
 			if (!isStoryMode)
 			{
 				babyArrow.y -= 10;
