@@ -1737,15 +1737,6 @@ class PlayState extends MusicBeatState
 				{
 					babyArrow = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player,'gf');
 				}
-                        if (dad.curCharacter == 'dad')
-                                if (player == 1)
-				{
-					babyArrow = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player,'normal');
-				}
-				else
-				{
-					babyArrow = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player,'dad');
-				}
 			if (!isStoryMode)
 			{
 				babyArrow.y -= 10;
