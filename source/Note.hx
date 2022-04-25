@@ -228,7 +228,7 @@ class Note extends FlxSprite
 					case 'NOTE2_assets':
 						skin = 'NOTE2_assets';
 					case 'NOTE3_assets':
-						skin = 'NOTE3_ASSETS';
+						skin = 'NOTE3_assets';
 				}
 			}
 		}
