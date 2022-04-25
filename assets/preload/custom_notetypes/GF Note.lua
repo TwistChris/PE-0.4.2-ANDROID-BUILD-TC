@@ -3,7 +3,7 @@ function onCreate()
 	for i = 0, getProperty('unspawnNotes.length')-1 do
 		--Check if the note is a Bullet Note
 		if getPropertyFromGroup('unspawnNotes', i, 'noteType') == 'GF Note' then
-			setPropertyFromGroup('unspawnNotes', i, 'texture', 'NOTE2_assets); --Change texture
+			setPropertyFromGroup('unspawnNotes', i, 'texture', 'NOTE2_assets'); --Change texture
 			setPropertyFromGroup('unspawnNotes', i, 'missHealth', 0.0); --Change amount of health to take when you miss like a fucking moron
 		end
 	end
