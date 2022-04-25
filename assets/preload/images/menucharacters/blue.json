@@ -2,8 +2,8 @@
 	
 	"image": "Menu_Minus",
 	"position": [
-		35,
-		18
+		49,
+		8
 	],
 	"scale": 0.85,
 	"idle_anim": "BF 2 idle dance white",
