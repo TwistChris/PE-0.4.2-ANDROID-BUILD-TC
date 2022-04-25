@@ -806,7 +806,7 @@ class EditorPlayState extends MusicBeatState
 		});
 	}
 
-	private function generateStaticArrows(player:Int):Void
+	private function generateStaticArrows(player:Int, notetype:String):Void
 	{
 		for (i in 0...4)
 		{
