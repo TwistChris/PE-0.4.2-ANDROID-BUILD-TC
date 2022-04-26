@@ -273,9 +273,8 @@ class Note extends FlxSprite
 		}
 		updateHitbox();
 
-		if(animName !=antialiasing = ClientPrefs.globalAntialiasing; null) {
+		if(animName != null)
 			animation.play(animName, true);
-                }
 
 		if(inEditor) {
 			setGraphicSize(ChartingState.GRID_SIZE, ChartingState.GRID_SIZE);
