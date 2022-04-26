@@ -271,6 +271,8 @@ class Note extends FlxSprite
                 if (skin != "NOTE2_assets"){
 			frames = Paths.getSparrowAtlas(blahblah);
 			loadNoteAnims(skin == 'NOTE2_assets');
+                        antialiasing = ClientPrefs.globalAntialiasing;
+                }
 
 		if(isSustainNote) {
 			scale.y = lastScaleY;
