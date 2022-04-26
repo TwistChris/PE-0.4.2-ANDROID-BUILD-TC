@@ -85,7 +85,7 @@ class Note extends FlxSprite
 			switch(value) {
 				case 'Hurt Note':
 					ignoreNote = mustPress;
-					reloadNote('HURT');
+					
 					noteSplashTexture = 'HURTnoteSplashes';
 					colorSwap.hue = 0;
 					colorSwap.saturation = 0;
@@ -232,6 +232,13 @@ class Note extends FlxSprite
 			}
 		}
 
+                if (skin == 'NOTE2_assets')
+		{
+			frames = Paths.getSparrowAtlas(skin);
+			loadNoteAnims(true);
+			antialiasing = ClientPrefs.globalAntialiasing;
+		}
+
 		var animName:String = null;
 		if(animation.curAnim != null) {
 			animName = animation.curAnim.name;
@@ -262,12 +269,17 @@ class Note extends FlxSprite
 			loadNoteAnims();
 			antialiasing = ClientPrefs.globalAntialiasing;
 		}
+                if (skin != "NOTE2_assets"){
+			frames = Paths.getSparrowAtlas(blahblah);
+			loadNoteAnims(skin == 'NOTE2_assets');
+                        
+                }
 		if(isSustainNote) {
 			scale.y = lastScaleY;
 		}
 		updateHitbox();
 
-		if(animName != null)
+		if(animName !=antialiasing = ClientPrefs.globalAntialiasing; null)
 			animation.play(animName, true);
 
 		if(inEditor) {
