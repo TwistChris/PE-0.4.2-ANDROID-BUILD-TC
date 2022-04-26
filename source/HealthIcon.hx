@@ -58,7 +58,7 @@ class HealthIcon extends FlxSprite
                                         var file:FlxAtlasFrames = Paths.getSparrowAtlas('icons/NightmareskyIcons');
 					frames = file;
 					
-					animation.addByPrefix(char, 'normal', 'ManifestNormalIcon', 25, true);
+					animation.addByPrefix(char, 'ManifestNormalIcon', 25, true);
 					animation.play(char);
                                 default:
 			                var name:String = 'icons/' + char;
