@@ -1,5 +1,8 @@
 package;
 
+import flixel.FlxG;
+import flixel.graphics.FlxGraphic;
+import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.FlxSprite;
 import openfl.utils.Assets as OpenFlAssets;
 
