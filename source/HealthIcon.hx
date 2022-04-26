@@ -12,6 +12,12 @@ class HealthIcon extends FlxSprite
 	private var isPlayer:Bool = false;
 	private var char:String = '';
 
+        public var initialWidth:Float = 0;
+	public var initialHeight:Float = 0;
+
+        public var offsetX = 0;
+	public var offsetY = 0;
+
 	public function new(char:String = 'bf', isPlayer:Bool = false)
 	{
 		super();
@@ -45,7 +51,7 @@ class HealthIcon extends FlxSprite
 					
 					animation.addByPrefix(char, 'idle', 24, true);
 					animation.play(char);
-                                case 'mom':
+                                case 'mom' | 'mom2':
                                         var file:FlxAtlasFrames = Paths.getSparrowAtlas('icons/NightmareskyIcons');
 					frames = file;
 					
