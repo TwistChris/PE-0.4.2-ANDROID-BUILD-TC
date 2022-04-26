@@ -54,7 +54,7 @@ class HealthIcon extends FlxSprite
 					
 					animation.addByPrefix(char, 'idle', 24, true);
 					animation.play(char);
-                                case 'mom' | 'mom2':
+                                case 'mom':
                                         var file:FlxAtlasFrames = Paths.getSparrowAtlas('icons/NightmareskyIcons');
 					frames = file;
 					
