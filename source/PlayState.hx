@@ -2117,14 +2117,6 @@ class PlayState extends MusicBeatState
                 else
                         iconP2.animation.curAnim.curFrame = 0;
 
-                if (songName == 'test')
-                {
-                        if (healthBar.percent < 20)
-			        iconP1.animation.curAnim.curFrame = losing;
-		        else
-			        iconP1.animation.curAnim.curFrame = normal;
-                }
-
                 if (boyfriend.curCharacter == 'bf')
                 {
                         if (healthBar.percent < 20)
