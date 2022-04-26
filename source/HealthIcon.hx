@@ -56,7 +56,7 @@ class HealthIcon extends FlxSprite
 					frames = file;
 					
 					animation.addByPrefix(char, 'idle', 24, true);
-					animation.play(char, 'idle');
+					animation.play(char, 'idle' ,false);
 
                                         offsetY = 12;
 
