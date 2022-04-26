@@ -56,7 +56,7 @@ class HealthIcon extends FlxSprite
                                         animation.addByPrefix(char, 'losing', 'idle', 24, true);
 					animation.play(char);
 
-                                        if (healthBar.percent < 20)
+                                        if (PlayState.healthBar.percent < 20)
 			                   animation.play(char, 'losing', 'idle', 24, false);
 		                        else
                                            animation.play(char, 'normal', 'idle', 24, false);
@@ -68,7 +68,7 @@ class HealthIcon extends FlxSprite
                                         animation.addByPrefix(char, 'losing', 'ManifestAngryIcon', 25, true);
 					animation.play(char);
 
-                                        if (healthBar.percent > 80)
+                                        if (PlayState.healthBar.percent > 80)
 			                   animation.play(char, 'losing', 'ManifestNormalIcon', 25, false);
 		                        else
                                            animation.play(char, 'normal', 'ManifestAngryIcon', 25, false);
