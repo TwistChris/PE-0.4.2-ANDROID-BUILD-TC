@@ -21,6 +21,8 @@ class HealthIcon extends FlxSprite
         public var offsetX = 0;
 	public var offsetY = 0;
 
+        public var originalFlipX:Bool = false;
+
 	public function new(char:String = 'bf', isPlayer:Bool = false)
 	{
 		super();
@@ -47,6 +49,7 @@ class HealthIcon extends FlxSprite
 		if(this.char != char) {
                         offsetX = 0;
 			offsetY = 0;
+                        originalFlipX = flipX;
 			switch (char) {
                                 case 'matt-final':
 					var file:FlxAtlasFrames = Paths.getSparrowAtlas('icons/Put_Your_Animated_Icon_Name_Here');
@@ -54,12 +57,28 @@ class HealthIcon extends FlxSprite
 					
 					animation.addByPrefix(char, 'idle', 24, true);
 					animation.play(char);
+
+                                        offsetY = 12;
+
+                                        flipX = true;
                                 case 'mom':
                                         var file:FlxAtlasFrames = Paths.getSparrowAtlas('icons/NightmareskyIcons');
 					frames = file;
 					
 					animation.addByPrefix(char, 'ManifestNormalIcon', 25, true);
 					animation.play(char);
+                                case 'bf' | 'dad':
+                                        var name:String = 'icons/' + char;
+			                if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'icons/icon-' + char; //Older versions of psych engine's support
+			                if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'icons/icon-face'; //Prevents crash from missing icon
+
+			                // lmao dont mind me just importing forever's dynamic healthicons
+				        var iconGraphic:FlxGraphic = FlxG.bitmap.add(Paths.image(name));
+				        loadGraphic(iconGraphic, true, Std.int(iconGraphic.width / 3), iconGraphic.height);
+			
+			                animation.add(char, [0, 1, 2], 0, false, isPlayer);
+			                animation.play(char);
+			                updateHitbox();
                                 default:
 			                var name:String = 'icons/' + char;
 			                if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'icons/icon-' + char; //Older versions of psych engine's support
