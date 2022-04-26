@@ -36,20 +36,45 @@ class HealthIcon extends FlxSprite
 
 	public function changeIcon(char:String) {
 		if(this.char != char) {
-			var name:String = 'icons/' + char;
-			if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'icons/icon-' + char; //Older versions of psych engine's support
-			if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'icons/icon-face'; //Prevents crash from missing icon
-			var file:Dynamic = Paths.image(name);
+                        offsetX = 0;
+			offsetY = 0;
+			switch (char) {
+                                case 'matt-final':
+					var file:FlxAtlasFrames = Paths.getSparrowAtlas('icons/Put_Your_Animated_Icon_Name_Here');
+					frames = file;
+					
+					animation.addByPrefix(char, 'idle', 24, true);
+					animation.play(char);
+                                case 'mom':
+                                        var file:FlxAtlasFrames = Paths.getSparrowAtlas('icons/NightmareskyIcons');
+					frames = file;
+					
+					animation.addByPrefix(char, 'ManifestNormalIcon', 25, true);
+					animation.play(char);
+                                default:
+			                var name:String = 'icons/' + char;
+			                if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'icons/icon-' + char; //Older versions of psych engine's support
+			                if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'icons/icon-face'; //Prevents crash from missing icon
 
-			loadGraphic(file, true, 150, 150);
-			animation.add(char, [0, 1, 2], 0, false, isPlayer);
-			animation.play(char);
-			this.char = char;
+			                // lmao dont mind me just importing forever's dynamic healthicons
+				        var iconGraphic:FlxGraphic = FlxG.bitmap.add(Paths.image(name));
+				        loadGraphic(iconGraphic, true, Std.int(iconGraphic.width / 2), iconGraphic.height);
+			
+			                animation.add(char, [0, 1, 2], 0, false, isPlayer);
+			                animation.play(char);
+			                updateHitbox();
+			}
+                        this.char = char;
 
+                        updateHitbox();
+                        initialWidth = width;
+			initialHeight = height;
+		
 			antialiasing = ClientPrefs.globalAntialiasing;
 			if(char.endsWith('-pixel')) {
 				antialiasing = false;
-			}
+
+                        }
 		}
 	}
 
