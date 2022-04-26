@@ -52,13 +52,17 @@ class HealthIcon extends FlxSprite
 					var file:FlxAtlasFrames = Paths.getSparrowAtlas('icons/Put_Your_Animated_Icon_Name_Here');
 					frames = file;
 					
-					animation.addByPrefix(char, 'idle', 24, true);
+					animation.addByPrefix(char, 'normal', 'idle', 24, true);
+                                        animation.addByPrefix(char, 'losing', 'idle', 24, true);
+                                        animation.add(char, ['normal, 'losing'], 24, false, isPlayer);
 					animation.play(char);
                                 case 'mom':
                                         var file:FlxAtlasFrames = Paths.getSparrowAtlas('icons/NightmareskyIcons');
 					frames = file;
 					
-					animation.addByPrefix(char, 'ManifestNormalIcon', 25, true);
+					animation.addByPrefix(char, 'normal', 'ManifestNormalIcon', 25, true);
+                                        animation.addByPrefix(char, 'losing', 'ManifestAngryIcon', 25, true);
+                                        animation.add(char, ['normal, 'losing'], 25, false, isPlayer);
 					animation.play(char);
                                 default:
 			                var name:String = 'icons/' + char;
