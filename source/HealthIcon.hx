@@ -62,7 +62,7 @@ class HealthIcon extends FlxSprite
 					
 					animation.addByPrefix(char, 'normal', 'ManifestNormalIcon', 25, true);
                                         animation.addByPrefix(char, 'losing', 'ManifestAngryIcon', 25, true);
-                                        animation.add(char, ['normal, 'losing'], 25, false, isPlayer);
+                                        animation.add(char, ['normal', 'losing'], 25, false, isPlayer);
 					animation.play(char);
                                 default:
 			                var name:String = 'icons/' + char;
