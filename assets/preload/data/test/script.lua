@@ -1,5 +1,5 @@
 function onCreate()
-	if dadName == 'nightmaresky' then
+	if dadName == 'mom' then
 		makeAnimatedLuaSprite('animatedicon', 'icons/NightmareskyIcons', getProperty('iconP2.x'), getProperty('iconP2.y'))
 		addAnimationByPrefix('animatedicon', 'normal', 'ManifestNormalIcon', 25, true)
 		addAnimationByPrefix('animatedicon', 'losing', 'ManifestAngryIcon', 25, true)
@@ -20,7 +20,7 @@ function onUpdate(elapsed)
 	else
 	setProperty('iconP2.alpha', 1)
 	end
-	if dadName == 'nightmaresky' then
+	if dadName == 'mom' then
 		if getProperty('health') > 1.6 then
 			objectPlayAnimation('animatedicon', 'losing', false)
 		else
