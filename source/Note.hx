@@ -221,7 +221,6 @@ class Note extends FlxSprite
 		if(texture.length < 1) {
 			skin = PlayState.SONG.arrowSkin;
 			if(skin == null || skin.length < 1) {
-				skin = 'NOTE_assets';
                                 switch (noteSkin)
 				{
 					case 'NOTE_assets':
@@ -269,11 +268,6 @@ class Note extends FlxSprite
 			loadNoteAnims();
 			antialiasing = ClientPrefs.globalAntialiasing;
 		}
-                if (skin != "NOTE2_assets"){
-			frames = Paths.getSparrowAtlas(blahblah);
-			loadNoteAnims(skin == 'NOTE2_assets');
-                        antialiasing = ClientPrefs.globalAntialiasing;
-                }
 		if(isSustainNote) {
 			scale.y = lastScaleY;
 		}
