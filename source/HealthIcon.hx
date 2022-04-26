@@ -52,26 +52,14 @@ class HealthIcon extends FlxSprite
 					var file:FlxAtlasFrames = Paths.getSparrowAtlas('icons/Put_Your_Animated_Icon_Name_Here');
 					frames = file;
 					
-					animation.addByPrefix(char, 'normal', 'idle', 24, true);
-                                        animation.addByPrefix(char, 'losing', 'idle', 24, true);
+					animation.addByPrefix(char, 'idle', 24, true);
 					animation.play(char);
-
-                                        if (PlayState.healthBar.percent < 20)
-			                   animation.play(char, 'losing', 'idle', 24, false);
-		                        else
-                                           animation.play(char, 'normal', 'idle', 24, false);
                                 case 'mom':
                                         var file:FlxAtlasFrames = Paths.getSparrowAtlas('icons/NightmareskyIcons');
 					frames = file;
 					
 					animation.addByPrefix(char, 'normal', 'ManifestNormalIcon', 25, true);
-                                        animation.addByPrefix(char, 'losing', 'ManifestAngryIcon', 25, true);
 					animation.play(char);
-
-                                        if (PlayState.healthBar.percent > 80)
-			                   animation.play(char, 'losing', 'ManifestNormalIcon', 25, false);
-		                        else
-                                           animation.play(char, 'normal', 'ManifestAngryIcon', 25, false);
                                 default:
 			                var name:String = 'icons/' + char;
 			                if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'icons/icon-' + char; //Older versions of psych engine's support
