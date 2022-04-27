@@ -55,8 +55,8 @@ class HealthIcon extends FlxSprite
 					var file:FlxAtlasFrames = Paths.getSparrowAtlas('icons/Put_Your_Animated_Icon_Name_Here');
 					frames = file;
 					
-					animation.addByPrefix(char, 'move', 'idle', 24, true);
-					animation.play(char, 'move', false);
+					animation.addByPrefix(char, 'idle', 24, true);
+					animation.play(char, false);
 
                                         offsetY = -24;
 
@@ -65,8 +65,8 @@ class HealthIcon extends FlxSprite
                                         var file:FlxAtlasFrames = Paths.getSparrowAtlas('icons/NightmareskyIcons');
 					frames = file;
 					
-					animation.addByPrefix(char, 'move', 'ManifestNormalIcon', 25, true);
-					animation.play(char, 'move', false);
+					animation.addByPrefix(char, 'ManifestNormalIcon', 25, true);
+					animation.play(char, false);
                                 case 'bf' | 'dad':
                                         var name:String = 'icons/' + char;
 			                if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'icons/icon-' + char; //Older versions of psych engine's support
