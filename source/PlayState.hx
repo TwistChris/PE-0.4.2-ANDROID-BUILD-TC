@@ -275,6 +275,9 @@ class PlayState extends MusicBeatState
 	private var luaDebugGroup:FlxTypedGroup<DebugLuaText>;
 	public var introSoundsSuffix:String = '';
 
+        var animatediconP1:FlxSprite;
+        var animatediconP2:FlxSprite;
+
 	override public function create()
 	{
         #if MODS_ALLOWED
@@ -950,11 +953,47 @@ class PlayState extends MusicBeatState
 		iconP1.visible = !ClientPrefs.hideHud;
 		add(iconP1);
 
+                if (boyfriend.curCharacter == 'matt-final')
+                {
+                        iconP1.visible. = false;
+                }
+
+                if (boyfriend.curCharacter == 'matt-final')
+                {
+                        animatediconP1 = new FlxSprite();
+                        animatediconP1.frames = Paths.getSparrowAtlas('icons/Put_Your_Animated_Icon_Name_Here');
+		        animatediconP1.animation.addByPrefix('normal', 'idle', 24, true);
+                        animatediconP1.animation.addByPrefix('losing', 'idle', 24, true);
+                        animatediconP1.animation.play('normal');
+		        animatediconP1.y = iconP1.y + -90;
+                        animatediconP1.flipX = true;
+                        animatediconP1.scale = (0.5, 0.5);
+                        animatediconP1.alpha = 0;
+                        add(animatediconP1);
+                }
+
 		iconP2 = new HealthIcon(dad.healthIcon, false);
 		iconP2.y = healthBar.y - (iconP2.height / 2);
 		iconP2.visible = !ClientPrefs.hideHud;
 		add(iconP2);
 		reloadHealthBarColors();
+
+                if (dad.curCharacter == 'mom')
+                {
+                        iconP2.visible. = false;
+                }
+
+                if (dad.curCharacter == 'mom')
+                {
+                        animatediconP2 = new FlxSprite();
+                        animatediconP2.frames = Paths.getSparrowAtlas('icons/NightmareskyIcons');
+		        animatediconP2.animation.addByPrefix('normal', 'ManifestNormalIcon', 25, true);
+                        animatediconP2.animation.addByPrefix('losing', 'ManifestNormalAngry', 25, true);
+                        animatediconP2.animation.play('normal');
+		        animatediconP2.y = iconP2.y + -20;
+                        animatediconP2.alpha = 0;
+                        add(animatediconP2);
+                }
  
                 var creditTxt:FlxText = new FlxText(876, 648,  348); 
                 creditTxt.text = 'PORTED BY\nTWIST CHRIS';
@@ -985,7 +1024,9 @@ class PlayState extends MusicBeatState
 		healthBar.cameras = [camHUD];
 		healthBarBG.cameras = [camHUD];
 		iconP1.cameras = [camHUD];
+                animatediconP1.cameras = [camHUD];
 		iconP2.cameras = [camHUD];
+                animatediconP2.cameras = [camHUD];
 		creditTxt.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
 		botplayTxt.cameras = [camHUD];
@@ -2104,6 +2145,18 @@ class PlayState extends MusicBeatState
 		iconP1.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01) - iconOffset);
 		iconP2.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01)) - (iconP2.width - iconOffset);
 
+                if (boyfriend.curCharacter == 'matt-final')
+                {
+                        animatediconP1.x = iconP1.x + -10;
+                        animatediconP1.angle = iconP1.angle;
+                }
+
+                if (dad.curCharacter == 'mom')
+                {
+                        animatediconP2.x = iconP2.x + -20;
+                        animatediconP2.angle = iconP2.angle;
+                }
+
 		if (health > 2)
 			health = 2;
 
@@ -2127,6 +2180,14 @@ class PlayState extends MusicBeatState
                                 iconP1.animation.curAnim.curFrame = 0;
                 }
 
+                if (boyfriend.curCharacter == 'matt-final')
+                {
+                        if (healthBar.percent < 20)
+                                 animatediconP1.animation.play('losing');
+                        else
+                                 animatediconP2.animation.play('normal');
+                }
+
                 if (dad.curCharacter == 'dad')
                 {
                         if (healthBar.percent > 80)
@@ -2135,6 +2196,14 @@ class PlayState extends MusicBeatState
 			        iconP2.animation.curAnim.curFrame = 2;
                         else
                                 iconP2.animation.curAnim.curFrame = 0;
+                }
+
+                if (dad.curCharacter == 'mom')
+                {
+                        if (healthBar.percent > 80)
+                                 animatediconP2.animation.play('losing');
+                        else
+                                 animatediconP2.animation.play('normal');
                 }
 
 		if (FlxG.keys.justPressed.EIGHT && !endingSong && !inCutscene) {
