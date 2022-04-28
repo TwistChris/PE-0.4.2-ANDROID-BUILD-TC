@@ -967,7 +967,7 @@ class PlayState extends MusicBeatState
                         animatediconP1.animation.play('normal');
 		        animatediconP1.y = iconP1.y + -90;
                         animatediconP1.flipX = true;
-                        animatediconP1.scale = (0.5, 0.5);
+                        animatediconP1.setGraphicSize(Std.int(FlxG.width * 0.5), Std.int(FlxG.height * 0.5);
                         animatediconP1.alpha = 0;
                         add(animatediconP1);
                 }
