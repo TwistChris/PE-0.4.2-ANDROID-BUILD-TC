@@ -955,7 +955,7 @@ class PlayState extends MusicBeatState
 
                 if (boyfriend.curCharacter == 'matt-final')
                 {
-                        iconP1.visible. = false;
+                        iconP1.visible = false;
                 }
 
                 if (boyfriend.curCharacter == 'matt-final')
@@ -980,7 +980,7 @@ class PlayState extends MusicBeatState
 
                 if (dad.curCharacter == 'mom')
                 {
-                        iconP2.visible. = false;
+                        iconP2.visible = false;
                 }
 
                 if (dad.curCharacter == 'mom')
