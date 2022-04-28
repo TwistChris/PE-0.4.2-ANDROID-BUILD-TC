@@ -57,10 +57,6 @@ class HealthIcon extends FlxSprite
 					
 					animation.addByPrefix(char, 'idle', 24, true);
 					animation.play(char, false);
-
-                                        offsetY = -24;
-
-                                        flipX = true;
                                 case 'mom':
                                         var file:FlxAtlasFrames = Paths.getSparrowAtlas('icons/NightmareskyIcons');
 					frames = file;
