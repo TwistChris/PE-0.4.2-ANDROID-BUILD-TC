@@ -275,6 +275,8 @@ class PlayState extends MusicBeatState
 	private var luaDebugGroup:FlxTypedGroup<DebugLuaText>;
 	public var introSoundsSuffix:String = '';
 
+        var animatediconP1:FlxSprite;
+
 	override public function create()
 	{
         #if MODS_ALLOWED
@@ -950,6 +952,18 @@ class PlayState extends MusicBeatState
 		iconP1.visible = !ClientPrefs.hideHud;
 		add(iconP1);
 
+                if (boyfriend.curCharacter == 'matt-final')
+                {
+                        animatediconP1 = new FlxSprite();
+                        animatediconP1.frames = Paths.getSparrowAtlas('icons/Put_Your_Animated_Icon_Name_Here');
+		        animatediconP1.animation.addByPrefix('normal', 'idle', 24, true);
+                        animatediconP1.animation.addByPrefix('losing', 'idle', 24, true);
+                        animatediconP1.animation.play('normal');
+		        animatediconP1.y = iconP1.y + -90;
+                        animatediconP1.flipX = true;
+                        add(animatediconP1);
+                }
+
 		iconP2 = new HealthIcon(dad.healthIcon, false);
 		iconP2.y = healthBar.y - (iconP2.height / 2);
 		iconP2.visible = !ClientPrefs.hideHud;
@@ -985,6 +999,7 @@ class PlayState extends MusicBeatState
 		healthBar.cameras = [camHUD];
 		healthBarBG.cameras = [camHUD];
 		iconP1.cameras = [camHUD];
+                animatediconP1.cameras = [camHUD];
 		iconP2.cameras = [camHUD];
 		creditTxt.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
