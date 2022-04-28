@@ -968,7 +968,6 @@ class PlayState extends MusicBeatState
 		        animatediconP1.y = iconP1.y + -90;
                         animatediconP1.flipX = true;
                         animatediconP1.setGraphicSize(Std.int(FlxG.width * 0.5), Std.int(FlxG.height * 0.5));
-                        animatediconP1.alpha = 0;
                         add(animatediconP1);
                 }
 
@@ -991,7 +990,6 @@ class PlayState extends MusicBeatState
                         animatediconP2.animation.addByPrefix('losing', 'ManifestNormalAngry', 25, true);
                         animatediconP2.animation.play('normal');
 		        animatediconP2.y = iconP2.y + -20;
-                        animatediconP2.alpha = 0;
                         add(animatediconP2);
                 }
  
