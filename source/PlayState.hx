@@ -275,8 +275,6 @@ class PlayState extends MusicBeatState
 	private var luaDebugGroup:FlxTypedGroup<DebugLuaText>;
 	public var introSoundsSuffix:String = '';
 
-        var animatediconP1:FlxSprite;
-
 	override public function create()
 	{
         #if MODS_ALLOWED
@@ -954,7 +952,7 @@ class PlayState extends MusicBeatState
 
                 if (boyfriend.curCharacter == 'matt-final')
                 {
-                        animatediconP1 = new FlxSprite();
+                        animatediconP1:FlxSprite = new FlxSprite();
                         animatediconP1.frames = Paths.getSparrowAtlas('icons/Put_Your_Animated_Icon_Name_Here');
 		        animatediconP1.animation.addByPrefix('normal', 'idle', 24, true);
                         animatediconP1.animation.addByPrefix('losing', 'idle', 24, true);
