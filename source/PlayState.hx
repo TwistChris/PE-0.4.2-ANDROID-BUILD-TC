@@ -957,6 +957,7 @@ class PlayState extends MusicBeatState
 		        animatediconP1.animation.addByPrefix('normal', 'idle', 24, true);
                         animatediconP1.animation.addByPrefix('losing', 'idle', 24, true);
                         animatediconP1.animation.play('normal');
+                        animatediconP1.cameras = [camHUD];
 		        animatediconP1.y = iconP1.y + -90;
                         animatediconP1.flipX = true;
                         add(animatediconP1);
@@ -997,7 +998,6 @@ class PlayState extends MusicBeatState
 		healthBar.cameras = [camHUD];
 		healthBarBG.cameras = [camHUD];
 		iconP1.cameras = [camHUD];
-                animatediconP1.cameras = [camHUD];
 		iconP2.cameras = [camHUD];
 		creditTxt.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
