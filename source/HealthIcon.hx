@@ -52,16 +52,16 @@ class HealthIcon extends FlxSprite
                         originalFlipX = flipX;
 			switch (char) {
                                 case 'matt-final':
-					var file:FlxAtlasFrames = Paths.getSparrowAtlas('icons/Put_Your_Animated_Icon_Name_Here');
+					var file:FlxAtlasFrames = Paths.getSparrowAtlas('icons/bf-night');
 					frames = file;
 					
-					animation.addByPrefix(char, 'idle', 24, true);
+					animation.addByPrefix(char, 'a1', 24, true);
 					animation.play(char, false);
                                 case 'mom':
-                                        var file:FlxAtlasFrames = Paths.getSparrowAtlas('icons/NightmareskyIcons');
+                                        var file:FlxAtlasFrames = Paths.getSparrowAtlas('icons/nightmare_sky');
 					frames = file;
 					
-					animation.addByPrefix(char, 'ManifestNormalIcon', 25, true);
+					animation.addByPrefix(char, 'a1', 24, true);
 					animation.play(char, false);
                                 case 'bf' | 'dad':
                                         var name:String = 'icons/' + char;
