@@ -965,7 +965,6 @@ class PlayState extends MusicBeatState
                         animatediconP1.cameras = [camHUD];
 		        animatediconP1.y = iconP1.y + -70;
                         animatediconP1.flipX = true;
-                        add(animatediconP1);
                 }
 
 		iconP2 = new HealthIcon(dad.healthIcon, false);
@@ -988,7 +987,6 @@ class PlayState extends MusicBeatState
                         animatediconP2.animation.play('normal');
                         animatediconP2.cameras = [camHUD];
 		        animatediconP2.y = iconP2.y + -70;
-                        add(animatediconP2);
                 }
  
                 var creditTxt:FlxText = new FlxText(876, 648,  348); 
@@ -2179,7 +2177,8 @@ class PlayState extends MusicBeatState
                         if (healthBar.percent < 20)
                                  animatediconP1.animation.play('losing');
                         else
-                                 animatediconP2.animation.play('normal');
+                                 animatediconP1.animation.play('normal');
+                        add(animatediconP1);
                 }
 
                 if (dad.curCharacter == 'dad')
@@ -2198,6 +2197,7 @@ class PlayState extends MusicBeatState
                                  animatediconP2.animation.play('losing');
                         else
                                  animatediconP2.animation.play('normal');
+                        add(animatediconP2);
                 }
 
 		if (FlxG.keys.justPressed.EIGHT && !endingSong && !inCutscene) {
