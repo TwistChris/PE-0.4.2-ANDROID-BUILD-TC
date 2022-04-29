@@ -981,7 +981,7 @@ class PlayState extends MusicBeatState
 
                 if (dad.curCharacter == 'mom')
                 {
-                        vae animatediconP2:FlxSprite = new FlxSprite();
+                        var animatediconP2:FlxSprite = new FlxSprite();
                         animatediconP2.frames = Paths.getSparrowAtlas('icons/nightmare_sky');
 		        animatediconP2.animation.addByPrefix('normal', 'a1', 24, true);
                         animatediconP2.animation.addByPrefix('losing', 'a2', 24, true);
