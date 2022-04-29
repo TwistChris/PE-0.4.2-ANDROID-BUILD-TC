@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="iconskyangry.png">
+	<!-- Created with Adobe Animate version 20.5.0.29329 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="a10000" x="5" y="5" width="133" height="201"/>
+	<SubTexture name="a10001" x="178" y="5" width="133" height="201"/>
+	<SubTexture name="a10002" x="351" y="5" width="133" height="201"/>
+	<SubTexture name="a10003" x="524" y="5" width="133" height="201"/>
+	<SubTexture name="a10004" x="697" y="5" width="133" height="201"/>
+	<SubTexture name="a10005" x="870" y="5" width="133" height="201"/>
+	<SubTexture name="a10006" x="1043" y="5" width="133" height="201"/>
+	<SubTexture name="a10007" x="1216" y="5" width="133" height="201"/>
+	<SubTexture name="a10008" x="1389" y="5" width="133" height="201"/>
+	<SubTexture name="a10009" x="1562" y="5" width="133" height="201"/>
+	<SubTexture name="a10010" x="1735" y="5" width="133" height="201"/>
+	<SubTexture name="a10011" x="1908" y="5" width="133" height="201"/>
+	<SubTexture name="a10012" x="5" y="246" width="133" height="201"/>
+	<SubTexture name="a10013" x="178" y="246" width="133" height="201"/>
+	<SubTexture name="a10014" x="351" y="246" width="133" height="201"/>
+	<SubTexture name="a10015" x="524" y="246" width="133" height="201"/>
+	<SubTexture name="a20000" x="697" y="246" width="171" height="174"/>
+	<SubTexture name="a20001" x="908" y="246" width="171" height="174"/>
+	<SubTexture name="a20002" x="1119" y="246" width="171" height="174"/>
+	<SubTexture name="a20003" x="1330" y="246" width="171" height="174"/>
+	<SubTexture name="a20004" x="1541" y="246" width="171" height="174"/>
+	<SubTexture name="a20005" x="1752" y="246" width="171" height="174"/>
+	<SubTexture name="a20006" x="5" y="487" width="171" height="174"/>
+	<SubTexture name="a20007" x="216" y="487" width="171" height="174"/>
+	<SubTexture name="a20008" x="427" y="487" width="171" height="174"/>
+	<SubTexture name="a20009" x="638" y="487" width="171" height="174"/>
+	<SubTexture name="a20010" x="849" y="487" width="171" height="174"/>
+	<SubTexture name="a20011" x="1060" y="487" width="171" height="174"/>
+	<SubTexture name="a20012" x="1271" y="487" width="171" height="174"/>
+	<SubTexture name="a20013" x="1482" y="487" width="171" height="174"/>
+	<SubTexture name="a20014" x="1693" y="487" width="171" height="174"/>
+	<SubTexture name="a20015" x="5" y="701" width="171" height="174"/>
+</TextureAtlas>
