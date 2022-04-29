@@ -2139,12 +2139,14 @@ class PlayState extends MusicBeatState
 
                 if (boyfriend.curCharacter == 'matt-final')
                 {
+                        var animatediconP1:FlxSprite = new FlxSprite();
                         animatediconP1.x = iconP1.x;
                         animatediconP1.angle = iconP1.angle;
                 }
 
                 if (dad.curCharacter == 'mom')
                 {
+                        var animatediconP2:FlxSprite = new FlxSprite();
                         animatediconP2.x = iconP2.x;
                         animatediconP2.angle = iconP2.angle;
                 }
@@ -2174,11 +2176,12 @@ class PlayState extends MusicBeatState
 
                 if (boyfriend.curCharacter == 'matt-final')
                 {
+                        var animatediconP1:FlxSprite = new FlxSprite();
+
                         if (healthBar.percent < 20)
                                  animatediconP1.animation.play('losing');
                         else
                                  animatediconP1.animation.play('normal');
-                        add(animatediconP1);
                 }
 
                 if (dad.curCharacter == 'dad')
@@ -2193,11 +2196,12 @@ class PlayState extends MusicBeatState
 
                 if (dad.curCharacter == 'mom')
                 {
+                        var animatediconP2:FlxSprite = new FlxSprite();
+
                         if (healthBar.percent > 80)
                                  animatediconP2.animation.play('losing');
                         else
                                  animatediconP2.animation.play('normal');
-                        add(animatediconP2);
                 }
 
 		if (FlxG.keys.justPressed.EIGHT && !endingSong && !inCutscene) {
