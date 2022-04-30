@@ -2127,20 +2127,6 @@ class PlayState extends MusicBeatState
 		iconP1.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01) - iconOffset);
 		iconP2.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01)) - (iconP2.width - iconOffset);
 
-                if (boyfriend.curCharacter == 'matt-final')
-                {
-                        var animatediconP1:FlxSprite = new FlxSprite();
-                        animatediconP1.x = iconP1.x;
-                        animatediconP1.angle = iconP1.angle;
-                }
-
-                if (dad.curCharacter == 'mom')
-                {
-                        var animatediconP2:FlxSprite = new FlxSprite();
-                        animatediconP2.x = iconP2.x;
-                        animatediconP2.angle = iconP2.angle;
-                }
-
 		if (health > 2)
 			health = 2;
 
