@@ -952,11 +952,6 @@ class PlayState extends MusicBeatState
 
                 if (boyfriend.curCharacter == 'matt-final')
                 {
-                        iconP1.visible = false;
-                }
-
-                if (boyfriend.curCharacter == 'matt-final')
-                {
                         var animatediconP1:FlxSprite = new FlxSprite();
                         animatediconP1.frames = Paths.getSparrowAtlas('icons/bf-night');
 		        animatediconP1.animation.addByPrefix('normal', 'a1', 24, true);
@@ -972,11 +967,6 @@ class PlayState extends MusicBeatState
 		iconP2.visible = !ClientPrefs.hideHud;
 		add(iconP2);
 		reloadHealthBarColors();
-
-                if (dad.curCharacter == 'mom')
-                {
-                        iconP2.visible = false;
-                }
 
                 if (dad.curCharacter == 'mom')
                 {
