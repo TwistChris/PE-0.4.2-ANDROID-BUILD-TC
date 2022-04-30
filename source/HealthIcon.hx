@@ -56,13 +56,19 @@ class HealthIcon extends FlxSprite
 					frames = file;
 					
 					animation.addByPrefix(char, 'a1', 24, true);
-					animation.play(char, false);
+					animation.play(char);
+
+                                        offsetY = 30;
+
+                                        flipX = true;
                                 case 'mom':
                                         var file:FlxAtlasFrames = Paths.getSparrowAtlas('icons/nightmare_sky');
 					frames = file;
 					
 					animation.addByPrefix(char, 'a1', 24, true);
-					animation.play(char, false);
+					animation.play(char);
+
+                                        offsetY = 30;
                                 case 'bf' | 'dad':
                                         var name:String = 'icons/' + char;
 			                if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'icons/icon-' + char; //Older versions of psych engine's support
