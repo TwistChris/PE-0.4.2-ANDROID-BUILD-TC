@@ -952,7 +952,7 @@ class PlayState extends MusicBeatState
 
                 if (boyfriend.curCharacter == 'matt-final')
                 {
-                        iconP1.animation.play(char);
+                        iconP1.visible = false;
                 }
 
                 if (boyfriend.curCharacter == 'matt-final')
@@ -964,7 +964,9 @@ class PlayState extends MusicBeatState
                         animatediconP1.animation.play('normal');
                         animatediconP1.cameras = [camHUD];
 		        animatediconP1.y = iconP1.y + -70;
+                        animatediconP1.setGraphicSize(Std.int(FlxG.width * 25), Std.int(FlxG.height * 25));
                         animatediconP1.flipX = true;
+                        add(animatediconP1);
                 }
 
 		iconP2 = new HealthIcon(dad.healthIcon, false);
@@ -975,7 +977,7 @@ class PlayState extends MusicBeatState
 
                 if (dad.curCharacter == 'mom')
                 {
-                        iconP2.animation.play(char);
+                        icon2.visible = false;
                 }
 
                 if (dad.curCharacter == 'mom')
@@ -986,7 +988,9 @@ class PlayState extends MusicBeatState
                         animatediconP2.animation.addByPrefix('losing', 'a2', 24, true);
                         animatediconP2.animation.play('normal');
                         animatediconP2.cameras = [camHUD];
+                        animatediconP1.setGraphicSize(Std.int(FlxG.width * 25), Std.int(FlxG.height * 25));
 		        animatediconP2.y = iconP2.y + -70;
+                        add(animatediconP2);
                 }
  
                 var creditTxt:FlxText = new FlxText(876, 648,  348); 
@@ -1769,6 +1773,24 @@ class PlayState extends MusicBeatState
 				else
 				{
 					babyArrow = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player,'gf');
+				}
+                        if (curStage == 'school')
+                                if (player == 1)
+				{
+					babyArrow = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player);
+				}
+				else
+				{
+					babyArrow = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player);
+				}
+                        if (curStage == 'schoolEvil')
+                                if (player == 1)
+				{
+					babyArrow = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player);
+				}
+				else
+				{
+					babyArrow = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player);
 				}
 			if (!isStoryMode)
 			{
