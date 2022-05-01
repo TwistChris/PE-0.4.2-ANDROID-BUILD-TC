@@ -30,13 +30,11 @@ class StrumNote extends FlxSprite
 		{
 			case 'normal':
 				skin = 'NOTE_assets';
-                        case 'pixel':
-                                skin = 'NOTE_assets';
 			case 'gf':
 				skin = 'NOTE2_assets';
 		}
 
-		if(skin == 'pixel')
+		if(PlayState.isPixelStage)
 		{
 			loadGraphic(Paths.image('pixelUI/' + skin));
 			width = width / 4;
