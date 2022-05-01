@@ -964,7 +964,6 @@ class PlayState extends MusicBeatState
                         animatediconP1.animation.play('normal');
                         animatediconP1.cameras = [camHUD];
 		        animatediconP1.y = iconP1.y + -70;
-                        animatediconP1.setGraphicSize(Std.int(FlxG.width * 25), Std.int(FlxG.height * 25));
                         animatediconP1.flipX = true;
                         add(animatediconP1);
                 }
@@ -988,8 +987,7 @@ class PlayState extends MusicBeatState
                         animatediconP2.animation.addByPrefix('losing', 'a2', 24, true);
                         animatediconP2.animation.play('normal');
                         animatediconP2.cameras = [camHUD];
-                        animatediconP2.setGraphicSize(Std.int(FlxG.width * 25), Std.int(FlxG.height * 25));
-		        animatediconP2.y = iconP2.y + -70;
+                        animatediconP2.y = iconP2.y + -70;
                         add(animatediconP2);
                 }
  
