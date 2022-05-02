@@ -989,8 +989,8 @@ class PlayState extends MusicBeatState
                         animatediconP2.animation.addByPrefix('losing', 'a2', 24, true);
                         animatediconP2.animation.play('normal');
                         animatediconP2.cameras = [camHUD];
-                        animatediconP1.x = iconP1.x;
-                        animatediconP1.angle = iconP1.angle;
+                        animatediconP2.x = iconP2.x;
+                        animatediconP2.angle = iconP2.angle;
                         animatediconP2.y = iconP2.y + -70;
                         add(animatediconP2);
                 }
