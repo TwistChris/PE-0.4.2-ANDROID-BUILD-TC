@@ -962,7 +962,6 @@ class PlayState extends MusicBeatState
 		        animatediconP1.animation.addByPrefix('normal', 'a1', 24, true);
                         animatediconP1.animation.addByPrefix('losing', 'a2', 24, true);
                         animatediconP1.animation.play('normal');
-                        animatediconP1.setGraphicSize(Std.int(FlxMath.lerp(150, animatediconP1.width, CoolUtil.boundTo(1 - (elapsed * 30), 0, 1))));
                         animatediconP1.cameras = [camHUD];
                         animatediconP1.x = iconP1.x;
                         animatediconP1.angle = iconP1.angle;
@@ -989,7 +988,6 @@ class PlayState extends MusicBeatState
 		        animatediconP2.animation.addByPrefix('normal', 'a1', 24, true);
                         animatediconP2.animation.addByPrefix('losing', 'a2', 24, true);
                         animatediconP2.animation.play('normal');
-                        animatediconP2.setGraphicSize(Std.int(FlxMath.lerp(150, animatediconP2.width, CoolUtil.boundTo(1 - (elapsed * 30), 0, 1))));
                         animatediconP2.cameras = [camHUD];
                         animatediconP2.x = iconP2.x;
                         animatediconP2.angle = iconP2.angle;
@@ -2145,6 +2143,20 @@ class PlayState extends MusicBeatState
 		iconP1.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01) - iconOffset);
 		iconP2.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01)) - (iconP2.width - iconOffset);
 
+                if (boyfriend.curCharacter == 'matt-final')
+                {
+                       var animatediconP1:HealthIcon = new HealthIcon(boyfriend.healthIcon, true);
+
+                       animatediconP1.setGraphicSize(Std.int(FlxMath.lerp(150, animatediconP1.width, CoolUtil.boundTo(1 - (elapsed * 30), 0, 1))));
+                }
+
+                if (dad.curCharacter == 'mom')
+                {
+                       var animatediconP2:HealthIcon = new HealthIcon(dad.healthIcon, false);
+
+                       animatediconP2.setGraphicSize(Std.int(FlxMath.lerp(150, animatediconP2.width, CoolUtil.boundTo(1 - (elapsed * 30), 0, 1))));
+                }
+
 		if (health > 2)
 			health = 2;
 
@@ -2170,7 +2182,7 @@ class PlayState extends MusicBeatState
 
                 if (boyfriend.curCharacter == 'matt-final')
                 {
-                        var animatediconP1:FlxSprite = new FlxSprite();
+                        var animatediconP1:HealthIcon = new HealthIcon(boyfriend.healthIcon, true);
 
                         if (healthBar.percent < 20)
                                  animatediconP1.animation.play('losing');
@@ -2190,7 +2202,7 @@ class PlayState extends MusicBeatState
 
                 if (dad.curCharacter == 'mom')
                 {
-                        var animatediconP2:FlxSprite = new FlxSprite();
+                        var animatediconP2:HealthIcon = new HealthIcon(dad.healthIcon, false);
 
                         if (healthBar.percent > 80)
                                  animatediconP2.animation.play('losing');
