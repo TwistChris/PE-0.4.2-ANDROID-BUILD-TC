@@ -957,11 +957,12 @@ class PlayState extends MusicBeatState
 
                 if (boyfriend.curCharacter == 'matt-final')
                 {
-                        var animatediconP1:FlxSprite = new FlxSprite();
+                        var animatediconP1:HealthIcon = new HealthIcon(boyfriend.healthIcon, true);
                         animatediconP1.frames = Paths.getSparrowAtlas('icons/bf-night');
 		        animatediconP1.animation.addByPrefix('normal', 'a1', 24, true);
                         animatediconP1.animation.addByPrefix('losing', 'a2', 24, true);
                         animatediconP1.animation.play('normal');
+                        animatediconP1.setGraphicSize(Std.int(FlxMath.lerp(150, animatediconP1.width, CoolUtil.boundTo(1 - (elapsed * 30), 0, 1))));
                         animatediconP1.cameras = [camHUD];
                         animatediconP1.x = iconP1.x;
                         animatediconP1.angle = iconP1.angle;
@@ -983,11 +984,12 @@ class PlayState extends MusicBeatState
 
                 if (dad.curCharacter == 'mom')
                 {
-                        var animatediconP2:FlxSprite = new FlxSprite();
+                        var animatediconP2:HealthIcon = new HealthIcon(dad.healthIcon, false);
                         animatediconP2.frames = Paths.getSparrowAtlas('icons/nightmare_sky');
 		        animatediconP2.animation.addByPrefix('normal', 'a1', 24, true);
                         animatediconP2.animation.addByPrefix('losing', 'a2', 24, true);
                         animatediconP2.animation.play('normal');
+                        animatediconP2.setGraphicSize(Std.int(FlxMath.lerp(150, animatediconP2.width, CoolUtil.boundTo(1 - (elapsed * 30), 0, 1))));
                         animatediconP2.cameras = [camHUD];
                         animatediconP2.x = iconP2.x;
                         animatediconP2.angle = iconP2.angle;
