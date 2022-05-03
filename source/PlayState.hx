@@ -952,7 +952,11 @@ class PlayState extends MusicBeatState
 
                 if (boyfriend.curCharacter == 'matt-final')
                 {
-                        iconP1.visible = false;
+                        iconP1.frames = Paths.getSparrowAtlas('icons/bf-night');
+		        iconP1.animation.addByPrefix('normal', 'a1', 24, true);
+                        iconP1.animation.addByPrefix('losing', 'a2', 24, true);
+                        iconP1.animation.play('normal');
+                        iconP1.flipX = true;
                 }
 
                 if (boyfriend.curCharacter == 'matt-final')
@@ -978,7 +982,11 @@ class PlayState extends MusicBeatState
 
                 if (dad.curCharacter == 'mom')
                 {
-                        iconP2.visible = false;
+                        iconP2.frames = Paths.getSparrowAtlas('icons/nightmare_sky');
+		        iconP2.animation.addByPrefix('normal', 'a1', 24, true);
+                        iconP2.animation.addByPrefix('losing', 'a2', 24, true);
+                        iconP2.animation.play('normal');
+                        iconP2.flipX = true;
                 }
 
                 if (dad.curCharacter == 'mom')
