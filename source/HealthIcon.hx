@@ -55,7 +55,7 @@ class HealthIcon extends FlxSprite
 					var file:FlxAtlasFrames = Paths.getSparrowAtlas('icons/bf-night');
 					frames = file;
 					
-					animation.addByPrefix(char, 'a1', 24, true);
+					animation.addByPrefix(char, 'a1', 24, false, isPlayer);
 					animation.play(char);
 
                                         offsetY = -60;
@@ -63,7 +63,7 @@ class HealthIcon extends FlxSprite
                                         var file:FlxAtlasFrames = Paths.getSparrowAtlas('icons/nightmare_sky');
 					frames = file;
 					
-					animation.addByPrefix(char, 'a1', 24, true);
+					animation.addByPrefix(char, 'a1', 24, false, isPlayer);
 					animation.play(char);
 
                                         offsetY = -60;
