@@ -952,7 +952,7 @@ class PlayState extends MusicBeatState
 
                 if (boyfriend.curCharacter == 'matt-final')
                 {
-                        iconP1.visible = false; 
+                        iconP1.visible = true; 
                 }
 
                 if (boyfriend.curCharacter == 'matt-final')
@@ -977,7 +977,7 @@ class PlayState extends MusicBeatState
 
                 if (dad.curCharacter == 'mom')
                 {
-                        iconP2.visible = false;
+                        iconP2.visible = true;
                 }
 
                 if (dad.curCharacter == 'mom')
@@ -988,7 +988,6 @@ class PlayState extends MusicBeatState
                         animatediconP2.animation.addByPrefix('losing', 'a2', 24, true);
                         animatediconP2.animation.play('normal');
                         animatediconP2.cameras = [camHUD];
-                        animatediconP2.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01) - animatediconP2.width);
                         animatediconP2.angle = iconP2.angle;
                         animatediconP2.y = iconP2.y + -70;
                         add(animatediconP2);
@@ -2141,20 +2140,6 @@ class PlayState extends MusicBeatState
 
 		iconP1.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01) - iconOffset);
 		iconP2.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01)) - (iconP2.width - iconOffset);
-
-                if (boyfriend.curCharacter == 'matt-final')
-                {
-                       var animatediconP1:HealthIcon = new HealthIcon(boyfriend.healthIcon, true);
-
-                       animatediconP1.setGraphicSize(Std.int(FlxMath.lerp(150, animatediconP1.width, CoolUtil.boundTo(1 - (elapsed * 30), 0, 1))));
-                }
-
-                if (dad.curCharacter == 'mom')
-                {
-                       var animatediconP2:HealthIcon = new HealthIcon(dad.healthIcon, false);
-
-                       animatediconP2.setGraphicSize(Std.int(FlxMath.lerp(150, animatediconP2.width, CoolUtil.boundTo(1 - (elapsed * 30), 0, 1))));
-                }
 
 		if (health > 2)
 			health = 2;
