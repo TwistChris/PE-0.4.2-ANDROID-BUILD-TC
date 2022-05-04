@@ -952,11 +952,7 @@ class PlayState extends MusicBeatState
 
                 if (boyfriend.curCharacter == 'matt-final')
                 {
-                        iconP1.frames = Paths.getSparrowAtlas('icons/bf-night');
-		        iconP1.animation.addByPrefix('normal', 'a1', 24, true);
-                        iconP1.animation.addByPrefix('losing', 'a2', 24, true);
-                        iconP1.animation.play('normal');
-                        iconP1.flipX = true;
+                        iconP1.visible = false; 
                 }
 
                 if (boyfriend.curCharacter == 'matt-final')
@@ -967,8 +963,8 @@ class PlayState extends MusicBeatState
                         animatediconP1.animation.addByPrefix('losing', 'a2', 24, true);
                         animatediconP1.animation.play('normal');
                         animatediconP1.cameras = [camHUD];
-                        animatediconP1.x = iconP1.x;
-                        animatediconP1.angle = iconP1.angle;
+                        animatediconP1.setGraphicSize(Std.int(FlxMath.lerp(150, animatediconP1.width, CoolUtil.boundTo(1 - 30, 0, 1))));
+                        animatediconP1.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01) - animatediconP1.width);
 		        animatediconP1.y = iconP1.y + -70;
                         animatediconP1.flipX = true;
                         add(animatediconP1);
@@ -982,11 +978,7 @@ class PlayState extends MusicBeatState
 
                 if (dad.curCharacter == 'mom')
                 {
-                        iconP2.frames = Paths.getSparrowAtlas('icons/nightmare_sky');
-		        iconP2.animation.addByPrefix('normal', 'a1', 24, true);
-                        iconP2.animation.addByPrefix('losing', 'a2', 24, true);
-                        iconP2.animation.play('normal');
-                        iconP2.flipX = true;
+                        iconP2.visible = false;
                 }
 
                 if (dad.curCharacter == 'mom')
@@ -997,7 +989,8 @@ class PlayState extends MusicBeatState
                         animatediconP2.animation.addByPrefix('losing', 'a2', 24, true);
                         animatediconP2.animation.play('normal');
                         animatediconP2.cameras = [camHUD];
-                        animatediconP2.x = iconP2.x;
+                        animatediconP2.setGraphicSize(Std.int(FlxMath.lerp(150, animatediconP2.width, CoolUtil.boundTo(1 - 30, 0, 1))));
+                        animatediconP2.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01) - animatediconP2.width);
                         animatediconP2.angle = iconP2.angle;
                         animatediconP2.y = iconP2.y + -70;
                         add(animatediconP2);
@@ -2155,6 +2148,7 @@ class PlayState extends MusicBeatState
                 {
                        var animatediconP1:HealthIcon = new HealthIcon(boyfriend.healthIcon, true);
 
+                       animatediconP1.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01) - animatediconP1.width);
                        animatediconP1.setGraphicSize(Std.int(FlxMath.lerp(150, animatediconP1.width, CoolUtil.boundTo(1 - (elapsed * 30), 0, 1))));
                 }
 
