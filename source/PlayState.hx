@@ -963,7 +963,6 @@ class PlayState extends MusicBeatState
                         animatediconP1.animation.addByPrefix('losing', 'a2', 24, true);
                         animatediconP1.animation.play('normal');
                         animatediconP1.cameras = [camHUD];
-                        animatediconP1.setGraphicSize(Std.int(FlxMath.lerp(150, animatediconP1.width, CoolUtil.boundTo(1 - 30, 0, 1))));
                         animatediconP1.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01) - animatediconP1.width);
 		        animatediconP1.y = iconP1.y + -70;
                         animatediconP1.flipX = true;
@@ -989,7 +988,6 @@ class PlayState extends MusicBeatState
                         animatediconP2.animation.addByPrefix('losing', 'a2', 24, true);
                         animatediconP2.animation.play('normal');
                         animatediconP2.cameras = [camHUD];
-                        animatediconP2.setGraphicSize(Std.int(FlxMath.lerp(150, animatediconP2.width, CoolUtil.boundTo(1 - 30, 0, 1))));
                         animatediconP2.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01) - animatediconP2.width);
                         animatediconP2.angle = iconP2.angle;
                         animatediconP2.y = iconP2.y + -70;
@@ -2148,7 +2146,6 @@ class PlayState extends MusicBeatState
                 {
                        var animatediconP1:HealthIcon = new HealthIcon(boyfriend.healthIcon, true);
 
-                       animatediconP1.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01) - animatediconP1.width);
                        animatediconP1.setGraphicSize(Std.int(FlxMath.lerp(150, animatediconP1.width, CoolUtil.boundTo(1 - (elapsed * 30), 0, 1))));
                 }
 
