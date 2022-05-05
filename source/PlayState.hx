@@ -952,6 +952,11 @@ class PlayState extends MusicBeatState
 
                 if (boyfriend.curCharacter == 'matt-final')
                 {
+                        iconP1.visible = false;
+                }
+
+                if (boyfriend.curCharacter == 'matt-final')
+                {
                         var iconOffset:Int = 26;
                         var animatediconP1:HealthIcon = new HealthIcon(boyfriend.healthIcon, true);
                         animatediconP1.frames = Paths.getSparrowAtlas('icons/bf-night');
