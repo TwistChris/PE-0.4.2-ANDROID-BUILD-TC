@@ -957,7 +957,7 @@ class PlayState extends MusicBeatState
                         iconP1.visible = false;
                 }
 
-                animatediconP1 = new HealthIcon(boyfriend.healthIcon, true);
+                animatediconP1:HealthIcon = new HealthIcon(boyfriend.healthIcon, true);
                 animatediconP1.frames = Paths.getSparrowAtlas('icons/bf-night');
 		animatediconP1.animation.addByPrefix('normal', 'a1', 24, true);
                 animatediconP1.animation.addByPrefix('losing', 'a2', 24, true);
@@ -981,7 +981,7 @@ class PlayState extends MusicBeatState
                         iconP2.visible = false;
                 }
 
-                animatediconP2 = new HealthIcon(dad.healthIcon, false);
+                animatediconP2:HealthIcon = new HealthIcon(dad.healthIcon, false);
                 animatediconP2.frames = Paths.getSparrowAtlas('icons/nightmare_sky');
 		animatediconP2.animation.addByPrefix('normal', 'a1', 24, true);
                 animatediconP2.animation.addByPrefix('losing', 'a2', 24, true);
@@ -2228,17 +2228,6 @@ class PlayState extends MusicBeatState
 		{
 			Conductor.songPosition += FlxG.elapsed * 1000;
 
-			if (!paused)
-			{
-				songTime += FlxG.game.ticks - previousFrameTime;
-				previousFrameTime = FlxG.game.ticks;
-
-				// Interpolation type beat
-				if (Conductor.lastSongPos != Conductor.songPosition)
-				{
-					songTime = (songTime + Conductor.songPosition) / 2;
-					Conductor.songPosition += FlxG.elapsed * 1000;
-			
 			if (!paused)
 			{
 				songTime += FlxG.game.ticks - previousFrameTime;
@@ -4483,3 +4472,4 @@ class PlayState extends MusicBeatState
 
 	var curLight:Int = 0;
 	var curLightEvent:Int = 0;
+}
