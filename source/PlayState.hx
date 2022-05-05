@@ -2151,7 +2151,7 @@ class PlayState extends MusicBeatState
                         animatediconP1.animation.play('losing');
                 }
 		else
-                }
+                {
 			iconP1.animation.curAnim.curFrame = 0;
                         animatediconP1.animation.play('normal');
                 }
