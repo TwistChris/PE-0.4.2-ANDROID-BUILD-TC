@@ -2146,43 +2146,63 @@ class PlayState extends MusicBeatState
 			health = 2;
 
 		if (healthBar.percent < 20)
+                {
 			iconP1.animation.curAnim.curFrame = 1;
                         animatediconP1.animation.play('losing');
+                }
 		else
+                }
 			iconP1.animation.curAnim.curFrame = 0;
                         animatediconP1.animation.play('normal');
+                }
 
 		if (healthBar.percent > 80)
+                {
 			iconP2.animation.curAnim.curFrame = 1;
                         animatediconP2.animation.play('losing');
+                }
                 else
+                {
                         iconP2.animation.curAnim.curFrame = 0;
                         animatediconP2.animation.play('normal');
+                }
 
                 if (boyfriend.curCharacter == 'bf')
                 {
                         if (healthBar.percent < 20)
+                        {
 			        iconP1.animation.curAnim.curFrame = 1;
                                 animatediconP1.animation.play('losing');
+                        }
 		        else if (healthBar.percent > 80)
+                        {
 			        iconP1.animation.curAnim.curFrame = 2;
                                 animatediconP1.animation.play('normal');
+                        }
                         else
+                        {
                                 iconP1.animation.curAnim.curFrame = 0;
                                 animatediconP1.animation.play('normal');
+                        }
                 }
 
                 if (dad.curCharacter == 'dad')
                 {
                         if (healthBar.percent > 80)
+                        {
 			        iconP2.animation.curAnim.curFrame = 1;
                                 animatediconP2.animation.play('losing');
+                        }
 		        else if (healthBar.percent < 20)
+                        {
 			        iconP2.animation.curAnim.curFrame = 2;
                                 animatediconP2.animation.play('normal');
+                        }
                         else
+                        {
                                 iconP2.animation.curAnim.curFrame = 0;
                                 animatediconP2.animation.play('normal');
+                        }
                 }
 
 		if (FlxG.keys.justPressed.EIGHT && !endingSong && !inCutscene) {
