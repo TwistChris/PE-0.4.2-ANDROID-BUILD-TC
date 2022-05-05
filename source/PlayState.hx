@@ -955,41 +955,15 @@ class PlayState extends MusicBeatState
                         iconP1.visible = false;
                 }
 
-                if (boyfriend.curCharacter == 'matt-final')
-                {
-                        var iconOffset:Int = 26;
-                        var animatediconP1:HealthIcon = new HealthIcon(boyfriend.healthIcon, true);
-                        animatediconP1.frames = Paths.getSparrowAtlas('icons/bf-night');
-		        animatediconP1.animation.addByPrefix('normal', 'a1', 24, true);
-                        animatediconP1.animation.addByPrefix('losing', 'a2', 24, true);
-                        animatediconP1.animation.play('normal');
-                        animatediconP1.cameras = [camHUD];
-                        animatediconP1.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01) - iconOffset);
-                        animatediconP1.angle = iconP1.angle;
-		        animatediconP1.y = iconP1.y + -70;
-                        animatediconP1.flipX = true;
-                        add(animatediconP1);
-                }
-
 		iconP2 = new HealthIcon(dad.healthIcon, false);
 		iconP2.y = healthBar.y - (iconP2.height / 2);
 		iconP2.visible = !ClientPrefs.hideHud;
 		add(iconP2);
 		reloadHealthBarColors();
 
-                if (dad.curCharacter == 'mom')
+                if (boyfriend.curCharacter == 'matt-final')
                 {
-                        var iconOffset:Int = 26;
-                        var animatediconP2:HealthIcon = new HealthIcon(dad.healthIcon, false);
-                        animatediconP2.frames = Paths.getSparrowAtlas('icons/nightmare_sky');
-		        animatediconP2.animation.addByPrefix('normal', 'a1', 24, true);
-                        animatediconP2.animation.addByPrefix('losing', 'a2', 24, true);
-                        animatediconP2.animation.play('normal');
-                        animatediconP2.cameras = [camHUD];
-                        animatediconP2.x = iconP2.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01)) - (animatediconP2.width - iconOffset);
-                        animatediconP2.angle = iconP2.angle;
-                        animatediconP2.y = iconP2.y + -70;
-                        add(animatediconP2);
+                        iconP2.visible = false;
                 }
  
                 var creditTxt:FlxText = new FlxText(876, 648,  348); 
@@ -2143,6 +2117,44 @@ class PlayState extends MusicBeatState
 		if (health > 2)
 			health = 2;
 
+                if (boyfriend.curCharacter == 'matt-final')
+                {
+                        var animatediconP1:HealthIcon = new HealthIcon(boyfriend.healthIcon, true);
+                        animatediconP1.frames = Paths.getSparrowAtlas('icons/bf-night');
+		        animatediconP1.animation.addByPrefix('normal', 'a1', 24, true);
+                        animatediconP1.animation.addByPrefix('losing', 'a2', 24, true);
+                        animatediconP1.animation.play('normal');
+                        if (healthBar.percent < 20)
+                                 animatediconP1.animation.play('losing');
+                        else
+                                 animatediconP1.animation.play('normal');
+                        animatediconP1.cameras = [camHUD];
+                        animatediconP1.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01) - iconOffset);
+                        animatediconP1.angle = iconP1.angle;
+		        animatediconP1.y = iconP1.y + -70;
+                        animatediconP1.flipX = true;
+                        add(animatediconP1);
+                }
+
+                
+                if (dad.curCharacter == 'mom')
+                {
+                        var animatediconP2:HealthIcon = new HealthIcon(dad.healthIcon, false);
+                        animatediconP2.frames = Paths.getSparrowAtlas('icons/nightmare_sky');
+		        animatediconP2.animation.addByPrefix('normal', 'a1', 24, true);
+                        animatediconP2.animation.addByPrefix('losing', 'a2', 24, true);
+                        animatediconP2.animation.play('normal');
+                        if (healthBar.percent > 80)
+                                 animatediconP2.animation.play('losing');
+                        else
+                                 animatediconP2.animation.play('normal');
+                        animatediconP2.cameras = [camHUD];
+                        animatediconP2.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01)) - (animatediconP2.width - iconOffset);
+                        animatediconP2.angle = iconP2.angle;
+                        animatediconP2.y = iconP2.y + -70;
+                        add(animatediconP2);
+                }
+
 		if (healthBar.percent < 20)
 			iconP1.animation.curAnim.curFrame = 1;
 		else
@@ -2163,16 +2175,6 @@ class PlayState extends MusicBeatState
                                 iconP1.animation.curAnim.curFrame = 0;
                 }
 
-                if (boyfriend.curCharacter == 'matt-final')
-                {
-                        var animatediconP1:HealthIcon = new HealthIcon(boyfriend.healthIcon, true);
-
-                        if (healthBar.percent < 20)
-                                 animatediconP1.animation.play('losing');
-                        else
-                                 animatediconP1.animation.play('normal');
-                }
-
                 if (dad.curCharacter == 'dad')
                 {
                         if (healthBar.percent > 80)
@@ -2181,16 +2183,6 @@ class PlayState extends MusicBeatState
 			        iconP2.animation.curAnim.curFrame = 2;
                         else
                                 iconP2.animation.curAnim.curFrame = 0;
-                }
-
-                if (dad.curCharacter == 'mom')
-                {
-                        var animatediconP2:HealthIcon = new HealthIcon(dad.healthIcon, false);
-
-                        if (healthBar.percent > 80)
-                                 animatediconP2.animation.play('losing');
-                        else
-                                 animatediconP2.animation.play('normal');
                 }
 
 		if (FlxG.keys.justPressed.EIGHT && !endingSong && !inCutscene) {
