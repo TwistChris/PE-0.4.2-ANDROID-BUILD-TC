@@ -58,9 +58,9 @@ class TranslateState extends MusicBeatState
             leftState = true;
 	    FlxTransitionableState.skipNextTransIn = true;
             FlxTransitionableState.skipNextTransOut = true;
-            if (languages != 'English')
+            if (languages[curSelected] != 'English')
                 LoadingState.loadAndSwitchState(new FlashingState());
-            if (languages != "Français")
+            if (languages[curSelected] != "Français")
                 LoadingState.loadAndSwitchState(new FlashingStateFr());
         }
 
