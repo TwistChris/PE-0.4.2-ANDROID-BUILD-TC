@@ -34,12 +34,20 @@ class TranslateState extends MusicBeatState
 		add(bg);
 
         text = new FlxText();
-        text.setFormat(Paths.font('vcr.ttf'), 45, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        text.setFormat(Paths.font('vcr.ttf'), 32, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         text.text = '< Ъуъ >';
         text.screenCenter(X);
         text.screenCenter(Y);
         text.scrollFactor.set();
         add(text);
+
+        var charSelHeaderText:Alphabet = new Alphabet(0, 50, 'Language Select', true, false);
+        charSelHeaderText.screenCenter(X);
+        add(charSelHeaderText);
+
+        #if mobileC
+        addVirtualPad(FULL, A_B);	
+        #end
 
         super.create();
     }
