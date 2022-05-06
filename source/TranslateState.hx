@@ -5,6 +5,7 @@ import flixel.FlxSprite;
 import flixel.text.FlxText;
 import flixel.util.FlxTimer;
 import flixel.util.FlxColor;
+import flixel.addons.transition.FlxTransitionableState;
 
 class TranslateState extends MusicBeatState
 {
@@ -54,6 +55,9 @@ class TranslateState extends MusicBeatState
 
         if(controls.BACK || controls.ACCEPT)
         {
+            leftState = true;
+	    FlxTransitionableState.skipNextTransIn = true;
+            FlxTransitionableState.skipNextTransOut = true;
             if (languages != 'English')
                 LoadingState.loadAndSwitchState(new FlashingState());
             if (languages != "Français")
