@@ -963,6 +963,7 @@ class PlayState extends MusicBeatState
                 animatediconP1.animation.addByPrefix('losing', 'a2', 24, true);
                 animatediconP1.animation.play('normal');
                 animatediconP1.visible = false;
+                animatediconP1.y = iconP1.y + -70;
                 add(animatediconP1);
 
                 if (boyfriend.curCharacter == 'matt-final')
@@ -987,6 +988,7 @@ class PlayState extends MusicBeatState
                 animatediconP2.animation.addByPrefix('losing', 'a2', 24, true);
                 animatediconP2.animation.play('normal');
                 animatediconP2.visible = false;
+                animatediconP2.y = iconP2.y + -70;
                 add(animatediconP2);
 
                 if (dad.curCharacter == 'mom')
@@ -1023,7 +1025,9 @@ class PlayState extends MusicBeatState
 		healthBar.cameras = [camHUD];
 		healthBarBG.cameras = [camHUD];
 		iconP1.cameras = [camHUD];
+                animatediconP1.cameras = [camHUD];
 		iconP2.cameras = [camHUD];
+                animatediconP2.cameras = [camHUD];
 		creditTxt.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
 		botplayTxt.cameras = [camHUD];
@@ -2131,8 +2135,10 @@ class PlayState extends MusicBeatState
 		// FlxG.watch.addQuick('VOL', vocals.amplitudeLeft);
 		// FlxG.watch.addQuick('VOLRight', vocals.amplitudeRight);
 
-		iconP1.setGraphicSize(Std.int(FlxMath.lerp(iconP1.initialWidth, iconP1.width, CoolUtil.boundTo(1 - (elapsed * 30), 0, 1))));
-		iconP2.setGraphicSize(Std.int(FlxMath.lerp(iconP2.initialWidth, iconP2.width, CoolUtil.boundTo(1 - (elapsed * 30), 0, 1))));
+		iconP1.setGraphicSize(Std.int(FlxMath.lerp(150, iconP1.width, CoolUtil.boundTo(1 - (elapsed * 30), 0, 1))));
+                animatediconP1.setGraphicSize(Std.int(FlxMath.lerp(animatediconP1.initialWidth, animatediconP1.width, CoolUtil.boundTo(1 - (elapsed * 30), 0, 1))));
+		iconP2.setGraphicSize(Std.int(FlxMath.lerp(150, iconP2.width, CoolUtil.boundTo(1 - (elapsed * 30), 0, 1))));
+                animatediconP2.setGraphicSize(Std.int(FlxMath.lerp(150, animatediconP2.width, CoolUtil.boundTo(1 - (elapsed * 30), 0, 1))));
 
 		iconP1.updateHitbox();
 		iconP2.updateHitbox();
