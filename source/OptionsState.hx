@@ -105,7 +105,7 @@ class OptionsState extends MusicBeatState
 				case 'Mobile Controls':
 					MusicBeatState.switchState(new options.CustomControlsState());					
                                 case 'Language Select':
-					MusicBeatState.switchState(new options.OptionsTranslateState());					
+					openSubState.switchState(new options.OptionsTranslateState());					
 				case 'Preferences':                                        
 					openSubState(new PreferencesSubstate());									
 			}
