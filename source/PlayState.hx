@@ -1029,7 +1029,7 @@ class PlayState extends MusicBeatState
                 animatediconP2.y = iconP2.y + -70;
                 add(animatediconP2);
 
-                switch (boyfriend.curCharacter)
+                switch (dad.curCharacter)
                 {
                         case 'matt-final':
                                 animatediconP2.visible = true;
