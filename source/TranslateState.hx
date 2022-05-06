@@ -8,11 +8,13 @@ import flixel.util.FlxColor;
 
 class TranslateState extends MusicBeatState
 {
+    public static var leftState:Bool = false;
+
     var text:FlxText;
 
     var bg:FlxSprite;
 
-    var languages:Array<String> = ['English','Русский','Español','Deutsch','Polski','Português','Português (brasileiro)',"Français"];
+    var languages:Array<String> = ['English',"Français"];
 
     public static var onComplete:() -> Void;
 
@@ -52,7 +54,10 @@ class TranslateState extends MusicBeatState
 
         if(controls.BACK || controls.ACCEPT)
         {
-            LoadingState.loadAndSwitchState(new MainMenuState());
+            if (languages != 'English')
+                LoadingState.loadAndSwitchState(new FlashingState());
+            if (languages != "Français")
+                LoadingState.loadAndSwitchState(new FlashingStateFr());
         }
 
         super.update(elapsed);
