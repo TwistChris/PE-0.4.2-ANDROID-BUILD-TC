@@ -952,24 +952,47 @@ class PlayState extends MusicBeatState
 		iconP1.visible = !ClientPrefs.hideHud;
 		add(iconP1);
 
-                if (boyfriend.curCharacter == 'matt-final')
+                switch (boyfriend.curCharacter)
                 {
-                        iconP1.visible = false;
+                        case 'matt-final':
+                                iconP1.visible = false;
+		        case 'mom':
+                                iconP1.visible = false;
+                        default:
+                                iconP1.visible = !ClientPrefs.hideHud;
+		}
+
+                var animatedicon:String = 'icons/bf-night';
+
+                switch (boyfriend.curCharacter)
+                {
+                        case 'matt-final':
+				animatedicon = 'icons/bf-night';
+			case 'mom':
+				animatedicon = 'icons/nightmare_sky';
+                        default:
+                                animatedicon = 'icons/bf-night';	
                 }
 
                 animatediconP1 = new HealthIcon(boyfriend.healthIcon, true);
-                animatediconP1.frames = Paths.getSparrowAtlas('icons/bf-night');
+                animatediconP1.frames = Paths.getSparrowAtlas(animatedicon);
 		animatediconP1.animation.addByPrefix('normal', 'a1', 24, true);
                 animatediconP1.animation.addByPrefix('losing', 'a2', 24, true);
                 animatediconP1.animation.play('normal');
                 animatediconP1.visible = false;
                 animatediconP1.y = iconP1.y + -70;
+                animatediconP1.flipX = true;
                 add(animatediconP1);
 
-                if (boyfriend.curCharacter == 'matt-final')
+                switch (boyfriend.curCharacter)
                 {
-                        animatediconP1.visible = true;
-                }
+                        case 'matt-final':
+                                animatediconP1.visible = true;
+		        case 'mom':
+                                animatediconP1.visible = true;
+                        default:
+                                animatediconP1.visible = false;
+		}
 
 		iconP2 = new HealthIcon(dad.healthIcon, false);
 		iconP2.y = healthBar.y - (iconP2.height / 2);
@@ -977,13 +1000,28 @@ class PlayState extends MusicBeatState
 		add(iconP2);
 		reloadHealthBarColors();
 
-                if (dad.curCharacter == 'mom')
+                switch (dad.curCharacter)
                 {
-                        iconP2.visible = false;
+                        case 'matt-final':
+                                iconP2.visible = false;
+		        case 'mom':
+                                iconP2.visible = false;
+                        default:
+                                iconP2.visible = !ClientPrefs.hideHud;
+		}
+
+                switch (dad.curCharacter)
+                {
+                        case 'matt-final':
+				animatedicon = 'icons/bf-night';
+			case 'mom':
+				animatedicon = 'icons/nightmare_sky';
+                        default:
+                                animatedicon = 'icons/bf-night';	
                 }
 
                 animatediconP2 = new HealthIcon(dad.healthIcon, false);
-                animatediconP2.frames = Paths.getSparrowAtlas('icons/nightmare_sky');
+                animatediconP2.frames = Paths.getSparrowAtlas(animatedicon);
 		animatediconP2.animation.addByPrefix('normal', 'a1', 24, true);
                 animatediconP2.animation.addByPrefix('losing', 'a2', 24, true);
                 animatediconP2.animation.play('normal');
@@ -991,10 +1029,15 @@ class PlayState extends MusicBeatState
                 animatediconP2.y = iconP2.y + -70;
                 add(animatediconP2);
 
-                if (dad.curCharacter == 'mom')
+                switch (boyfriend.curCharacter)
                 {
-                        animatediconP2.visible = true;
-                }
+                        case 'matt-final':
+                                animatediconP2.visible = true;
+		        case 'mom':
+                                animatediconP2.visible = true;
+                        default:
+                                animatediconP2.visible = false;
+		}
  
                 var creditTxt:FlxText = new FlxText(876, 648,  348); 
                 creditTxt.text = 'PORTED BY\nTWIST CHRIS';
@@ -2136,7 +2179,7 @@ class PlayState extends MusicBeatState
 		// FlxG.watch.addQuick('VOLRight', vocals.amplitudeRight);
 
 		iconP1.setGraphicSize(Std.int(FlxMath.lerp(150, iconP1.width, CoolUtil.boundTo(1 - (elapsed * 30), 0, 1))));
-                animatediconP1.setGraphicSize(Std.int(FlxMath.lerp(animatediconP1.initialWidth, animatediconP1.width, CoolUtil.boundTo(1 - (elapsed * 30), 0, 1))));
+                animatediconP1.setGraphicSize(Std.int(FlxMath.lerp(150, animatediconP1.width, CoolUtil.boundTo(1 - (elapsed * 30), 0, 1))));
 		iconP2.setGraphicSize(Std.int(FlxMath.lerp(150, iconP2.width, CoolUtil.boundTo(1 - (elapsed * 30), 0, 1))));
                 animatediconP2.setGraphicSize(Std.int(FlxMath.lerp(150, animatediconP2.width, CoolUtil.boundTo(1 - (elapsed * 30), 0, 1))));
 
