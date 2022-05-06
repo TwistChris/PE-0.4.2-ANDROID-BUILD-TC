@@ -105,7 +105,7 @@ class OptionsState extends MusicBeatState
 				case 'Mobile Controls':
 					MusicBeatState.switchState(new options.CustomControlsState());					
                                 case 'Language Select':
-					openSubState.switchState(new options.OptionsTranslateState());					
+					openSubState(new OptionsTranslateState());					
 				case 'Preferences':                                        
 					openSubState(new PreferencesSubstate());									
 			}
@@ -718,6 +718,85 @@ class ControlsSubstate extends MusicBeatSubstate {
 }
 
 
+
+class OptionsTranslateState extends MusicBeatSubstate
+{
+        static var languages:Array<String> = ['English', 'Français'];
+        
+        private var text:FlxText;
+
+        private static var curSelected:Int = 0;
+
+        private var onComplete:() -> Void;
+
+        public function new()
+        {
+               super();
+
+               curSelected = FlxG.save.data.translationCS;
+
+               text = new FlxText();
+        text.setFormat(Paths.font('vcr.ttf'), 32, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        text.text = '< Ъуъ >';
+        text.screenCenter(X);
+        text.screenCenter(Y);
+        text.scrollFactor.set();
+        add(text);
+
+        var langselc:String = 'Language Select';
+
+        var charSelHeaderText:Alphabet = new Alphabet(0, 50, langselc, true, false);
+        charSelHeaderText.screenCenter(X);
+        add(charSelHeaderText);
+
+        switch (languages[curSelected])
+        {
+                case 'English':
+                      langselc = 'Language Select';
+                case 'Français':
+                      langselc = 'Sélection de la langue';
+                default:
+                      langselc = 'Language Select';
+        }
+
+        #if mobileC
+        addVirtualPad(FULL, A_B);	
+        #end
+        }
+
+        override function update(elapsed:Float)
+        {
+           text.text = "< " + languages[curSelected] + " >";
+           FlxG.save.data.language = languages[curSelected];
+           FlxG.save.data.translationCS = curSelected;
+           if(controls.UI_LEFT_P)
+                changeSelected(-1);
+           if(controls.UI_RIGHT_P)
+                changeSelected(1);
+
+           if(controls.BACK || controls.ACCEPT)
+           {
+                if (languages[curSelected] != 'English')
+                        MusicBeatState.switchState(new MainMenuState());
+                if (languages[curSelected] != "Français")
+                        MusicBeatState.switchState(new MainMenuState());
+           }
+
+           super.update(elapsed);
+    }
+
+    function changeSelected(change:Int = 0):Void
+    {
+        curSelected += change;
+    
+        if (curSelected >= languages.length)
+            curSelected = 0;
+        if (curSelected < 0)
+            curSelected = languages.length - 1;
+
+        FlxG.sound.play(Paths.sound('scrollMenu'));
+    }
+}
 
 class PreferencesSubstate extends MusicBeatSubstate
 {
