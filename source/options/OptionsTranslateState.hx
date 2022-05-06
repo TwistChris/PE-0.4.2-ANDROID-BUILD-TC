@@ -79,9 +79,9 @@ class OptionsTranslateState extends MusicBeatState
 	    FlxTransitionableState.skipNextTransIn = true;
             FlxTransitionableState.skipNextTransOut = true;
             if (languages[curSelected] != 'English')
-                MusicBeatState.switchState(new FlashingState());
+                MusicBeatState.switchState(new MainMenuState());
             if (languages[curSelected] != "Français")
-                MusicBeatState.switchState(new FlashingStateFr());
+                MusicBeatState.switchState(new MainMenuState());
         }
 
         super.update(elapsed);
