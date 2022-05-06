@@ -11,11 +11,12 @@ class TranslateState extends MusicBeatState
 {
     public static var leftState:Bool = false;
 
+    var optionText:FlxText;
     var text:FlxText;
 
     var bg:FlxSprite;
 
-    var languages:Array<String> = ['English',"Français"];
+    var languages:Array<String> = ['English','Français'];
 
     public static var onComplete:() -> Void;
 
@@ -41,9 +42,41 @@ class TranslateState extends MusicBeatState
         text.scrollFactor.set();
         add(text);
 
-        var charSelHeaderText:Alphabet = new Alphabet(0, 50, 'Language Select', true, false);
+        var blabla:String = 'You can always choose the language you want in the options.';
+
+        warnText = new FlxText(0, 0, FlxG.width,
+	        blabla,
+		32);
+	warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
+	warnText.screenCenter(X);
+        warnText.y -= 20;
+	add(warnText);
+
+        switch (languages[curSelected])
+        {
+                case 'English':
+                      blabla = 'You can always choose the language you want in the options.';
+                case 'Français':
+                      blabla = 'Tu peux toujours la langue que tu veux dans les options.';
+                default:
+                      blabla = 'You can always choose the language you want in the options.';
+        }
+
+        var langselc:String = 'Language Select';
+
+        var charSelHeaderText:Alphabet = new Alphabet(0, 50, langselc, true, false);
         charSelHeaderText.screenCenter(X);
         add(charSelHeaderText);
+
+        switch (languages[curSelected])
+        {
+                case 'English':
+                      langselc = 'Language Select';
+                case 'Français':
+                      langselc = 'Sélection de la langue';
+                default:
+                      langselc = 'Language Select';
+        }
 
         #if mobileC
         addVirtualPad(FULL, A_B);	
@@ -67,9 +100,9 @@ class TranslateState extends MusicBeatState
 	    FlxTransitionableState.skipNextTransIn = true;
             FlxTransitionableState.skipNextTransOut = true;
             if (languages[curSelected] != 'English')
-                LoadingState.loadAndSwitchState(new FlashingState());
+                MusicBeatState.switchState(new FlashingState());
             if (languages[curSelected] != "Français")
-                LoadingState.loadAndSwitchState(new FlashingStateFr());
+                MusicBeatState.switchState(new FlashingStateFr());
         }
 
         super.update(elapsed);
