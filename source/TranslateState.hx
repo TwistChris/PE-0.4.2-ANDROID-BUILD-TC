@@ -11,7 +11,7 @@ class TranslateState extends MusicBeatState
 {
     public static var leftState:Bool = false;
 
-    var optionText:FlxText;
+    var warnText:FlxText;
     var text:FlxText;
 
     var bg:FlxSprite;
