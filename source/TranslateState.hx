@@ -86,7 +86,6 @@ class TranslateState extends MusicBeatState
     }
 
     override function update(elapsed:Float) {
-        if(!leftState) {
                 text.text = "< " + languages[curSelected] + " >";
 
                 if (controls.UI_UP_P)
