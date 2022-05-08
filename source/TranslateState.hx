@@ -16,16 +16,14 @@ class TranslateState extends MusicBeatState
 
     var bg:FlxSprite;
 
-    var languages:Array<String> = ['English','Français'];
+    var languages:Array<String> = ['English', 'Français'];
 
     public static var onComplete:() -> Void;
 
     var curSelected:Int = 0;
     
-    override public function create()
+    override function create()
     {
-        curSelected = FlxG.save.data.translationCS;
-        
         bg = new FlxSprite().loadGraphic(Paths.image("menuDesat"));
 		bg.color = 0xFFea71fd;
 		bg.setGraphicSize(Std.int(bg.width * 1.1));
@@ -42,40 +40,42 @@ class TranslateState extends MusicBeatState
         text.scrollFactor.set();
         add(text);
 
-        var blabla:String = 'You can always choose the language you want in the options.';
+        var blabla:String = '';
 
         warnText = new FlxText(0, 0, FlxG.width,
 	        blabla,
 		32);
 	warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
 	warnText.screenCenter(X);
-        warnText.y -= 20;
+        warnText.y += 20;
 	add(warnText);
 
-        switch (languages[curSelected])
+        var langcurselc:String = languages[curSelected];
+
+        switch (langcurselc)
         {
                 case 'English':
-                      blabla = 'You can always choose the language you want in the options.';
+                      blabla = 'You can always choose the language that you want in the options.';
                 case 'Français':
                       blabla = 'Tu peux toujours la langue que tu veux dans les options.';
                 default:
-                      blabla = 'You can always choose the language you want in the options.';
+                      blabla = '';
         }
 
-        var langselc:String = 'Language Select';
+        var langselc:String = '';
 
         var charSelHeaderText:Alphabet = new Alphabet(0, 50, langselc, true, false);
         charSelHeaderText.screenCenter(X);
         add(charSelHeaderText);
 
-        switch (languages[curSelected])
+        switch (langcurselc)
         {
                 case 'English':
                       langselc = 'Language Select';
                 case 'Français':
                       langselc = 'Sélection de la langue';
                 default:
-                      langselc = 'Language Select';
+                      langselc = '';
         }
 
         #if mobileC
@@ -85,25 +85,40 @@ class TranslateState extends MusicBeatState
         super.create();
     }
 
-    override public function update(elapsed:Float) {
-        text.text = "< " + languages[curSelected] + " >";
-        FlxG.save.data.language = languages[curSelected];
-        FlxG.save.data.translationCS = curSelected;
-        if(controls.UI_LEFT_P)
-            changeSelected(-1);
-        if(controls.UI_RIGHT_P)
-            changeSelected(1);
+    override function update(elapsed:Float) {
+        if(!leftState) {
+                text.text = "< " + languages[curSelected] + " >";
 
-        if(controls.BACK || controls.ACCEPT)
-        {
-            leftState = true;
-	    FlxTransitionableState.skipNextTransIn = true;
-            FlxTransitionableState.skipNextTransOut = true;
-            if (languages[curSelected] != 'English')
-                MusicBeatState.switchState(new FlashingState());
-            if (languages[curSelected] != "Français")
-                MusicBeatState.switchState(new FlashingStateFr());
-        }
+                if (controls.UI_UP_P)
+	        {
+                       changeSelected(-1);
+	        }
+
+	        if (controls.UI_DOWN_P)
+	        {
+	               changeSelected(1);
+                }
+
+                if (controls.BACK)
+                {
+                       FlxG.sound.play(Paths.sound('cancelMenu'));
+                }
+
+                if(controls.ACCEPT) {
+                       leftState = true;
+	               FlxTransitionableState.skipNextTransIn = true;
+                       FlxTransitionableState.skipNextTransOut = true;
+                       FlxG.sound.play(Paths.sound('confirmMenu'));
+                       var langcurselc:String = languages[curSelected];
+
+                       switch (langcurselc)
+                       {
+		               case 'English':
+		                      MusicBeatState.switchState(new FlashingState());
+		               case 'Français':
+		                      MusicBeatState.switchState(new FlashingStateFr());
+	               }
+                }
 
         super.update(elapsed);
     }
