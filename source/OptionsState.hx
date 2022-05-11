@@ -719,7 +719,7 @@ class ControlsSubstate extends MusicBeatSubstate {
 
 
 
-class OptionsTranslateState extends MusicBeatSubstate
+class LanguageSubtate extends MusicBeatSubstate
 {
         static var languages:Array<String> = ['English', 'Français'];
         
