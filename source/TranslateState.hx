@@ -50,33 +50,11 @@ class TranslateState extends MusicBeatState
         warnText.y += 20;
 	add(warnText);
 
-        var langcurselc:String = languages[curSelected];
-
-        switch (langcurselc)
-        {
-                case 'English':
-                      blabla = 'You can always choose the language that you want in the options.';
-                case 'Français':
-                      blabla = 'Tu peux toujours la langue que tu veux dans les options.';
-                default:
-                      blabla = '';
-        }
-
         var langselc:String = '';
 
         var charSelHeaderText:Alphabet = new Alphabet(0, 50, langselc, true, false);
         charSelHeaderText.screenCenter(X);
         add(charSelHeaderText);
-
-        switch (langcurselc)
-        {
-                case 'English':
-                      langselc = 'Language Select';
-                case 'Français':
-                      langselc = 'Sélection de la langue';
-                default:
-                      langselc = '';
-        }
 
         #if mobileC
         addVirtualPad(FULL, A_B);	
@@ -132,5 +110,26 @@ class TranslateState extends MusicBeatState
             curSelected = languages.length - 1;
 
         FlxG.sound.play(Paths.sound('scrollMenu'));
+
+        charCheck();
     }
+
+    function charCheck()
+    {
+         var langcurselc:String = languages[curSelected];
+
+         switch (langcurselc)
+         {
+                case 'English':
+                      blabla = 'You can always choose the language that you want in the options.';
+                      langselc = 'Language Select';
+                case 'Français':
+                      blabla = 'Tu peux toujours la langue que tu veux dans les options.';
+                      langselc = 'Selection de la langue';
+                default:
+                      blabla = '';
+                      langselc = '';
+         }
+    }
+                       
 }
