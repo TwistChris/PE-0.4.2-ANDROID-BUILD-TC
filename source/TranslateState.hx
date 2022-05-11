@@ -13,6 +13,7 @@ class TranslateState extends MusicBeatState
 
     var warnText:FlxText;
     var text:FlxText;
+    var charSelHeaderText:Alphabet;
 
     var bg:FlxSprite;
 
@@ -50,7 +51,7 @@ class TranslateState extends MusicBeatState
         warnText.y += 20;
 	add(warnText);
 
-        var charSelHeaderText:Alphabet = new Alphabet(0, 50, '', true, false);
+        charSelHeaderText = new Alphabet(0, 50, '', true, false);
         charSelHeaderText.screenCenter(X);
         add(charSelHeaderText);
 
