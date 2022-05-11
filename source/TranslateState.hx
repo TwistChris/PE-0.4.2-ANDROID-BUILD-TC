@@ -50,9 +50,7 @@ class TranslateState extends MusicBeatState
         warnText.y += 20;
 	add(warnText);
 
-        var langselc:String = '';
-
-        var charSelHeaderText:Alphabet = new Alphabet(0, 50, langselc, true, false);
+        var charSelHeaderText:Alphabet = new Alphabet(0, 50, '', true, false);
         charSelHeaderText.screenCenter(X);
         add(charSelHeaderText);
 
@@ -66,12 +64,12 @@ class TranslateState extends MusicBeatState
     override function update(elapsed:Float) {
                 text.text = "< " + languages[curSelected] + " >";
 
-                if (controls.UI_UP_P)
+                if (controls.UI_LEFT_P)
 	        {
                        changeSelected(-1);
 	        }
 
-	        if (controls.UI_DOWN_P)
+	        if (controls.UI_RIGHT_P)
 	        {
 	               changeSelected(1);
                 }
@@ -121,14 +119,14 @@ class TranslateState extends MusicBeatState
          switch (langcurselc)
          {
                 case 'English':
-                      blabla.FlxText(0, 0, FlxG.width, 'You can always choose the language that you want in the options.', 32);
-                      langselc.Alphabet(0, 50, 'Language Select', true, false);
+                      warnText.text = 'You can always choose the language that you want in the options.';
+                      charSelHeaderText.text = 'Language Select';
                 case 'Français':
-                      blabla.FlxText(0, 0, FlxG.width, 'Tu peux toujours la langue que tu veux dans les options.', 32);
-                      langselc.Alphabet(0, 50, 'Selection de la langue', true, false);
+                      warnText.text = 'Tu peux toujours la langue que tu veux dans les options.';
+                      charSelHeaderText.text = 'Selection de la langue';
                 default:
-                      blabla.FlxText(0, 0, FlxG.width, '', 32);
-                      langselc.Alphabet(0, 50, '', true, false);
+                      warnText.text = '';
+                      charSelHeaderText.text = '';
          }
     }
                        
