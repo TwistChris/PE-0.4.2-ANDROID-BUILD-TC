@@ -121,14 +121,14 @@ class TranslateState extends MusicBeatState
          switch (langcurselc)
          {
                 case 'English':
-                      blabla = 'You can always choose the language that you want in the options.';
-                      langselc = 'Language Select';
+                      blabla.FlxText(0, 0, FlxG.width, 'You can always choose the language that you want in the options.', 32);
+                      langselc.Alphabet(0, 50, 'Language Select', true, false);
                 case 'Français':
-                      blabla = 'Tu peux toujours la langue que tu veux dans les options.';
-                      langselc = 'Selection de la langue';
+                      blabla.FlxText(0, 0, FlxG.width, 'Tu peux toujours la langue que tu veux dans les options.', 32);
+                      langselc.Alphabet(0, 50, 'Selection de la langue', true, false);
                 default:
-                      blabla = '';
-                      langselc = '';
+                      blabla.FlxText(0, 0, FlxG.width, '', 32);
+                      langselc.Alphabet(0, 50, '', true, false);
          }
     }
                        
