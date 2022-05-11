@@ -731,6 +731,8 @@ class LanguageSubtate extends MusicBeatSubstate
 
         private var onComplete:() -> Void;
 
+        var nextAccept:Int = 5;
+
         public function new()
         {
                super();
@@ -772,7 +774,7 @@ class LanguageSubtate extends MusicBeatSubstate
                 FlxG.sound.play(Paths.sound('cancelMenu'));
            }
 
-           if(controls.ACCEPT)
+           if(controls.ACCEPT && nextAccept <= 0)
            {
                 var langcurselc:String = languages[curSelected];
 
@@ -784,6 +786,9 @@ class LanguageSubtate extends MusicBeatSubstate
 		               MusicBeatState.switchState(new MainMenuState());
 	        }
            }
+           if(nextAccept > 0) {
+	        nextAccept -= 1;
+	   }
 
            super.update(elapsed);
     }
