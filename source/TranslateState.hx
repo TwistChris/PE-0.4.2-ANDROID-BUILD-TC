@@ -41,18 +41,20 @@ class TranslateState extends MusicBeatState
         text.scrollFactor.set();
         add(text);
 
-        var blabla:String = '';
-
         warnText = new FlxText(0, 0, FlxG.width,
-	        blabla,
+	        '',
 		32);
 	warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
+        warnText.text = 'You can always choose the language that you want in the options.';
 	warnText.screenCenter(X);
-        warnText.y += 20;
+        warnText.y += 70;
 	add(warnText);
 
-        charSelHeaderText = new Alphabet(0, 50, '', true, false);
+        charSelHeaderText = new FlxText(0, 0, FlxG.width, '', 50);
+        charSelHeaderText.text = 'Language Select';
+        warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
         charSelHeaderText.screenCenter(X);
+        warnText.y += 20;
         add(charSelHeaderText);
 
         #if mobileC
@@ -126,8 +128,8 @@ class TranslateState extends MusicBeatState
                       warnText.text = 'Tu peux toujours la langue que tu veux dans les options.';
                       charSelHeaderText.text = 'Selection de la langue';
                 default:
-                      warnText.text = '';
-                      charSelHeaderText.text = '';
+                      warnText.text = 'You can always choose the language that you want in the options.';
+                      charSelHeaderText.text = 'Language Select';
          }
     }
                        
