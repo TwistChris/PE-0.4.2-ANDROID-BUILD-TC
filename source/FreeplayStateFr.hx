@@ -22,7 +22,7 @@ using StringTools;
 
 class FreeplayStateFr extends MusicBeatState
 {
-	var songs:Array<SongMetadata> = [];
+	var songs:Array<SongMetadataFr> = [];
 
 	var selector:FlxText;
 	private static var curSelected:Int = 0;
@@ -191,7 +191,7 @@ class FreeplayStateFr extends MusicBeatState
 
 	public function addSong(songName:String, weekNum:Int, songCharacter:String, color:Int)
 	{
-		songs.push(new SongMetadata(songName, weekNum, songCharacter, color));
+		songs.push(new SongMetadataFr(songName, weekNum, songCharacter, color));
 	}
 
 	/*public function addWeek(songs:Array<String>, weekNum:Int, weekColor:Int, ?songCharacters:Array<String>)
@@ -227,7 +227,7 @@ class FreeplayStateFr extends MusicBeatState
 		if (Math.abs(lerpRating - intendedRating) <= 0.01)
 			lerpRating = intendedRating;
 
-		scoreText.text = 'PERSONAL BEST: ' + lerpScore + ' (' + Math.floor(lerpRating * 100) + '%)';
+		scoreText.text = 'RECORD PERSONNEL: ' + lerpScore + ' (' + Math.floor(lerpRating * 100) + '%)';
 		positionHighscore();
 
 		var upP = controls.UI_UP_P;
@@ -410,7 +410,7 @@ class FreeplayStateFr extends MusicBeatState
 	}
 }
 
-class SongMetadata
+class SongMetadataFr
 {
 	public var songName:String = "";
 	public var week:Int = 0;
