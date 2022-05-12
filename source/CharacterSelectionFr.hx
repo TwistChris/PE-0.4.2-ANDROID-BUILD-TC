@@ -35,7 +35,7 @@ class CharacterSelectionFr extends MusicBeatState
     var menuBG:FlxSprite;
     public var tagertY:Float = 0;
     var grpWeekCharacters:FlxTypedGroup<MenuCharacter>;
-    public static var characterShit:Array<CharacterMenu>;
+    public static var characterShit:Array<CharacterMenuFr>;
 
     private var grpMenu:FlxTypedGroup<Alphabet>;
     private var grpMenuImage:FlxTypedGroup<FlxSprite>;
