@@ -2818,7 +2818,7 @@ class PlayStateFr extends MusicBeatState
 					timer.active = true;
 				}
 
-				// MusicBeatState.switchState(new GameOverState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
+				// MusicBeatState.switchState(new GameOverStateFr(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 				
 				#if desktop
 				// Game Over doesn't get his own variable because it's only used here
