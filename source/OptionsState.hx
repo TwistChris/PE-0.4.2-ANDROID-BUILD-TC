@@ -780,7 +780,7 @@ class LanguageSubtate extends MusicBeatSubstate
                 switch (langcurselc)
                 {
 		        case 'English':
-		               MusicBeatState.switchState(new StoryMenuState());
+		               MusicBeatState.switchState(new MainMenuStateFr());
 		        case 'Français':
 		               MusicBeatState.switchState(new MainMenuState());
 	        }
