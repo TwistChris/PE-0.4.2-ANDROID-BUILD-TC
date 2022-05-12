@@ -11,7 +11,7 @@ import flixel.addons.transition.FlxTransitionableState;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 
-class FlashingStateFr extends MusicBeatState
+class FlashingState extends MusicBeatState
 {
 	public static var leftState:Bool = false;
 
@@ -24,11 +24,11 @@ class FlashingStateFr extends MusicBeatState
 		add(bg);
 
 		warnText = new FlxText(0, 0, FlxG.width,
-			"Hé, attention!\n
-			Cet mod contient des lumières clignotantes!\n
-			Appuyez sur ENTER (la touche d'entrée) pour les désactiver maintenant ou accédez au menu Options.\n
-			Appuyez sur ÉCHAP (la touche d'échappement) pour ignorer ce message.\n
-			Tu as été prévenu!",
+			"Hey, watch out!\n
+			This Mod contains some flashing lights!\n
+			Press ENTER to disable them now or go to Options Menu.\n
+			Press ESCAPE to ignore this message.\n
+			You've been warned!",
 			32);
 		warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
 		warnText.screenCenter(Y);
