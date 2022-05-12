@@ -30,7 +30,7 @@ import openfl.Assets;
 
 using StringTools;
 
-class TitleState extends MusicBeatState
+class TitleStateFr extends MusicBeatState
 {
 	public static var muteKeys:Array<FlxKey> = [FlxKey.ZERO];
 	public static var volumeDownKeys:Array<FlxKey> = [FlxKey.NUMPADMINUS, FlxKey.MINUS];
