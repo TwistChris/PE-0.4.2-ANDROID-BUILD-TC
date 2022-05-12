@@ -18,7 +18,7 @@ import Character.Character;
 import HealthIcon.HealthIcon;
 import flixel.ui.FlxBar;
 
-typedef CharacterMenu = {
+typedef CharacterMenuFr = {
     var name:String;
     var characterName:String;
     var portrait:String;
