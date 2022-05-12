@@ -57,6 +57,11 @@ class TranslateState extends MusicBeatState
         warnText.y += 20;
         add(charSelHeaderText);
 
+        if(FlxG.save.data.flashing == null && !FlashingState.leftState) {
+			FlxTransitionableState.skipNextTransIn = true;
+			FlxTransitionableState.skipNextTransOut = true;
+			MusicBeatState.switchState(new FlashingState());
+
         #if mobileC
         addVirtualPad(FULL, A_B);	
         #end
