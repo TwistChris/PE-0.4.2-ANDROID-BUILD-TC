@@ -98,9 +98,9 @@ class TranslateState extends MusicBeatState
                        switch (langcurselc)
                        {
 		               case 'English':
-		                      MusicBeatState.switchState(new FlashingState());
+		                      MusicBeatState.switchState(new TitleState());
 		               case 'Français':
-		                      MusicBeatState.switchState(new FlashingStateFr());
+		                      MusicBeatState.switchState(new TitleStateFr());
 	               }
                 }
 
