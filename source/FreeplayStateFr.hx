@@ -267,9 +267,9 @@ class FreeplayStateFr extends MusicBeatState
 			destroyFreeplayVocals();
 			Paths.currentModDirectory = songs[curSelected].folder;			
 			var poop:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase(), curDifficulty);
-			PlayStateFr.SONG = Song.loadFromJson(poop, songs[curSelected].songName.toLowerCase());
-			if (PlayStateFr.SONG.needsVoices)
-				vocals = new FlxSound().loadEmbedded(Paths.voices(PlayStateFr.SONG.song));
+			PlayState.SONG = Song.loadFromJson(poop, songs[curSelected].songName.toLowerCase());
+			if (PlayState.SONG.needsVoices)
+				vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song));
 			else
 				vocals = new FlxSound();
 
@@ -292,16 +292,16 @@ class FreeplayStateFr extends MusicBeatState
 			}
 			trace(poop);
 
-			PlayStateFr.SONG = Song.loadFromJson(poop, songLowercase);
-			PlayStateFr.isStoryMode = false;
-			PlayStateFr.storyDifficulty = curDifficulty;
+			PlayState.SONG = Song.loadFromJson(poop, songLowercase);
+			PlayState.isStoryMode = false;
+			PlayState.storyDifficulty = curDifficulty;
 
-			PlayStateFr.storyWeek = songs[curSelected].week;
+			PlayState.storyWeek = songs[curSelected].week;
 			trace('COURANT SEMAINE: ' + WeekData.getWeekFileName());
 			if(colorTween != null) {
 				colorTween.cancel();
 			}
-			LoadingState.loadAndSwitchState(new PlayStateFr());
+			LoadingState.loadAndSwitchState(new PlayState());
 
 			FlxG.sound.music.volume = 0;
 					
