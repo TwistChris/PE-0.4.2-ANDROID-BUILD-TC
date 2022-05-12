@@ -61,6 +61,7 @@ class TranslateState extends MusicBeatState
 			FlxTransitionableState.skipNextTransIn = true;
 			FlxTransitionableState.skipNextTransOut = true;
 			MusicBeatState.switchState(new FlashingState());
+        }
 
         #if mobileC
         addVirtualPad(FULL, A_B);	
