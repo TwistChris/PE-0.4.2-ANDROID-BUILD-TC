@@ -13,7 +13,7 @@ class TranslateState extends MusicBeatState
 
     var warnText:FlxText;
     var text:FlxText;
-    var charSelHeaderText:Alphabet;
+    var charSelHeaderText:FlxText;
 
     var bg:FlxSprite;
 
