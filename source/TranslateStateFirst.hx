@@ -86,6 +86,7 @@ class TranslateStateFirst extends MusicBeatState
                        leftState = true;
 	               FlxTransitionableState.skipNextTransIn = true;
                        FlxTransitionableState.skipNextTransOut = true;
+                       ClientPrefs.language = false;
                        FlxG.sound.play(Paths.sound('confirmMenu'));
                        var langcurselc:String = languages[curSelected];
 
