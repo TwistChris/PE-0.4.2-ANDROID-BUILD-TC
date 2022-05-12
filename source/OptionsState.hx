@@ -725,7 +725,7 @@ class LanguageSubtate extends MusicBeatSubstate
         
         private var text:FlxText;
 
-        private var charSelHeaderText:Alphabet;
+        private var charSelHeaderText:FlxText;
 
         private static var curSelected:Int = 0;
 
@@ -745,9 +745,8 @@ class LanguageSubtate extends MusicBeatSubstate
         text.scrollFactor.set();
         add(text);
 
-        var langselc:String = 'Language Select';
-
-        charSelHeaderText = new Alphabet(0, 50, '', true, false);
+        charSelHeaderText = new FlxText(0, 0, FlxG.width, '', 50);
+        charSelHeaderText.text = 'Language Select';
         charSelHeaderText.screenCenter(X);
         add(charSelHeaderText);
 
