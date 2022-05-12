@@ -63,7 +63,7 @@ import ui.Mobilecontrols;
 
 using StringTools;
 
-class PlayState extends MusicBeatState
+class PlayStateFr extends MusicBeatState
 {
 	public static var STRUM_X = 42;
 	public static var STRUM_X_MIDDLESCROLL = -278;
