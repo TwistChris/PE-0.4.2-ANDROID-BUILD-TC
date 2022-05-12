@@ -347,7 +347,7 @@ class TitleStateFr extends MusicBeatState
 					if (mustUpdate) {
 						MusicBeatState.switchState(new OutdatedState());
 					} else {
-						MusicBeatState.switchState(new MainMenuState());
+						MusicBeatState.switchState(new MainMenuStateFr());
 					}
 					closedState = true;
 				});
