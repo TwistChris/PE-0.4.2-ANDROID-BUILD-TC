@@ -141,6 +141,8 @@ class PlayState extends MusicBeatState
 
         public static var hasPlayedOnce:Bool = false;
 
+        public static var scorefr:Bool = false;
+
         public static var bfsel:String = '';
 
         var bfcansing:Bool = true;
@@ -2138,10 +2140,13 @@ class PlayState extends MusicBeatState
 			scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingString + ' (' + Math.floor(ratingPercent * 100) + '%)';
 		}
 
-                if(ratingStringFr == '?') {
-			scoreTxt.text = 'Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Évaluation: ' + ratingString;
-		} else {
-			scoreTxt.text = 'Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Évaluation: ' + ratingString + ' (' + Math.floor(ratingPercent * 100) + '%)';
+                if (scorefr = true);
+                {
+                        if(ratingStringFr == '?') {
+			        scoreTxt.text = 'Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Évaluation: ' + ratingString;
+		        } else {
+			        scoreTxt.text = 'Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Évaluation: ' + ratingString + ' (' + Math.floor(ratingPercent * 100) + '%)';
+                        }
 		}
 
 		if(cpuControlled) {
@@ -4426,6 +4431,7 @@ class PlayState extends MusicBeatState
 	}
 
 	public var ratingString:String;
+        public var ratingStringFr:String;
 	public var ratingPercent:Float;
 	public function RecalculateRating() {
 		setOnLuas('score', songScore);
@@ -4449,6 +4455,20 @@ class PlayState extends MusicBeatState
 						ratingString = ratingStuff[i][0];
 						break;
 					}
+				}
+			}
+
+                        if(Math.isNaN(ratingPercent)) {
+				ratingStringFr = '?';
+			} else if(ratingPercent >= 1) {
+				ratingPercent = 1;
+				ratingStringFr = ratingStuffFr[ratingStuffFr.length-1][0]; //Uses last string
+			} else {
+				for (i in 0...ratingStuffFr.length-1) {
+					if(ratingPercent < ratingStuff[i][1]) {
+						ratingString = ratingStuff[i][0];
+						break;
+                                        }
 				}
 			}
 
