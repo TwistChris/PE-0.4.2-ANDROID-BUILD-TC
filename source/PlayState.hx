@@ -2140,7 +2140,7 @@ class PlayState extends MusicBeatState
 			scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingString + ' (' + Math.floor(ratingPercent * 100) + '%)';
 		}
 
-                if (scorefr = true);
+                if (scorefr = true)
                 {
                         if(ratingStringFr == '?') {
 			        scoreTxt.text = 'Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Évaluation: ' + ratingString;
