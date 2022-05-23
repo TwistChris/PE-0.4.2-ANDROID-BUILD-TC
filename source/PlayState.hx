@@ -2142,10 +2142,10 @@ class PlayState extends MusicBeatState
 
                 if (scorefr = true)
                 {
-                        if(ratingStringFr == '?') {
-			        scoreTxt.text = 'Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Évaluation: ' + ratingString;
+                        if(ratingString == '?') {
+			        scoreTxt.text = 'Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Évaluation: ' + ratingStringFr;
 		        } else {
-			        scoreTxt.text = 'Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Évaluation: ' + ratingString + ' (' + Math.floor(ratingPercent * 100) + '%)';
+			        scoreTxt.text = 'Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Évaluation: ' + ratingStringFr + ' (' + Math.floor(ratingPercent * 100) + '%)';
                         }
 		}
 
