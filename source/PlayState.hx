@@ -145,6 +145,8 @@ class PlayState extends MusicBeatState
 
         public static var bfsel:String = '';
 
+        public static var languagescore:String = '';
+
         var bfcansing:Bool = true;
 	var dadcansing:Bool = true;
 	var gfcansing:Bool = false;
