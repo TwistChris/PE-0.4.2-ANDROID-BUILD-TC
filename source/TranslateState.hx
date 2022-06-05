@@ -98,8 +98,10 @@ class TranslateState extends MusicBeatState
                        switch (langcurselc)
                        {
 		               case 'English':
+                                      PlayState.languagescore = langcurselc;
 		                      MusicBeatState.switchState(new TitleState());
 		               case 'Français':
+                                      PlayState.languagescore = langcurselc;
 		                      MusicBeatState.switchState(new TitleStateFr());
 	               }
                 }
