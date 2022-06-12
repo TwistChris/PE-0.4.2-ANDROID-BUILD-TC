@@ -4457,31 +4457,45 @@ class PlayState extends MusicBeatState
 
 			if(Math.isNaN(ratingPercent)) {
 				ratingString = '?';
+                                ratingStringFr = '?';
 			} else if(ratingPercent >= 1) {
 				ratingPercent = 1;
 				ratingString = ratingStuff[ratingStuff.length-1][0]; //Uses last string
+                                ratingStringFr = ratingStuffFr[ratingStuff.length-1][0]; //Uses last string
 			} else {
-				for (i in 0...ratingStuff.length-1) {
-					if(ratingPercent < ratingStuff[i][1]) {
-						ratingString = ratingStuff[i][0];
-						break;
-					}
-				}
-			}
-
-                        if(Math.isNaN(ratingPercent)) {
-				ratingStringFr = '?';
-			} else if(ratingPercent >= 1) {
-				ratingPercent = 1;
-				ratingStringFr = ratingStuffFr[ratingStuffFr.length-1][0]; //Uses last string
-			} else {
-				for (i in 0...ratingStuffFr.length-1) {
-					if(ratingPercent < ratingStuff[i][1]) {
-						ratingString = ratingStuff[i][0];
-						break;
+                                switch (languagescore)
+                                {
+                                        case 'Français':
+                                        {
+				                for (i in 0...ratingStuffFr.length-1) {
+					                if(ratingPercent < ratingStuffFr[i][1]) {
+						                ratingStringFr = ratingStuffFr[i][0];
+						                break;
+					                }
+				                }
                                         }
-				}
-			}
+
+                                        case 'English':
+                                        {
+				                for (i in 0...ratingStuff.length-1) {
+					                if(ratingPercent < ratingStuff[i][1]) {
+						                ratingString = ratingStuff[i][0];
+						                break;
+					                }
+				                }
+                                        }
+
+                                        case 'English':
+                                        {
+				                for (i in 0...ratingStuff.length-1) {
+					                if(ratingPercent < ratingStuff[i][1]) {
+						                ratingString = ratingStuff[i][0];
+						                break;
+					                }
+				                }
+                                        }
+                                }
+                        }
 
 			setOnLuas('rating', ratingPercent);
 			setOnLuas('ratingName', ratingString);
