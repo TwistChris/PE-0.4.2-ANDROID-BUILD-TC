@@ -4485,7 +4485,7 @@ class PlayState extends MusicBeatState
 				                }
                                         }
 
-                                        case 'English':
+                                        default:
                                         {
 				                for (i in 0...ratingStuff.length-1) {
 					                if(ratingPercent < ratingStuff[i][1]) {
