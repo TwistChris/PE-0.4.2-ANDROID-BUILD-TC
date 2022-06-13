@@ -4445,6 +4445,20 @@ class PlayState extends MusicBeatState
         public var ratingStringFr:String;
 	public var ratingPercent:Float;
 	public function RecalculateRating() {
+                var ratinglanguages:String = ratingString;
+
+                switch (languagescore) 
+                { 
+                        case 'Français':
+                                ratinglanguages = ratingStringFr;
+
+                        case 'English':
+                                ratinglanguages = ratingString;
+
+                        default:
+                                ratinglanguages = ratingString;
+                }
+
 		setOnLuas('score', songScore);
 		setOnLuas('misses', songMisses);
 		setOnLuas('ghostMisses', songMisses);
@@ -4456,40 +4470,31 @@ class PlayState extends MusicBeatState
 			if(!Math.isNaN(ratingPercent) && ratingPercent < 0) ratingPercent = 0;
 
 			if(Math.isNaN(ratingPercent)) {
-				ratingString = '?';
-                                ratingStringFr = '?';
+			        ratinglanguages = '?';
 			} else if(ratingPercent >= 1) {
 				ratingPercent = 1;
-				ratingString = ratingStuff[ratingStuff.length-1][0]; //Uses last string
-                                ratingStringFr = ratingStuffFr[ratingStuff.length-1][0]; //Uses last string
-			} else {
-                                switch (languagescore)
+				ratinglanguages = ratingStuff[ratingStuff.length-1][0]; //Uses last string
+                                if (ratinglanguages = ratingStringFr)
                                 {
-                                        case 'Français':
-				                for (i in 0...ratingStuffFr.length-1) {
-					                if(ratingPercent < ratingStuffFr[i][1]) {
-						                ratingStringFr = ratingStuffFr[i][0];
-						                break;
-					                }
-				                }
-
-                                        case 'English':
-				                for (i in 0...ratingStuff.length-1) {
-					                if(ratingPercent < ratingStuff[i][1]) {
-						                ratingString = ratingStuff[i][0];
-						                break;
-					                }
-				                }
-
-                                        default:
-				                for (i in 0...ratingStuff.length-1) {
-					                if(ratingPercent < ratingStuff[i][1]) {
-						                ratingString = ratingStuff[i][0];
-						                break;
-					                }
-				                }
+                                        ratinglanguages = ratingStuffFr[ratingStuff.length-1][0]; //Uses last string
                                 }
-                        }
+			 } else {
+				 for (i in 0...ratingStuff.length-1) {
+				         if(ratingPercent < ratingStuff[i][1]) {
+					         ratinglanguages = ratingStuffFr[i][0];
+				                 break;
+					 }
+				 }
+
+                                 if (ratinglanguages = ratingStringFr)
+                                 {
+                                         for (i in 0...ratingStuffFr.length-1) {
+				                 if(ratingPercent < ratingStuffFr[i][1]) {
+					                 ratinglanguages = ratingStuffFr[i][0];
+				                         break;
+					         }
+				         }
+                                 }
 
 			setOnLuas('rating', ratingPercent);
 			setOnLuas('ratingName', ratingString);
