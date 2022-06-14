@@ -4445,7 +4445,6 @@ class PlayState extends MusicBeatState
         public var ratingStringFr:String;
 	public var ratingPercent:Float;
 	public function RecalculateRating() {
-
 		setOnLuas('score', songScore);
 		setOnLuas('misses', songMisses);
 		setOnLuas('ghostMisses', songMisses);
@@ -4457,7 +4456,7 @@ class PlayState extends MusicBeatState
 			if(!Math.isNaN(ratingPercent) && ratingPercent < 0) ratingPercent = 0;
 
 			if(Math.isNaN(ratingPercent)) {
-			        ratingString = '?';
+				ratingString = '?';
                                 ratingStringFr = '?';
 			} else if(ratingPercent >= 1) {
 				ratingPercent = 1;
@@ -4465,13 +4464,22 @@ class PlayState extends MusicBeatState
                                 ratingStringFr = ratingStuffFr[ratingStuffFr.length-1][0]; //Uses last string
 			} else {
 				for (i in 0...ratingStuff.length-1) {
-				        if(ratingPercent < ratingStuff[i][1]) {
-					        ratingString = ratingStuff[i][0];
-				                break;
+					if(ratingPercent < ratingStuff[i][1]) {
+						ratingString = ratingStuff[i][0];
+						break;
 					}
 				}
+			}
 
-                        }
+                        if (ratingStringFr = ratingStuffFr[ratingStuffFr.length-1][0])
+                        {
+				for (i in 0...ratingStuffFr.length-1) {
+					if(ratingPercent < ratingStuffFr[i][1]) {
+						ratingString = ratingStuffFr[i][0];
+						break;
+                                        }
+				}
+			}
 
 			setOnLuas('rating', ratingPercent);
 			setOnLuas('ratingName', ratingString);
