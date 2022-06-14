@@ -4442,7 +4442,6 @@ class PlayState extends MusicBeatState
 	}
 
 	public var ratingString:String;
-        public var ratingStringFr:String;
 	public var ratingPercent:Float;
 	public function RecalculateRating() {
 
@@ -4464,7 +4463,7 @@ class PlayState extends MusicBeatState
 			} else {
 				for (i in 0...ratingStuff.length-1) {
 				        if(ratingPercent < ratingStuff[i][1]) {
-					        ratinglanguages = ratingStuffFr[i][0];
+					        ratingString = ratingStuff[i][0];
 				                break;
 					}
 				}
