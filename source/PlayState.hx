@@ -4476,12 +4476,12 @@ class PlayState extends MusicBeatState
 				ratingStringFr = ratingStuffFr[ratingStuffFr.length-1][0]; //Uses last string
 			} else {
 				for (i in 0...ratingStuffFr.length-1) {
-					if(ratingPercent < ratingStuffFr[i][1]) {
-						ratingString = ratingStuffFr[i][0];
+					if(ratingPercent < ratingStuff[i][1]) {
+						ratingString = ratingStuff[i][0];
 						break;
                                         }
-                                }
-                        }
+				}
+			}
 
 			setOnLuas('rating', ratingPercent);
 			setOnLuas('ratingName', ratingString);
