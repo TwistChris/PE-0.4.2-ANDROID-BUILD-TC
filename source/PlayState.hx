@@ -4458,9 +4458,11 @@ class PlayState extends MusicBeatState
 
 			if(Math.isNaN(ratingPercent)) {
 			        ratingString = '?';
+                                ratingStringFr = '?';
 			} else if(ratingPercent >= 1) {
 				ratingPercent = 1;
 				ratingString = ratingStuff[ratingStuff.length-1][0]; //Uses last string
+                                ratingStringFr = ratingStuffFr[ratingStuffFr.length-1][0]; //Uses last string
 			} else {
 				for (i in 0...ratingStuff.length-1) {
 				        if(ratingPercent < ratingStuff[i][1]) {
