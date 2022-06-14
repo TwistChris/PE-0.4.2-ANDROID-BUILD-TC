@@ -4442,8 +4442,8 @@ class PlayState extends MusicBeatState
 	}
 
 	public var ratingString:String;
-	public var ratingPercent:Float;
         public var ratingStringFr:String;
+	public var ratingPercent:Float;
 	public function RecalculateRating() {
 
 		setOnLuas('score', songScore);
