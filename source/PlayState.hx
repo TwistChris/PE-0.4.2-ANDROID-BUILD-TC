@@ -4475,6 +4475,40 @@ class PlayState extends MusicBeatState
 		}
 	}
 
+        public var ratingStringFr:String;
+	public var ratingPercentFr:Float;
+	public function RecalculateRatingFr() {
+
+		setOnLuas('score', songScore);
+		setOnLuas('misses', songMisses);
+		setOnLuas('ghostMisses', songMisses);
+		setOnLuas('hits', songHits);
+
+		var ret:Dynamic = callOnLuas('onRecalculateRatingFr', []);
+		if(ret != FunkinLua.Function_Stop) {
+			ratingPercentFr = songScore / ((songHits + songMisses - ghostMisses) * 350);
+			if(!Math.isNaN(ratingPercentFr) && ratingPercentFr < 0) ratingPercentFr = 0;
+
+			if(Math.isNaN(ratingPercent)) {
+			        ratingStringFr = '?';
+			} else if(ratingPercent >= 1) {
+				ratingPercentFr = 1;
+				ratingStringFr = ratingStuffFr[ratingStuffFr.length-1][0]; //Uses last string
+			} else {
+				for (i in 0...ratingStuffFr.length-1) {
+				        if(ratingPercentFr < ratingStuffFr[i][1]) {
+					        ratingStringFr = ratingStuffFr[i][0];
+				                break;
+					}
+				}
+
+                        }
+
+			setOnLuas('rating', ratingPercentFr);
+			setOnLuas('ratingName', ratingStringFr);
+		}
+	}
+
 	#if ACHIEVEMENTS_ALLOWED
 	private function checkForAchievement(achievesToCheck:Array<String>):String {
 		for (i in 0...achievesToCheck.length) {
