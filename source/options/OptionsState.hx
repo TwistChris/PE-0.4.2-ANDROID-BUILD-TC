@@ -29,7 +29,7 @@ using StringTools;
 
 class OptionsState extends MusicBeatState
 {
-	var options:Array<Array<String>> = [
+	var options:Array<String> = [
 		'Language',
 		'Note Colors',
 		'Adjust Delay and Combo',
