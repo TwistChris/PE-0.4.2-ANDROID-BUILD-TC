@@ -295,11 +295,7 @@ class Paths
 		var xmlExists:Bool = false;
 
 		return FlxAtlasFrames.fromSparrow((imageLoaded != null ? imageLoaded : image(key, library)),
-			(xmlExists ? File.getContent(modsXml(key)) : file('images/$key.xml', library)));
-		#else
-		return FlxAtlasFrames.fromSparrow(image(key, library), file('images/$key.xml', library));
-		#end
-	}
+        }
 
 	inline static public function formatToSongPath(path:String)
 	{
