@@ -30,13 +30,12 @@ using StringTools;
 class OptionsState extends MusicBeatState
 {
 	var options:Array<Array<String>> = [
-		['Language', Language.language],
-		['Note Colors', Language.noteColors],
-		['Controls', Language.controls],
-		['Adjust Delay and Combo', Language.delayCombo],
-		['Graphics', Language.graphics],
-		['Visuals and UI', Language.visualsUI],
-		['Gameplay', Language.gameplay]
+		'Language',
+		'Note Colors',
+		'Adjust Delay and Combo',
+		'Graphics',
+		'Visuals and UI',
+		'Gameplay',
 	];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 
