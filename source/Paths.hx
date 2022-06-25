@@ -291,9 +291,6 @@ class Paths
 
 	inline static public function getSparrowAtlas(key:String, ?library:String):FlxAtlasFrames
 	{
-		var imageLoaded:FlxGraphic = returnGraphic(key);
-		var xmlExists:Bool = false;
-
 		return FlxAtlasFrames.fromSparrow((imageLoaded != null ? imageLoaded : image(key, library)),
         }
 
