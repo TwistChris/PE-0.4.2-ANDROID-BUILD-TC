@@ -1,12 +1,5 @@
 package;
 
-import animateatlas.AtlasFrameMaker;
-import flixel.math.FlxPoint;
-import flixel.graphics.frames.FlxFrame.FlxFrameAngle;
-import openfl.geom.Rectangle;
-import flixel.math.FlxRect;
-import haxe.xml.Access;
-import openfl.system.System;
 import flixel.FlxG;
 import flixel.graphics.frames.FlxAtlasFrames;
 import openfl.utils.AssetType;
@@ -19,6 +12,7 @@ import sys.FileSystem;
 import flixel.graphics.FlxGraphic;
 import openfl.display.BitmapData;
 #end
+
 import flash.media.Sound;
 
 using StringTools;
@@ -26,9 +20,9 @@ using StringTools;
 class Paths
 {
 	inline public static var SOUND_EXT = #if web "mp3" #else "ogg" #end;
-	inline public static var VIDEO_EXT = "mp4";
+	inline public static var VIDEO_EXT = "html";
 
-        #if MODS_ALLOWED
+	#if MODS_ALLOWED
 	#if (haxe >= "4.0.0")
 	public static var customImagesLoaded:Map<String, Bool> = new Map();
 	#else
@@ -36,7 +30,7 @@ class Paths
 	#end
 	#end
 
-        public static function destroyLoadedImages(ignoreCheck:Bool = false) {
+	public static function destroyLoadedImages(ignoreCheck:Bool = false) {
 		#if MODS_ALLOWED
 		if(!ignoreCheck && ClientPrefs.imagesPersist) return; //If there's 20+ images loaded, do a cleanup just for preventing a crash
 
@@ -50,79 +44,10 @@ class Paths
 		}
 		Paths.customImagesLoaded.clear();
 		#end
-	}
+	}	
 
-	public static function excludeAsset(key:String)
-	{
-		if (!dumpExclusions.contains(key))
-			dumpExclusions.push(key);
-	}
-
-	public static var dumpExclusions:Array<String> = [
-		'assets/music/freakyMenu.$SOUND_EXT',
-		'assets/shared/music/breakfast.$SOUND_EXT',
-	];
-
-	/// haya I love you for the base cache dump I took to the max
-	public static function clearUnusedMemory()
-	{
-		// clear non local assets in the tracked assets list
-		for (key in currentTrackedAssets.keys())
-		{
-			// if it is not currently contained within the used local assets
-			if (!localTrackedAssets.contains(key) && !dumpExclusions.contains(key))
-			{
-				// get rid of it
-				var obj = currentTrackedAssets.get(key);
-				@:privateAccess
-				if (obj != null)
-				{
-					openfl.Assets.cache.removeBitmapData(key);
-					FlxG.bitmap._cache.remove(key);
-					obj.destroy();
-					currentTrackedAssets.remove(key);
-				}
-			}
-		}
-		// run the garbage collector for good measure lmfao
-		System.gc();
-	}
-
-	// define the locally tracked assets
-	public static var localTrackedAssets:Array<String> = [];
-
-	public static function clearStoredMemory(?cleanUnused:Bool = false)
-	{
-		// clear anything not in the tracked assets list
-		@:privateAccess
-		for (key in FlxG.bitmap._cache.keys())
-		{
-			var obj = FlxG.bitmap._cache.get(key);
-			if (obj != null && !currentTrackedAssets.exists(key))
-			{
-				openfl.Assets.cache.removeBitmapData(key);
-				FlxG.bitmap._cache.remove(key);
-				obj.destroy();
-			}
-		}
-
-		// clear all sounds that are cached
-		for (key in currentTrackedSounds.keys())
-		{
-			if (!localTrackedAssets.contains(key) && !dumpExclusions.contains(key) && key != null)
-			{
-				// trace('test: ' + dumpExclusions, key);
-				Assets.cache.clear(key);
-				currentTrackedSounds.remove(key);
-			}
-		}
-		// flags everything to be cleared out next unused memory clear
-		localTrackedAssets = [];
-		openfl.Assets.cache.clear("songs");
-	}
-
-	static public var currentModDirectory:String = '';
-	static public var currentLevel:String;
+	static public var currentModDirectory:String = null;
+	static var currentLevel:String;
 
 	static public function setCurrentLevel(name:String)
 	{
@@ -137,8 +62,7 @@ class Paths
 		if (currentLevel != null)
 		{
 			var levelPath:String = '';
-			if (currentLevel != 'shared')
-			{
+			if(currentLevel != 'shared') {
 				levelPath = getLibraryPathForce(file, currentLevel);
 				if (OpenFlAssets.exists(levelPath, type))
 					return levelPath;
@@ -159,13 +83,17 @@ class Paths
 
 	inline static function getLibraryPathForce(file:String, library:String)
 	{
-		var returnPath = '$library:assets/$library/$file';
-		return returnPath;
+		return '$library:assets/$library/$file';
 	}
 
 	inline public static function getPreloadPath(file:String = '')
 	{
 		return 'assets/$file';
+	}
+
+	inline public static function getPreloadPathlua(file:String = '')
+	{
+		return Main.path + 'assets/$file';
 	}
 
 	inline static public function file(file:String, type:AssetType = TEXT, ?library:String)
@@ -188,30 +116,18 @@ class Paths
 		return getPath('data/$key.json', TEXT, library);
 	}
 
-	inline static public function shaderFragment(key:String, ?library:String)
-	{
-		return getPath('shaders/$key.frag', TEXT, library);
-	}
-
-	inline static public function shaderVertex(key:String, ?library:String)
-	{
-		return getPath('shaders/$key.vert', TEXT, library);
-	}
-
 	inline static public function lua(key:String, ?library:String)
+	{
+		return Main.path + getPath('$key.lua', TEXT, library);
+	}
+
+	inline static public function luaAsset(key:String, ?library:String)
 	{
 		return getPath('$key.lua', TEXT, library);
 	}
 
 	static public function video(key:String)
 	{
-		#if MODS_ALLOWED
-		var file:String = modsVideo(key);
-		if (FileSystem.exists(file))
-		{
-			return file;
-		}
-		#end
 		return 'assets/videos/$key.$VIDEO_EXT';
 	}
 
@@ -221,12 +137,16 @@ class Paths
 		return sound;
 	}
 
-	static public function themeSound(key:String, ?library:String):Sound
+        static public function themeSound(key:String, ?library:String):Sound
 	{
 		var sound:Sound = returnSound('sounds', TitleState.themefolder + key, library);
+		if (!(FileSystem.exists(modsSounds('sounds', TitleState.themefolder + key)) || FileSystem.exists('assets/sounds/' + TitleState.themefolder + '$key.$SOUND_EXT') || FileSystem.exists('assets/shared/sounds/' + TitleState.themefolder + '$key.$SOUND_EXT'))) {
+			sound = returnSound('sounds', key, library);
+			FlxG.log.advanced("Default theme sound");
+		}
 		return sound;
 	}
-
+	
 	inline static public function soundRandom(key:String, min:Int, max:Int, ?library:String)
 	{
 		return sound(key + FlxG.random.int(min, max), library);
@@ -238,32 +158,23 @@ class Paths
 		return file;
 	}
 
-	inline static public function themeMusic(key:String, ?library:String):Sound
+        inline static public function themeMusic(key:String, ?library:String):Sound
 	{
 		var file:Sound = returnSound('music', TitleState.themefolder + key, library);
+		if (!(FileSystem.exists(modsSounds('music', TitleState.themefolder + key)) || FileSystem.exists('assets/music/' + TitleState.themefolder + '$key.$SOUND_EXT') || FileSystem.exists('assets/shared/music/' + TitleState.themefolder + '$key.$SOUND_EXT')))
+			file = returnSound('music', key, library);
+		FlxG.log.advanced("Default theme music");
 		return file;
 	}
 
-	inline static public function oppVoices(song:String):Any
+	inline static public function voices(song:String):Any
 	{
-		var file:Sound = returnSound('songs', song.toLowerCase().replace(' ', '-') + '/OppVoices');
-		FlxG.log.advanced("OppVoices loaded");
-		return file;
-	}
-
-	inline static public function voices(song:String, char:String):Any
-	{
-		var modsFileCheck:String = modsSounds('songs', song.toLowerCase().replace(' ', '-') + '/Voices-' + char);
-		var fileCheck:String = 'assets/songs/${song.toLowerCase().replace(' ', '-')}/Voices-${char}.$SOUND_EXT';
-		var file:Sound;
-		return file;
+		return 'songs:assets/songs/${song.toLowerCase().replace(' ', '-')}/Voices.$SOUND_EXT';
 	}
 
 	inline static public function inst(song:String):Any
 	{
-		var songKey:String = '${song.toLowerCase().replace(' ', '-')}/Inst';
-		var inst = returnSound('songs', songKey);
-		return inst;
+		return 'songs:assets/songs/${song.toLowerCase().replace(' ', '-')}/Inst.$SOUND_EXT';
 	}
 
 	inline static public function image(key:String, ?library:String):FlxGraphic
@@ -273,31 +184,49 @@ class Paths
 		return returnAsset;
 	}
 
-	inline static public function themeImage(key:String, ?library:String):FlxGraphic
+        inline static public function themeImage(key:String, ?library:String):FlxGraphic
 	{
 		// streamlined the assets process more
 		var returnAsset:FlxGraphic = returnGraphic(TitleState.themefolder + key, library);
+		if (!(FileSystem.exists(modsImages(key)) || FileSystem.exists('assets/images/' + TitleState.themefolder + '$key.png')))
+			returnAsset = returnGraphic(key, library);
 		return returnAsset;
+	}
+	
+	static public function getTextFromFile(key:String, ?ignoreMods:Bool = false):String
+	{
+		return Assets.getText(getPath(key, TEXT));
+	}
+
+	inline static public function font(key:String)
+	{
+		return 'assets/fonts/$key';
 	}
 
 	inline static public function fileExists(key:String, type:AssetType, ?ignoreMods:Bool = false, ?library:String)
-	{
-		if (OpenFlAssets.exists(getPath(key, type)))
-		{
+	{		
+		if(OpenFlAssets.exists(Paths.getPath(key, type))) {
 			return true;
 		}
 		return false;
 	}
 
-	inline static public function getSparrowAtlas(key:String, ?library:String):FlxAtlasFrames
+	inline static public function getSparrowAtlas(key:String, ?library:String)
 	{
-		return FlxAtlasFrames.fromSparrow((imageLoaded != null ? imageLoaded : image(key, library)),
-        }
-
-	inline static public function formatToSongPath(path:String)
-	{
-		return path.toLowerCase().replace(' ', '-');
+		return FlxAtlasFrames.fromSparrow(image(key, library), file('images/$key.xml', library));
 	}
 
-	// completely rewritten asset loading? fuck!
+	inline static public function getSparrowAtlaslua(key:String, ?library:String)
+	{
+		return FlxAtlasFrames.fromSparrow(image(key, library), file(Main.path + 'images/$key.xml', library));
+	}
+
+	inline static public function getPackerAtlas(key:String, ?library:String)
+	{
+		return FlxAtlasFrames.fromSpriteSheetPacker(image(key, library), file('images/$key.txt', library));
+	}
+
+	inline static public function formatToSongPath(path:String) {
+		return path.toLowerCase().replace(' ', '-');
+	}
 }
