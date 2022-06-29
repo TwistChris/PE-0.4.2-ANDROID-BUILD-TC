@@ -131,20 +131,9 @@ class Paths
 		return 'assets/videos/$key.$VIDEO_EXT';
 	}
 
-	static public function sound(key:String, ?library:String):Sound
+	static public function sound(key:String, ?library:String):Dynamic
 	{
-		var sound:Sound = returnSound('sounds', key, library);
-		return sound;
-	}
-
-        static public function themeSound(key:String, ?library:String):Sound
-	{
-		var sound:Sound = returnSound('sounds', TitleState.themefolder + key, library);
-		if (!(FileSystem.exists(modsSounds('sounds', TitleState.themefolder + key)) || FileSystem.exists('assets/sounds/' + TitleState.themefolder + '$key.$SOUND_EXT') || FileSystem.exists('assets/shared/sounds/' + TitleState.themefolder + '$key.$SOUND_EXT'))) {
-			sound = returnSound('sounds', key, library);
-			FlxG.log.advanced("Default theme sound");
-		}
-		return sound;
+		return getPath('sounds/$key.$SOUND_EXT', SOUND, library);
 	}
 	
 	inline static public function soundRandom(key:String, min:Int, max:Int, ?library:String)
@@ -152,19 +141,9 @@ class Paths
 		return sound(key + FlxG.random.int(min, max), library);
 	}
 
-	inline static public function music(key:String, ?library:String):Sound
+	inline static public function music(key:String, ?library:String):Dynamic
 	{
-		var file:Sound = returnSound('music', key, library);
-		return file;
-	}
-
-        inline static public function themeMusic(key:String, ?library:String):Sound
-	{
-		var file:Sound = returnSound('music', TitleState.themefolder + key, library);
-		if (!(FileSystem.exists(modsSounds('music', TitleState.themefolder + key)) || FileSystem.exists('assets/music/' + TitleState.themefolder + '$key.$SOUND_EXT') || FileSystem.exists('assets/shared/music/' + TitleState.themefolder + '$key.$SOUND_EXT')))
-			file = returnSound('music', key, library);
-		FlxG.log.advanced("Default theme music");
-		return file;
+		return getPath('music/$key.$SOUND_EXT', MUSIC, library);
 	}
 
 	inline static public function voices(song:String):Any
@@ -177,20 +156,9 @@ class Paths
 		return 'songs:assets/songs/${song.toLowerCase().replace(' ', '-')}/Inst.$SOUND_EXT';
 	}
 
-	inline static public function image(key:String, ?library:String):FlxGraphic
+	inline static public function image(key:String, ?library:String):Dynamic
 	{
-		// streamlined the assets process more
-		var returnAsset:FlxGraphic = returnGraphic(key, library);
-		return returnAsset;
-	}
-
-        inline static public function themeImage(key:String, ?library:String):FlxGraphic
-	{
-		// streamlined the assets process more
-		var returnAsset:FlxGraphic = returnGraphic(TitleState.themefolder + key, library);
-		if (!(FileSystem.exists(modsImages(key)) || FileSystem.exists('assets/images/' + TitleState.themefolder + '$key.png')))
-			returnAsset = returnGraphic(key, library);
-		return returnAsset;
+		return getPath('images/$key.png', IMAGE, library);
 	}
 	
 	static public function getTextFromFile(key:String, ?ignoreMods:Bool = false):String
