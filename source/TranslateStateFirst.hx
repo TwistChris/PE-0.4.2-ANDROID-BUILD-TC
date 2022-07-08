@@ -1,139 +1,162 @@
 package;
 
+#if desktop
+import Discord.DiscordClient;
+#end
+import flash.text.TextField;
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.addons.display.FlxGridOverlay;
+import flixel.group.FlxGroup.FlxTypedGroup;
+import flixel.math.FlxMath;
 import flixel.text.FlxText;
-import flixel.util.FlxTimer;
 import flixel.util.FlxColor;
-import flixel.addons.transition.FlxTransitionableState;
+import lime.utils.Assets;
+import flixel.FlxSubState;
+import flash.text.TextField;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.util.FlxSave;
+import haxe.Json;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.util.FlxTimer;
+import flixel.input.keyboard.FlxKey;
+import flixel.graphics.FlxGraphic;
+import Controls;
+
+using StringTools;
 
 class TranslateStateFirst extends MusicBeatState
 {
-    public static var leftState:Bool = false;
+	private var grpLang:FlxTypedGroup<Alphabet>;
 
-    var warnText:FlxText;
-    var text:FlxText;
-    var charSelHeaderText:FlxText;
+	private static var curSelected:Int = 0;
+	public static var menuBG:FlxSprite;
+	
+	var lang:Array<Array<String>> = [];
+	private var iconArray:Array<AttachedSprite> = [];
 
-    var bg:FlxSprite;
+	override function create()
+	{
+		var fullText:String = Assets.getText(Paths.txt('langList'));
+	
+		var firstArray:Array<String> = fullText.split('\n');
+	
+		for (i in firstArray)
+		{
+			lang.push(i.split('--'));
+		}
+		#if desktop
+		DiscordClient.changePresence("Language Menu", null);
+		#end
 
-    var languages:Array<String> = ['English', 'Français'];
-
-    public static var onComplete:() -> Void;
-
-    var curSelected:Int = 0;
-    
-    override function create()
-    {
-        bg = new FlxSprite().loadGraphic(Paths.image("menuDesat"));
-		bg.color = 0xFFea71fd;
-		bg.setGraphicSize(Std.int(bg.width * 1.1));
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.themeImage('menuDesat'));
+		bg.color = 0xFF009900;
 		bg.updateHitbox();
+
 		bg.screenCenter();
-		bg.antialiasing = FlxG.save.data.antialiasing;
+		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 
-        text = new FlxText();
-        text.setFormat(Paths.font('vcr.ttf'), 32, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-        text.text = '< Ъуъ >';
-        text.screenCenter(X);
-        text.screenCenter(Y);
-        text.scrollFactor.set();
-        add(text);
+		grpLang = new FlxTypedGroup<Alphabet>();
+		add(grpLang);
 
-        warnText = new FlxText(0, 0, FlxG.width,
-	        '',
-		32);
-	warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
-        warnText.text = 'You can always choose the language that you want in the options.';
-	warnText.screenCenter(X);
-        warnText.y += 70;
-	add(warnText);
+		for (i in 0...lang.length)
+		{
+			var langText:Alphabet = new Alphabet(0, 0, lang[i][0], true, false);
+			langText.isLangItem = true;
+			langText.y += (100 * (i - ((lang.length) / 2))) + 50;
+			langText.x += 300;
+			grpLang.add(langText);
 
-        charSelHeaderText = new FlxText(0, 0, FlxG.width, '', 50);
-        charSelHeaderText.text = 'Language Select';
-        warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
-        charSelHeaderText.screenCenter(X);
-        warnText.y += 20;
-        add(charSelHeaderText);
+			var icon:AttachedSprite = new AttachedSprite();
+			icon.frames = Paths.getThemedSparrowAtlas('languages/' + lang[i][1]);
+			icon.animation.addByPrefix('idle', lang[i][1], 24);
+			icon.animation.play('idle');
+			icon.xAdd = -icon.width - 10;
+			icon.sprTracker = langText;
 
-        #if mobileC
-        addVirtualPad(FULL, A_B);	
-        #end
+			// using a FlxGroup is too much fuss!
+			iconArray.push(icon);
+			add(icon);
+		}
 
-        super.create();
-    }
+		var titleText:Alphabet = new Alphabet(0, 0, Language.language, true, false, 0, 0.6);
+		titleText.x += 60;
+		titleText.y += 40;
+		titleText.alpha = 0.4;
+		add(titleText);
 
-    override function update(elapsed:Float) {
-                text.text = "< " + languages[curSelected] + " >";
+		curSelected = 0;
+		changeSelection();
 
-                if (controls.UI_LEFT_P)
-	        {
-                       changeSelected(-1);
-	        }
+                #if mobileC
+                addVirtualPad(FULL, A_B);	
+                #end
 
-	        if (controls.UI_RIGHT_P)
-	        {
-	               changeSelected(1);
-                }
+		super.create();
+	}
 
-                if (controls.BACK)
-                {
-                       FlxG.sound.play(Paths.sound('cancelMenu'));
-                }
+	override function closeSubState()
+	{
+		super.closeSubState();
+		ClientPrefs.saveSettings();
+	}
 
-                if(controls.ACCEPT) {
-                       leftState = true;
-	               FlxTransitionableState.skipNextTransIn = true;
-                       FlxTransitionableState.skipNextTransOut = true;
-                       ClientPrefs.language = false;
-                       FlxG.sound.play(Paths.sound('confirmMenu'));
-                       var langcurselc:String = languages[curSelected];
+	override function update(elapsed:Float)
+	{
+		super.update(elapsed);
 
-                       switch (langcurselc)
-                       {
-		               case 'English':
-                                      PlayState.languagescore = langcurselc;
-		                      MusicBeatState.switchState(new FlashingState());
-		               case 'Français':
-                                      PlayState.languagescore = langcurselc;
-		                      MusicBeatState.switchState(new FlashingStateFr());
-	               }
-                }
+		if (controls.UI_UP_P)
+		{
+			changeSelection(-1);
+		}
+		if (controls.UI_DOWN_P)
+		{
+			changeSelection(1);
+		}
 
-        super.update(elapsed);
-    }
+		if (controls.BACK)
+		{
+                        FlxG.sound.play(Paths.sound('cancelMenu'));
+		}
 
-    function changeSelected(change:Int = 0):Void
-    {
-        curSelected += change;
-    
-        if (curSelected >= languages.length)
-            curSelected = 0;
-        if (curSelected < 0)
-            curSelected = languages.length - 1;
+		if (controls.ACCEPT)
+		{
+                        leftState = true;
+	                FlxTransitionableState.skipNextTransIn = true;
+                        FlxTransitionableState.skipNextTransOut = true;
+			ClientPrefs.language = lang[curSelected][1];
+			Reflect.setProperty(ClientPrefs, 'language', lang[curSelected][1]);
+			ClientPrefs.saveSettings();
+			Language.regenerateLang(lang[curSelected][1]);
+			FlxG.sound.play(Paths.sound('confirmMenu'));
+			MusicBeatState.switchState(new FlashingState());
+		}
+	}
 
-        FlxG.sound.play(Paths.sound('scrollMenu'));
+	function changeSelection(change:Int = 0)
+	{
+		curSelected += change;
+		if (curSelected < 0)
+			curSelected = lang.length - 1;
+		if (curSelected >= lang.length)
+			curSelected = 0;
 
-        charCheck();
-    }
+		var bullShit:Int = 0;
 
-    function charCheck()
-    {
-         var langcurselc:String = languages[curSelected];
+		for (item in grpLang.members)
+		{
+			item.targetY = bullShit - curSelected;
+			bullShit++;
 
-         switch (langcurselc)
-         {
-                case 'English':
-                      warnText.text = 'You can always choose the language that you want in the options.';
-                      charSelHeaderText.text = 'Language Select';
-                case 'Français':
-                      warnText.text = 'Tu peux toujours la langue que tu veux dans les options.';
-                      charSelHeaderText.text = 'Selection de la langue';
-                default:
-                      warnText.text = 'You can always choose the language that you want in the options.';
-                      charSelHeaderText.text = 'Language Select';
-         }
-    }
-                       
+			item.alpha = 0.6;
+			if (item.targetY == 0)
+			{
+				item.alpha = 1;
+			}
+		}
+		FlxG.sound.play(Paths.sound('scrollMenu'));
+	}
 }
