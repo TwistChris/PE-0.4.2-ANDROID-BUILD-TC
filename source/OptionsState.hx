@@ -743,14 +743,6 @@ class LanguageSubtate extends MusicBeatSubstate
 		DiscordClient.changePresence("Language Menu", null);
 		#end
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.themeImage('menuDesat'));
-		bg.color = 0xFF009900;
-		bg.updateHitbox();
-
-		bg.screenCenter();
-		bg.antialiasing = ClientPrefs.globalAntialiasing;
-		add(bg);
-
 		grpLang = new FlxTypedGroup<Alphabet>();
 		add(grpLang);
 
@@ -762,9 +754,8 @@ class LanguageSubtate extends MusicBeatSubstate
 			langText.x += 300;
 			grpLang.add(langText);
 
-			var icon:AttachedSprite = new AttachedSprite();
-			icon.frames = Paths.getThemedSparrowAtlas('languages/' + lang[i][1]);
-			icon.animation.addByPrefix('idle', lang[i][1], 24);
+			var icon:FlxAtlasFrames = Paths.getSparrowAtlas('languages/' + lang[i][1]);
+			icon.animation.addByPrefix('idle', lang[i][1], 24, true);
 			icon.animation.play('idle');
 			icon.xAdd = -icon.width - 10;
 			icon.sprTracker = langText;
@@ -809,8 +800,8 @@ class LanguageSubtate extends MusicBeatSubstate
 
 		if (controls.BACK)
 		{
-			FlxG.sound.play(Paths.themeSound('cancelMenu'));
-			MusicBeatState.switchState(new options.OptionsState());
+			FlxG.sound.play(Paths.Sound('cancelMenu'));
+			MusicBeatState.switchState(new OptionsState());
 		}
 
 		if (controls.ACCEPT)
@@ -819,7 +810,7 @@ class LanguageSubtate extends MusicBeatSubstate
 			Reflect.setProperty(ClientPrefs, 'language', lang[curSelected][1]);
 			ClientPrefs.saveSettings();
 			Language.regenerateLang(lang[curSelected][1]);
-			FlxG.sound.play(Paths.themeSound('confirmMenu'));
+			FlxG.sound.play(Paths.Sound('confirmMenu'));
 			MusicBeatState.switchState(new OptionsState());
 		}
                 if(nextAccept > 0) {
@@ -849,7 +840,7 @@ class LanguageSubtate extends MusicBeatSubstate
 				item.alpha = 1;
 			}
 		}
-		FlxG.sound.play(Paths.themeSound('scrollMenu'));
+		FlxG.sound.play(Paths.Sound('scrollMenu'));
 	}
 }
 
