@@ -820,7 +820,7 @@ class LanguageSubtate extends MusicBeatSubstate
 			ClientPrefs.saveSettings();
 			Language.regenerateLang(lang[curSelected][1]);
 			FlxG.sound.play(Paths.themeSound('confirmMenu'));
-			MusicBeatState.switchState(new options.OptionsState());
+			MusicBeatState.switchState(new OptionsState());
 		}
                 if(nextAccept > 0) {
 	                nextAccept -= 1;
