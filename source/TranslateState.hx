@@ -28,7 +28,7 @@ import Controls;
 
 using StringTools;
 
-class TranslateStateFirst extends MusicBeatState
+class TranslateState extends MusicBeatState
 {
         public static var leftState:Bool = false;
 
