@@ -19,6 +19,7 @@ import flixel.FlxSprite;
 import flixel.util.FlxSave;
 import haxe.Json;
 import flixel.tweens.FlxEase;
+import flixel.addons.transition.FlxTransitionableState;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import flixel.input.keyboard.FlxKey;
@@ -29,6 +30,8 @@ using StringTools;
 
 class TranslateStateFirst extends MusicBeatState
 {
+        public static var leftState:Bool = false;
+
 	private var grpLang:FlxTypedGroup<Alphabet>;
 
 	private static var curSelected:Int = 0;
@@ -51,7 +54,7 @@ class TranslateStateFirst extends MusicBeatState
 		DiscordClient.changePresence("Language Menu", null);
 		#end
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.themeImage('menuDesat'));
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.color = 0xFF009900;
 		bg.updateHitbox();
 
@@ -71,7 +74,7 @@ class TranslateStateFirst extends MusicBeatState
 			grpLang.add(langText);
 
 			var icon:AttachedSprite = new AttachedSprite();
-			icon.frames = Paths.getThemedSparrowAtlas('languages/' + lang[i][1]);
+			icon.frames = Paths.getSparrowAtlas('languages/' + lang[i][1]);
 			icon.animation.addByPrefix('idle', lang[i][1], 24);
 			icon.animation.play('idle');
 			icon.xAdd = -icon.width - 10;
