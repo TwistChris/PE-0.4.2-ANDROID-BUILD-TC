@@ -6,7 +6,6 @@ import Discord.DiscordClient;
 import flash.text.TextField;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
@@ -755,7 +754,8 @@ class LanguageSubtate extends MusicBeatSubstate
 			langText.x += 300;
 			grpLang.add(langText);
 
-			var icon:FlxAtlasFrames = Paths.getSparrowAtlas('languages/' + lang[i][1]);
+			var icon:AttachedSprite = new AttachedSprite();
+			icon.frames = Paths.getSparrowAtlas('languages/' + lang[i][1]);
 			icon.animation.addByPrefix('idle', lang[i][1], 24, true);
 			icon.animation.play('idle');
 			icon.xAdd = -icon.width - 10;
