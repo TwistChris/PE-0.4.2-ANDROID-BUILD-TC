@@ -1,5 +1,7 @@
 {
 	"language-name": "Dansk",
+
+        "warnText": "Hej, pas på!\n Denne mod indeholder nogle blinkende lys!\n Tryk på ENTER for at deaktivere dem nu, eller gå til menuen Indstillinger.\n Tryk på ESCAPE for at ignorere denne besked.\n Du er blevet advaret!",
 	
 	"_commentary": "_Kommentaterer er ubrugelige i spillet, det er bare en guide",
 	
