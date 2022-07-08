@@ -718,15 +718,12 @@ class ControlsSubstate extends MusicBeatSubstate {
 
 class LanguageSubtate extends MusicBeatSubstate
 {
-        static var languages:Array<String> = ['English', 'Français'];
-        
-        private var text:FlxText;
-
-        private var charSelHeaderText:FlxText;
+        private var grpLang:FlxTypedGroup<Alphabet>;
 
         private static var curSelected:Int = 0;
 
-        private var onComplete:() -> Void;
+        static var lang:Array<Array<String>> = [];
+        private var iconArray:Array<AttachedSprite> = [];
 
         var nextAccept:Int = 5;
 
@@ -734,89 +731,126 @@ class LanguageSubtate extends MusicBeatSubstate
         {
                super();
 
-               text = new FlxText();
-        text.setFormat(Paths.font('vcr.ttf'), 32, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-        text.text = '< Ъуъ >';
-        text.screenCenter(X);
-        text.screenCenter(Y);
-        text.scrollFactor.set();
-        add(text);
+               var fullText:String = Assets.getText(Paths.txt('langList'));
+	
+		var firstArray:Array<String> = fullText.split('\n');
+	
+		for (i in firstArray)
+		{
+			lang.push(i.split('--'));
+		}
+		#if desktop
+		DiscordClient.changePresence("Language Menu", null);
+		#end
 
-        charSelHeaderText = new FlxText(0, 0, FlxG.width, '', 50);
-        charSelHeaderText.text = 'Language Select';
-        charSelHeaderText.screenCenter(X);
-        add(charSelHeaderText);
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.themeImage('menuDesat'));
+		bg.color = 0xFF009900;
+		bg.updateHitbox();
 
-        #if mobileC
-        addVirtualPad(FULL, A_B);	
-        #end
+		bg.screenCenter();
+		bg.antialiasing = ClientPrefs.globalAntialiasing;
+		add(bg);
+
+		grpLang = new FlxTypedGroup<Alphabet>();
+		add(grpLang);
+
+                for (i in 0...lang.length)
+		{
+			var langText:Alphabet = new Alphabet(0, 0, lang[i][0], true, false);
+			langText.isLangItem = true;
+			langText.y += (100 * (i - ((lang.length) / 2))) + 50;
+			langText.x += 300;
+			grpLang.add(langText);
+
+			var icon:AttachedSprite = new AttachedSprite();
+			icon.frames = Paths.getThemedSparrowAtlas('languages/' + lang[i][1]);
+			icon.animation.addByPrefix('idle', lang[i][1], 24);
+			icon.animation.play('idle');
+			icon.xAdd = -icon.width - 10;
+			icon.sprTracker = langText;
+
+			// using a FlxGroup is too much fuss!
+			iconArray.push(icon);
+			add(icon);
+		}
+
+		var titleText:Alphabet = new Alphabet(0, 0, Language.language, true, false, 0, 0.6);
+		titleText.x += 60;
+		titleText.y += 40;
+		titleText.alpha = 0.4;
+		add(titleText);
+
+                curSelected = 0;
+		changeSelection();
+
+                #if mobileC
+                addVirtualPad(FULL, A_B);	
+                #end
         }
 
+        override function closeSubState()
+	{
+		super.closeSubState();
+		ClientPrefs.saveSettings();
+	}
+
         override function update(elapsed:Float)
-        {
-           text.text = "< " + languages[curSelected] + " >";
-           if(controls.UI_LEFT_P)
-           {
-                changeSelected(-1);
-           }
+	{
+		super.update(elapsed);
 
-           if(controls.UI_RIGHT_P)
-           {
-                changeSelected(1);
-           }
+		if (controls.UI_UP_P)
+		{
+			changeSelection(-1);
+		}
+		if (controls.UI_DOWN_P)
+		{
+			changeSelection(1);
+		}
 
-           if (controls.BACK)
-           {
-                FlxG.sound.play(Paths.sound('cancelMenu'));
-           }
+		if (controls.BACK)
+		{
+			FlxG.sound.play(Paths.themeSound('cancelMenu'));
+			MusicBeatState.switchState(new options.OptionsState());
+		}
 
-           if(controls.ACCEPT && nextAccept <= 0)
-           {
-                var langcurselc:String = languages[curSelected];
-
-                switch (langcurselc)
-                {
-		        case 'English':
-		               MusicBeatState.switchState(new MainMenuState());
-		        case 'Français':
-		               MusicBeatState.switchState(new MainMenuStateFr());
+		if (controls.ACCEPT)
+		{
+			ClientPrefs.language = lang[curSelected][1];
+			Reflect.setProperty(ClientPrefs, 'language', lang[curSelected][1]);
+			ClientPrefs.saveSettings();
+			Language.regenerateLang(lang[curSelected][1]);
+			FlxG.sound.play(Paths.themeSound('confirmMenu'));
+			MusicBeatState.switchState(new options.OptionsState());
+		}
+                if(nextAccept > 0) {
+	                nextAccept -= 1;
 	        }
-           }
-           if(nextAccept > 0) {
-	        nextAccept -= 1;
-	   }
+                super.update(elapsed);
+        }
 
-           super.update(elapsed);
-    }
+    function changeSelection(change:Int = 0)
+	{
+		curSelected += change;
+		if (curSelected < 0)
+			curSelected = lang.length - 1;
+		if (curSelected >= lang.length)
+			curSelected = 0;
 
-    function changeSelected(change:Int = 0):Void
-    {
-        curSelected += change;
-    
-        if (curSelected >= languages.length)
-            curSelected = 0;
-        if (curSelected < 0)
-            curSelected = languages.length - 1;
+		var bullShit:Int = 0;
 
-        FlxG.sound.play(Paths.sound('scrollMenu'));
+		for (item in grpLang.members)
+		{
+			item.targetY = bullShit - curSelected;
+			bullShit++;
 
-        charCheck();
-    }
-
-    function charCheck()
-    {
-         var langcurselc:String = languages[curSelected];
-
-         switch (langcurselc)
-         {
-                case 'English':
-                      charSelHeaderText.text = 'Language Select';
-                case 'Français':
-                      charSelHeaderText.text = 'Selection de la langue';
-                default:
-                      charSelHeaderText.text = '';
-         }
-    }
+			item.alpha = 0.6;
+			if (item.targetY == 0)
+			{
+				item.alpha = 1;
+			}
+		}
+		FlxG.sound.play(Paths.themeSound('scrollMenu'));
+	}
 }
 
 
