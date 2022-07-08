@@ -6,6 +6,7 @@ import Discord.DiscordClient;
 import flash.text.TextField;
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
@@ -800,7 +801,7 @@ class LanguageSubtate extends MusicBeatSubstate
 
 		if (controls.BACK)
 		{
-			FlxG.sound.play(Paths.Sound('cancelMenu'));
+			FlxG.sound.play(Paths.sound('cancelMenu'));
 			MusicBeatState.switchState(new OptionsState());
 		}
 
@@ -810,7 +811,7 @@ class LanguageSubtate extends MusicBeatSubstate
 			Reflect.setProperty(ClientPrefs, 'language', lang[curSelected][1]);
 			ClientPrefs.saveSettings();
 			Language.regenerateLang(lang[curSelected][1]);
-			FlxG.sound.play(Paths.Sound('confirmMenu'));
+			FlxG.sound.play(Paths.sound('confirmMenu'));
 			MusicBeatState.switchState(new OptionsState());
 		}
                 if(nextAccept > 0) {
@@ -840,7 +841,7 @@ class LanguageSubtate extends MusicBeatSubstate
 				item.alpha = 1;
 			}
 		}
-		FlxG.sound.play(Paths.Sound('scrollMenu'));
+		FlxG.sound.play(Paths.sound('scrollMenu'));
 	}
 }
 
