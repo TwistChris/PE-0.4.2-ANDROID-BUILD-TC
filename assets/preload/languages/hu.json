@@ -1,6 +1,8 @@
 {
 	"language-name": "Magyar",
 	
+        "warnText": "Hé, vigyázz!\n Ez a mod villogó fényeket tartalmaz!\n Nyomja meg az ENTER-t a letiltásához, vagy lépjen az Opciók menübe.\n Nyomja meg az ESCAPE billentyűt az üzenet figyelmen kívül hagyásához.\n Figyelmeztetést kapott!",	
+
 	"_commentary": "_A kommentárok nem hasznosak a játékhoz, ez csak egy útmutató",
 	
 	"_commentary1": "Történet Mód Menüje",
