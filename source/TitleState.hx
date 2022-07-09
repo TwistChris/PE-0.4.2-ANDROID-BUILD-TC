@@ -116,15 +116,6 @@ class TitleState extends MusicBeatState
 
 		FlxG.save.bind('funkin', 'ninjamuffin99');
 		ClientPrefs.loadPrefs();
-                if (!FileSystem.exists('assets/languages/' + ClientPrefs.language + '.json')) {
-			ClientPrefs.language = 'en';
-			Reflect.setProperty(ClientPrefs, 'language', 'en');
-			ClientPrefs.saveSettings();
-			Language.regenerateLang('en');
-		}
-		else {
-			Language.regenerateLang(ClientPrefs.language);
-		}
 
 		Highscore.load();
 
