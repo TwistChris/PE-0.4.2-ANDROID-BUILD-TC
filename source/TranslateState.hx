@@ -86,7 +86,7 @@ class TranslateState extends MusicBeatState
                        leftState = true;
 	               FlxTransitionableState.skipNextTransIn = true;
                        FlxTransitionableState.skipNextTransOut = true;
-                       ClientPrefs.language = false;
+                       ClientPrefs.translate = false;
                        FlxG.sound.play(Paths.sound('confirmMenu'));
                        var langcurselc:String = languages[curSelected];
 
@@ -97,7 +97,7 @@ class TranslateState extends MusicBeatState
 		                      MusicBeatState.switchState(new FlashingState());
 		               case 'Français':
                                       PlayState.languagescore = langcurselc;
-		                      MusicBeatState.switchState(new FlashingStateFr());
+		                      MusicBeatState.switchState(new FlashingState());
 	               }
                 }
 
