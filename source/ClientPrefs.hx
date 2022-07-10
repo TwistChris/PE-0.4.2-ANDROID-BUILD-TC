@@ -106,6 +106,9 @@ class ClientPrefs {
 		if(FlxG.save.data.flashing != null) {
 			flashing = FlxG.save.data.flashing;
 		}
+                if(FlxG.save.data.translate != null) {
+			translate = FlxG.save.data.translate;
+		}
                 if(FlxG.save.data.language != null) {
 			language = FlxG.save.data.language;
 		}
