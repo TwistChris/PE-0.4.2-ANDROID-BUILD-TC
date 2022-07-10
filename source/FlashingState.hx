@@ -37,7 +37,7 @@ class FlashingState extends MusicBeatState
                 if(FlxG.save.data.translate == null && !TranslateState.leftState) {
 			FlxTransitionableState.skipNextTransIn = true;
 			FlxTransitionableState.skipNextTransOut = true;
-			MusicBeatState.switchStat(new TranslateState());
+			MusicBeatState.switchState(new TranslateState());
 		}
 
 		#if mobileC
