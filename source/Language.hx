@@ -275,7 +275,7 @@ class Language
 
 	public static function regenerateLang(lang:String)
 	{
-		var languagePath = Assets.getText(Paths.getPreloadPath('languages/' + TranslateState.langcurselc + '.json'));
+		var languagePath = Assets.getText(Paths.getPreloadPath('languages/' + languages + '.json'));
 
 		var languageJson:LanguageFile = cast Json.parse(languagePath);
 
