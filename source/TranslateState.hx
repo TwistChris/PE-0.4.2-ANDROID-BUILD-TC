@@ -17,6 +17,8 @@ class TranslateState extends MusicBeatState
 
     var bg:FlxSprite;
 
+    var language:Array<String> = ['fr', 'en'];
+
     var lang:Array<Array<String>> = [];
 
     public static var onComplete:() -> Void;
@@ -65,7 +67,7 @@ class TranslateState extends MusicBeatState
     }
 
     override function update(elapsed:Float) {
-                text.text = "< " + languages[curSelected] + " >";
+                text.text = "< " + lang[curSelected] + " >";
 
                 if (controls.UI_LEFT_P)
 	        {
@@ -103,10 +105,10 @@ class TranslateState extends MusicBeatState
     {
         curSelected += change;
     
-        if (curSelected >= languages.length)
+        if (curSelected >= lang.length)
             curSelected = 0;
         if (curSelected < 0)
-            curSelected = languages.length - 1;
+            curSelected = lang.length - 1;
 
         FlxG.sound.play(Paths.sound('scrollMenu'));
 
@@ -115,7 +117,7 @@ class TranslateState extends MusicBeatState
 
     function charCheck()
     {
-         var langcurselc:String = lang[curSelected];
+         var langcurselc:String = language[curSelected];
 
          switch (langcurselc)
          {
