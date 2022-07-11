@@ -275,8 +275,7 @@ class Language
 
 	public static function regenerateLang(lang:String)
 	{
-		FlxG.log.advanced("Loading " + lang + "Language");
-		var languagePath = Assets.getText(Paths.getPreloadPath('languages/' + lang + '.json'));
+		var languagePath = Assets.getText(Paths.getPreloadPath('languages/' + langcurselc + '.json'));
 
 		var languageJson:LanguageFile = cast Json.parse(languagePath);
 
