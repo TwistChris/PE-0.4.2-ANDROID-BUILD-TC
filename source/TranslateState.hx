@@ -27,6 +27,15 @@ class TranslateState extends MusicBeatState
     
     override function create()
     {
+        var fullText:String = Assets.getText(Paths.txt('langList'));
+	
+	var firstArray:Array<String> = fullText.split('\n');
+	
+	for (i in firstArray)
+	{
+		lang.push(i.split('--'));
+	}
+
         bg = new FlxSprite().loadGraphic(Paths.image("menuDesat"));
 		bg.color = 0xFFea71fd;
 		bg.setGraphicSize(Std.int(bg.width * 1.1));
@@ -117,7 +126,7 @@ class TranslateState extends MusicBeatState
 
     function charCheck()
     {
-         var langcurselc:String = language[curSelected];
+         var langcurselc:String = lang[curSelected];
 
          switch (langcurselc)
          {
