@@ -5,6 +5,7 @@ import flixel.FlxSprite;
 import flixel.text.FlxText;
 import flixel.util.FlxTimer;
 import flixel.util.FlxColor;
+import lime.utils.Assets;
 import flixel.addons.transition.FlxTransitionableState;
 
 class TranslateState extends MusicBeatState
@@ -17,7 +18,7 @@ class TranslateState extends MusicBeatState
 
     var bg:FlxSprite;
 
-    var language:Array<String> = ['fr', 'en'];
+    var language:Array<String> = ['en', 'fr'];
 
     var lang:Array<Array<String>> = [];
 
@@ -126,7 +127,7 @@ class TranslateState extends MusicBeatState
 
     function charCheck()
     {
-         var langcurselc:String = lang[curSelected];
+         var langcurselc:String = language[curSelected];
 
          switch (langcurselc)
          {
