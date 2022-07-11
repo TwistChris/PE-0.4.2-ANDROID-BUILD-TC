@@ -93,7 +93,7 @@ class TranslateState extends MusicBeatState
 		       Reflect.setProperty(ClientPrefs, 'language', langcurselc);
 		       ClientPrefs.saveSettings();
 		       Language.regenerateLang(langcurselc);
-		       FlxG.sound.play(Paths.tsound('confirmMenu'));
+		       FlxG.sound.play(Paths.sound('confirmMenu'));
 		       MusicBeatState.switchState(new FlashingState());
                 }
 
