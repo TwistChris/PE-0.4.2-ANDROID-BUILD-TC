@@ -17,7 +17,7 @@ class TranslateState extends MusicBeatState
 
     var bg:FlxSprite;
 
-    var languages:Array<String> = ['English', 'Français'];
+    var languages:Array<String> = ['english', 'français'];
 
     public static var onComplete:() -> Void;
 
