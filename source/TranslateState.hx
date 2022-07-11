@@ -17,7 +17,7 @@ class TranslateState extends MusicBeatState
 
     var bg:FlxSprite;
 
-    var languages:Array<String> = ['english', 'francais'];
+    var lang:Array<Array<String>> = [];
 
     public static var onComplete:() -> Void;
 
@@ -87,12 +87,11 @@ class TranslateState extends MusicBeatState
 	               FlxTransitionableState.skipNextTransIn = true;
                        FlxTransitionableState.skipNextTransOut = true;
                        ClientPrefs.translate = false;
-                       var langcurselc:String = languages[curSelected];
 
-                       ClientPrefs.language = langcurselc;
-		       Reflect.setProperty(ClientPrefs, 'language', langcurselc);
+                       ClientPrefs.language = lang[curSelected][1];
+		       Reflect.setProperty(ClientPrefs, 'language', lang[curSelected][1]);
 		       ClientPrefs.saveSettings();
-		       Language.regenerateLang(langcurselc);
+		       Language.regenerateLang(lang[curSelected][1]);
 		       FlxG.sound.play(Paths.sound('confirmMenu'));
 		       MusicBeatState.switchState(new FlashingState());
                 }
@@ -116,14 +115,14 @@ class TranslateState extends MusicBeatState
 
     function charCheck()
     {
-         var langcurselc:String = languages[curSelected];
+         var langcurselc:String = lang[curSelected];
 
          switch (langcurselc)
          {
-                case 'English':
+                case 'en':
                       warnText.text = 'You can always choose the language that you want in the options.';
                       charSelHeaderText.text = 'Language Select';
-                case 'Français':
+                case 'fr':
                       warnText.text = 'Tu peux toujours la langue que tu veux dans les options.';
                       charSelHeaderText.text = 'Selection de la langue';
                 default:
