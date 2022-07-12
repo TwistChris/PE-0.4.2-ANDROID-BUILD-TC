@@ -71,8 +71,8 @@ class LanguageState extends MusicBeatState
 			grpLang.add(langText);
 
 			var icon:AttachedSprite = new AttachedSprite();
-			icon.frames = Paths.getSparrowAtlas('languages/' + lang[i][1]);
-			icon.animation.addByPrefix('idle', lang[i][1], 24);
+			icon.frames = Paths.getSparrowAtlas('languages/' + lang[i][0]);
+			icon.animation.addByPrefix('idle', lang[i][0], 24);
 			icon.animation.play('idle');
 			icon.xAdd = -icon.width - 10;
 			icon.sprTracker = langText;
