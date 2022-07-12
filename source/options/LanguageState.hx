@@ -39,7 +39,7 @@ class LanguageState extends MusicBeatState
 
 	override function create()
 	{
-		var fullText = CoolUtil.coolTextFile(Paths.txt('langList'));
+		var fullText:String = CoolUtil.coolTextFile(Paths.txt('langList'));
 	
 		var firstArray:Array<String> = fullText.split('\n');
 	
