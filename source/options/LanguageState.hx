@@ -64,15 +64,15 @@ class LanguageState extends MusicBeatState
 
 		for (i in 0...lang.length)
 		{
-			var langText:Alphabet = new Alphabet(0, 0, lang[i][0], true, false);
+			var langText:Alphabet = new Alphabet(0, 0, lang[i][1], true, false);
 			langText.isMenuItem = true;
 			langText.y += (100 * (i - ((lang.length) / 2))) + 50;
 			langText.x += 300;
 			grpLang.add(langText);
 
 			var icon:AttachedSprite = new AttachedSprite();
-			icon.frames = Paths.getSparrowAtlas('languages/' + lang[i][0]);
-			icon.animation.addByPrefix('idle', lang[i][0], 24);
+			icon.frames = Paths.getSparrowAtlas('languages/' + lang[i][1]);
+			icon.animation.addByPrefix('idle', lang[i][1], 24);
 			icon.animation.play('idle');
 			icon.xAdd = -icon.width - 10;
 			icon.sprTracker = langText;
