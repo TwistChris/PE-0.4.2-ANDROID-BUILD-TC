@@ -34,17 +34,11 @@ class LanguageState extends MusicBeatState
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
 	
-	var lang:Array<Array<String>> = ['English--en', 'Francais--fr'];
+	var lang:Array<String> = ['en', 'fr'];
 	private var iconArray:Array<AttachedSprite> = [];
 
 	override function create()
 	{
-		var firstArray:Array<String> = lang.split('\n');
-	
-		for (i in firstArray)
-		{
-			lang.push(i.split('--'));
-		}
 		#if desktop
 		DiscordClient.changePresence("Language Menu", null);
 		#end
@@ -62,15 +56,15 @@ class LanguageState extends MusicBeatState
 
 		for (i in 0...lang.length)
 		{
-			var langText:Alphabet = new Alphabet(0, 0, lang[i][0], true, false);
+			var langText:Alphabet = new Alphabet(0, 0, lang[i], true, false);
 			langText.isMenuItem = true;
 			langText.y += (100 * (i - ((lang.length) / 2))) + 50;
 			langText.x += 300;
 			grpLang.add(langText);
 
 			var icon:AttachedSprite = new AttachedSprite();
-			icon.frames = Paths.getSparrowAtlas('languages/' + lang[i][1]);
-			icon.animation.addByPrefix('idle', lang[i][1], 24);
+			icon.frames = Paths.getSparrowAtlas('languages/' + lang[i]);
+			icon.animation.addByPrefix('idle', lang[i], 24);
 			icon.animation.play('idle');
 			icon.xAdd = -icon.width - 10;
 			icon.sprTracker = langText;
@@ -123,10 +117,10 @@ class LanguageState extends MusicBeatState
 
 		if (controls.ACCEPT)
 		{
-			ClientPrefs.language = lang[curSelected][1];
-			Reflect.setProperty(ClientPrefs, 'language', lang[curSelected][1]);
+			ClientPrefs.language = lang[curSelected];
+			Reflect.setProperty(ClientPrefs, 'language', lang[curSelected]);
 			ClientPrefs.saveSettings();
-			Language.regenerateLang(lang[curSelected][1]);
+			Language.regenerateLang(lang[curSelected]);
 			FlxG.sound.play(Paths.sound('confirmMenu'));
 			MusicBeatState.switchState(new OptionsState());
 		}
