@@ -34,14 +34,12 @@ class LanguageState extends MusicBeatState
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
 	
-	var lang:Array<Array<String>> = [];
+	var lang:Array<Array<String>> = ['English--en', 'Francais--fr'];
 	private var iconArray:Array<AttachedSprite> = [];
 
 	override function create()
 	{
-		var fullText:String = Assets.getText(Paths.txt('langList'));
-	
-		var firstArray:Array<String> = fullText.split('\n');
+		var firstArray:Array<String> = lang.split('\n');
 	
 		for (i in firstArray)
 		{
@@ -64,7 +62,7 @@ class LanguageState extends MusicBeatState
 
 		for (i in 0...lang.length)
 		{
-			var langText:Alphabet = new Alphabet(0, 0, lang[i][1], true, false);
+			var langText:Alphabet = new Alphabet(0, 0, lang[i][0], true, false);
 			langText.isMenuItem = true;
 			langText.y += (100 * (i - ((lang.length) / 2))) + 50;
 			langText.x += 300;
