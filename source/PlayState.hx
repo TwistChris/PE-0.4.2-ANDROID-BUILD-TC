@@ -159,6 +159,8 @@ class PlayState extends MusicBeatState
 
         public static var langGreat:String = '';
 
+        public static var langSick:String = '';
+
         public static var langPerfect:String = '';
 
         public static var bfsel:String = '';
