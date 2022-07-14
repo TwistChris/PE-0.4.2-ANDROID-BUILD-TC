@@ -151,6 +151,8 @@ class PlayState extends MusicBeatState
 
         public static var langBruh:String = '';
 
+        public static var langMeh:String = '';
+
         public static var langNice:String = '';
 
         public static var langGood:String = '';
@@ -2512,6 +2514,47 @@ class PlayState extends MusicBeatState
 						}
 
 						var animToPlay:String = '';
+
+                                                switch (Math.abs(daNote.noteData))
+						{
+							case 0:
+							        dad.playAnim('singLEFT' + altAnim, true);
+								camFollowPos.x = -30;
+								camFollowPos.y = 0;
+                                                        case 1:
+								dad.playAnim('singDOWN' + altAnim, true);
+								camFollowPos.x = 0;
+								camFollowPos.y = 30;
+                                                        case 2:
+								dad.playAnim('singUP' + altAnim, true);
+								camFollowPos.x = 30;
+								camFollowPos.y = 0;
+							case 3:
+								dad.playAnim('singRIGHT' + altAnim, true);
+								camFollowPos.x = 0;
+								camFollowPos.y = -30;
+						}
+
+                                                switch (Math.abs(daNote.noteData))
+						{
+							case 0:
+							        boyfriend.playAnim('singLEFT' + altAnim, true);
+								camFollowPos.x = -30;
+								camFollowPos.y = 0;
+                                                        case 1:
+								boyfriend.playAnim('singDOWN' + altAnim, true);
+								camFollowPos.x = 0;
+								camFollowPos.y = 30;
+                                                        case 2:
+								boyfriend.playAnim('singUP' + altAnim, true);
+								camFollowPos.x = 30;
+								camFollowPos.y = 0;
+							case 3:
+								boyfriend.playAnim('singRIGHT' + altAnim, true);
+								camFollowPos.x = 0;
+								camFollowPos.y = -30;
+						}
+
 						switch (Math.abs(daNote.noteData))
 						{
 							case 0:
@@ -2707,6 +2750,47 @@ class PlayState extends MusicBeatState
 						}
 
 						var animToPlay:String = '';
+
+                                                switch (Math.abs(daNote.noteData))
+						{
+							case 0:
+							        dad.playAnim('singLEFT' + altAnim, true);
+								camFollowPos.x = -30;
+								camFollowPos.y = 0;
+                                                        case 1:
+								dad.playAnim('singDOWN' + altAnim, true);
+								camFollowPos.x = 0;
+								camFollowPos.y = 30;
+                                                        case 2:
+								dad.playAnim('singUP' + altAnim, true);
+								camFollowPos.x = 30;
+								camFollowPos.y = 0;
+							case 3:
+								dad.playAnim('singRIGHT' + altAnim, true);
+								camFollowPos.x = 0;
+								camFollowPos.y = -30;
+						}
+
+                                                switch (Math.abs(daNote.noteData))
+						{
+							case 0:
+							        boyfriend.playAnim('singLEFT' + altAnim, true);
+								camFollowPos.x = -30;
+								camFollowPos.y = 0;
+                                                        case 1:
+								boyfriend.playAnim('singDOWN' + altAnim, true);
+								camFollowPos.x = 0;
+								camFollowPos.y = 30;
+                                                        case 2:
+								boyfriend.playAnim('singUP' + altAnim, true);
+								camFollowPos.x = 30;
+								camFollowPos.y = 0;
+							case 3:
+								boyfriend.playAnim('singRIGHT' + altAnim, true);
+								camFollowPos.x = 0;
+								camFollowPos.y = -30;
+						}
+
 						switch (Math.abs(daNote.noteData))
 						{
 							case 0:
