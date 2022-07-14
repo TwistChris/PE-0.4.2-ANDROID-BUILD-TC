@@ -143,6 +143,8 @@ class PlayState extends MusicBeatState
 
         public static var scorefr:Bool = false;
 
+        public static var langYouSuck:Bool = false;
+
         public static var bfsel:String = '';
 
         public static var languagescore:String = '';
