@@ -70,15 +70,15 @@ class PlayState extends MusicBeatState
 
 	public static var ratingStuff:Array<Dynamic> = [
 		[langYouSuck, 0.2], //From 0% to 19%
-		['Shit', 0.4], //From 20% to 39%
-		['Bad', 0.5], //From 40% to 49%
-		['Bruh', 0.6], //From 50% to 59%
-		['Meh', 0.69], //From 60% to 68%
-		['Nice', 0.7], //69%
-		['Good', 0.8], //From 70% to 79%
-		['Great', 0.9], //From 80% to 89%
-		['Sick!', 1], //From 90% to 99%
-		['Perfect!!', 1] //The value on this one isn't used actually, since Perfect is always "1"
+		[langShit, 0.4], //From 20% to 39%
+		[langBad, 0.5], //From 40% to 49%
+		[langBruh, 0.6], //From 50% to 59%
+		[langMeh, 0.69], //From 60% to 68%
+		[langNice, 0.7], //69%
+		[langGood, 0.8], //From 70% to 79%
+		[langGreat, 0.9], //From 80% to 89%
+		[langSick, 1], //From 90% to 99%
+		[langPerfect, 1] //The value on this one isn't used actually, since Perfect is always "1"
 	];
 
         public static var ratingStuffFr:Array<Dynamic> = [
@@ -144,6 +144,20 @@ class PlayState extends MusicBeatState
         public static var scorefr:Bool = false;
 
         public static var langYouSuck:String = '';
+
+        public static var langShit:String = '';
+
+        public static var langBad:String = '';
+
+        public static var langBruh:String = '';
+
+        public static var langNice:String = '';
+
+        public static var langGood:String = '';
+
+        public static var langGreat:String = '';
+
+        public static var langPerfect:String = '';
 
         public static var bfsel:String = '';
 
