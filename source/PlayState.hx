@@ -2520,6 +2520,26 @@ class PlayState extends MusicBeatState
                                                 switch (Math.abs(daNote.noteData))
 						{
 							case 0:
+							        dad2.playAnim('singLEFT' + altAnim, true);
+								camFollow.x = -30;
+								camFollow.y = 0;
+                                                        case 1:
+								dad2.playAnim('singDOWN' + altAnim, true);
+								camFollow.x = 0;
+								camFollow.y = 30;
+                                                        case 2:
+								dad2.playAnim('singUP' + altAnim, true);
+								camFollow.x = 30;
+								camFollow.y = 0;
+							case 3:
+								dad2.playAnim('singRIGHT' + altAnim, true);
+								camFollow.x = 0;
+								camFollow.y = -30;
+						}
+
+                                                switch (Math.abs(daNote.noteData))
+						{
+							case 0:
 							        dad.playAnim('singLEFT' + altAnim, true);
 								camFollow.x = -30;
 								camFollow.y = 0;
@@ -2529,7 +2549,7 @@ class PlayState extends MusicBeatState
 								camFollow.y = 30;
                                                         case 2:
 								dad.playAnim('singUP' + altAnim, true);
-								camFollows.x = 30;
+								camFollow.x = 30;
 								camFollow.y = 0;
 							case 3:
 								dad.playAnim('singRIGHT' + altAnim, true);
@@ -2765,7 +2785,7 @@ class PlayState extends MusicBeatState
 								camFollow.y = 30;
                                                         case 2:
 								dad.playAnim('singUP' + altAnim, true);
-								camFollows.x = 30;
+								camFollow.x = 30;
 								camFollow.y = 0;
 							case 3:
 								dad.playAnim('singRIGHT' + altAnim, true);
