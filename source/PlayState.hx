@@ -2521,40 +2521,40 @@ class PlayState extends MusicBeatState
 						{
 							case 0:
 							        dad.playAnim('singLEFT' + altAnim, true);
-								camFollowPos.x = -30;
-								camFollowPos.y = 0;
+								camFollow.x = -30;
+								camFollow.y = 0;
                                                         case 1:
 								dad.playAnim('singDOWN' + altAnim, true);
-								camFollowPos.x = 0;
-								camFollowPos.y = 30;
+								camFollow.x = 0;
+								camFollow.y = 30;
                                                         case 2:
 								dad.playAnim('singUP' + altAnim, true);
-								camFollowPos.x = 30;
-								camFollowPos.y = 0;
+								camFollows.x = 30;
+								camFollow.y = 0;
 							case 3:
 								dad.playAnim('singRIGHT' + altAnim, true);
-								camFollowPos.x = 0;
-								camFollowPos.y = -30;
+								camFollow.x = 0;
+								camFollow.y = -30;
 						}
 
                                                 switch (Math.abs(daNote.noteData))
 						{
 							case 0:
-							        boyfriend.playAnim('singLEFT' + altAnim, true);
-								camFollowPos.x = -30;
-								camFollowPos.y = 0;
+							        boyfriend.playAnim('singLEFT', true);
+								camFollow.x = -30;
+								camFollow.y = 0;
                                                         case 1:
-								boyfriend.playAnim('singDOWN' + altAnim, true);
-								camFollowPos.x = 0;
-								camFollowPos.y = 30;
+								boyfriend.playAnim('singDOWN', true);
+								camFollow.x = 0;
+								camFollow.y = 30;
                                                         case 2:
-								boyfriend.playAnim('singUP' + altAnim, true);
-								camFollowPos.x = 30;
-								camFollowPos.y = 0;
+								boyfriend.playAnim('singUP', true);
+								camFollow.x = 30;
+								camFollow.y = 0;
 							case 3:
-								boyfriend.playAnim('singRIGHT' + altAnim, true);
-								camFollowPos.x = 0;
-								camFollowPos.y = -30;
+								boyfriend.playAnim('singRIGHT', true);
+								camFollow.x = 0;
+								camFollow.y = -30;
 						}
 
 						switch (Math.abs(daNote.noteData))
@@ -2757,40 +2757,40 @@ class PlayState extends MusicBeatState
 						{
 							case 0:
 							        dad.playAnim('singLEFT' + altAnim, true);
-								camFollowPos.x = -30;
-								camFollowPos.y = 0;
+								camFollow.x = -30;
+								camFollow.y = 0;
                                                         case 1:
 								dad.playAnim('singDOWN' + altAnim, true);
-								camFollowPos.x = 0;
-								camFollowPos.y = 30;
+								camFollow.x = 0;
+								camFollow.y = 30;
                                                         case 2:
 								dad.playAnim('singUP' + altAnim, true);
-								camFollowPos.x = 30;
-								camFollowPos.y = 0;
+								camFollows.x = 30;
+								camFollow.y = 0;
 							case 3:
 								dad.playAnim('singRIGHT' + altAnim, true);
-								camFollowPos.x = 0;
-								camFollowPos.y = -30;
+								camFollow.x = 0;
+								camFollow.y = -30;
 						}
 
                                                 switch (Math.abs(daNote.noteData))
 						{
 							case 0:
-							        boyfriend.playAnim('singLEFT' + altAnim, true);
-								camFollowPos.x = -30;
-								camFollowPos.y = 0;
+							        boyfriend.playAnim('singLEFT', true);
+								camFollow.x = -30;
+								camFollow.y = 0;
                                                         case 1:
-								boyfriend.playAnim('singDOWN' + altAnim, true);
-								camFollowPos.x = 0;
-								camFollowPos.y = 30;
+								boyfriend.playAnim('singDOWN', true);
+								camFollow.x = 0;
+								camFollow.y = 30;
                                                         case 2:
-								boyfriend.playAnim('singUP' + altAnim, true);
-								camFollowPos.x = 30;
-								camFollowPos.y = 0;
+								boyfriend.playAnim('singUP', true);
+								camFollow.x = 30;
+								camFollow.y = 0;
 							case 3:
-								boyfriend.playAnim('singRIGHT' + altAnim, true);
-								camFollowPos.x = 0;
-								camFollowPos.y = -30;
+								boyfriend.playAnim('singRIGHT', true);
+								camFollow.x = 0;
+								camFollow.y = -30;
 						}
 
 						switch (Math.abs(daNote.noteData))
