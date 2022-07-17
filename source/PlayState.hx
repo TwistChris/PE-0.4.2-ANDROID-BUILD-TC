@@ -2514,12 +2514,10 @@ class PlayState extends MusicBeatState
 								altAnim = '-alt';
 							}
 
-                                var animToPlay:String = '';
+                                        var animToPlay:String = '';
 
-                                if (songName == 'tutorial')
-			        {
-                                        if (dad.curCharacter == 'gf')
-                                        {
+                                        if (songName == 'tutorial')
+			                {
                                                 switch (Math.abs(daNote.noteData))
 						{
 							case 0:
@@ -2538,9 +2536,12 @@ class PlayState extends MusicBeatState
 								dad.playAnim('singRIGHT', true);
 								camFollow.x = dad.getMidpoint().x;
 								camFollow.y = dad.getMidpoint().y - 30;
-						}
-                                        else
-                                                switch (Math.abs(daNote.noteData))
+	                                        }
+                                        }
+
+                                        if (songName == 'tutorial')
+			                {
+                                                switch (daNote.noteData)
 						{
 							case 0:
 							        boyfriend.playAnim('singLEFT', true);
@@ -2558,9 +2559,8 @@ class PlayState extends MusicBeatState
 								boyfriend.playAnim('singRIGHT', true);
 								camFollow.x = boyfriend.getMidpoint().x;
 								camFollow.y = boyfriend.getMidpoint().y - 30;
-						}
+	                                        }
                                         }
-                                }
 
 						switch (Math.abs(daNote.noteData))
 						{
@@ -2756,12 +2756,10 @@ class PlayState extends MusicBeatState
 							}
 						}
 
-				var animToPlay:String = '';
+				        var animToPlay:String = '';
 
-                                if (songName == 'tutorial')
-			        {
-                                        if (dad.curCharacter == 'gf')
-                                        {
+                                        if (songName == 'tutorial')
+			                {
                                                 switch (Math.abs(daNote.noteData))
 						{
 							case 0:
@@ -2780,9 +2778,12 @@ class PlayState extends MusicBeatState
 								dad.playAnim('singRIGHT', true);
 								camFollow.x = dad.getMidpoint().x;
 								camFollow.y = dad.getMidpoint().y - 30;
-						}
-                                        else
-                                                switch (Math.abs(daNote.noteData))
+	                                        }
+                                        }
+
+                                        if (songName == 'tutorial')
+			                {
+                                                switch (daNote.noteData)
 						{
 							case 0:
 							        boyfriend.playAnim('singLEFT', true);
@@ -2800,9 +2801,8 @@ class PlayState extends MusicBeatState
 								boyfriend.playAnim('singRIGHT', true);
 								camFollow.x = boyfriend.getMidpoint().x;
 								camFollow.y = boyfriend.getMidpoint().y - 30;
-						}
+	                                        }
                                         }
-                                }
 
 						switch (Math.abs(daNote.noteData))
 						{
