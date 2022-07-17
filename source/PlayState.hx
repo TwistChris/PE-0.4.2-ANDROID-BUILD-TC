@@ -2514,10 +2514,8 @@ class PlayState extends MusicBeatState
 								altAnim = '-alt';
 							}
 
-                                        var animToPlay:String = '';
-
-                                        if (songName == 'tutorial')
-			                {
+                                                var animToPlay:String = '';
+                                  
                                                 switch (Math.abs(daNote.noteData))
 						{
 							case 0:
@@ -2537,10 +2535,7 @@ class PlayState extends MusicBeatState
 								camFollow.x = dad.getMidpoint().x;
 								camFollow.y = dad.getMidpoint().y - 30;
 	                                        }
-                                        }
 
-                                        if (songName == 'tutorial')
-			                {
                                                 switch (daNote.noteData)
 						{
 							case 0:
@@ -2560,7 +2555,6 @@ class PlayState extends MusicBeatState
 								camFollow.x = boyfriend.getMidpoint().x;
 								camFollow.y = boyfriend.getMidpoint().y - 30;
 	                                        }
-                                        }
 
 						switch (Math.abs(daNote.noteData))
 						{
@@ -2756,10 +2750,8 @@ class PlayState extends MusicBeatState
 							}
 						}
 
-				        var animToPlay:String = '';
+				                var animToPlay:String = '';
 
-                                        if (songName == 'tutorial')
-			                {
                                                 switch (Math.abs(daNote.noteData))
 						{
 							case 0:
@@ -2779,10 +2771,7 @@ class PlayState extends MusicBeatState
 								camFollow.x = dad.getMidpoint().x;
 								camFollow.y = dad.getMidpoint().y - 30;
 	                                        }
-                                        }
 
-                                        if (songName == 'tutorial')
-			                {
                                                 switch (daNote.noteData)
 						{
 							case 0:
@@ -2802,7 +2791,6 @@ class PlayState extends MusicBeatState
 								camFollow.x = boyfriend.getMidpoint().x;
 								camFollow.y = boyfriend.getMidpoint().y - 30;
 	                                        }
-                                        }
 
 						switch (Math.abs(daNote.noteData))
 						{
