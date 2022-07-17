@@ -2515,23 +2515,27 @@ class PlayState extends MusicBeatState
 							}
 
                                                 var animToPlay:String = '';
-                                  
+
                                                 switch (Math.abs(daNote.noteData))
 						{
 							case 0:
 							        dad.playAnim('singLEFT', true);
+                                                                camFollow.set(dad.getMidpoint().x, dad.getMidpoint().y);
 								camFollow.x = dad.getMidpoint().x - 30;
 								camFollow.y = dad.getMidpoint().y;
                                                         case 1:
 								dad.playAnim('singDOWN', true);
+                                                                camFollow.set(dad.getMidpoint().x, dad.getMidpoint().y);
 								camFollow.x = dad.getMidpoint().x;
 								camFollow.y = dad.getMidpoint().y + 30;
                                                         case 2:
 								dad.playAnim('singUP', true);
+                                                                camFollow.set(dad.getMidpoint().x, dad.getMidpoint().y);
 								camFollow.x = dad.getMidpoint().x + 30;
 								camFollow.y = dad.getMidpoint().y;
 							case 3:
 								dad.playAnim('singRIGHT', true);
+                                                                camFollow.set(dad.getMidpoint().x, dad.getMidpoint().y);
 								camFollow.x = dad.getMidpoint().x;
 								camFollow.y = dad.getMidpoint().y - 30;
 	                                        }
@@ -2540,18 +2544,22 @@ class PlayState extends MusicBeatState
 						{
 							case 0:
 							        boyfriend.playAnim('singLEFT', true);
+                                                                camFollow.set(boyfriend.getMidpoint().x, boyfriend.getMidpoint().y);
 								camFollow.x = boyfriend.getMidpoint().x - 30;
 								camFollow.y = boyfriend.getMidpoint().y;
                                                         case 1:
 								boyfriend.playAnim('singDOWN', true);
+                                                                camFollow.set(boyfriend.getMidpoint().x, boyfriend.getMidpoint().y);
 								camFollow.x = boyfriend.getMidpoint().x;
 								camFollow.y = boyfriend.getMidpoint().y + 30;
                                                         case 2:
 								boyfriend.playAnim('singUP', true);
+                                                                camFollow.set(boyfriend.getMidpoint().x, boyfriend.getMidpoint().y);
 								camFollow.x = boyfriend.getMidpoint().x + 30;
 								camFollow.y = boyfriend.getMidpoint().y;
 							case 3:
 								boyfriend.playAnim('singRIGHT', true);
+                                                                camFollow.set(boyfriend.getMidpoint().x, boyfriend.getMidpoint().y);
 								camFollow.x = boyfriend.getMidpoint().x;
 								camFollow.y = boyfriend.getMidpoint().y - 30;
 	                                        }
@@ -2752,22 +2760,28 @@ class PlayState extends MusicBeatState
 
 				                var animToPlay:String = '';
 
+                                                camFollow.set(dad.getMidpoint().x, dad.getMidpoint().y);
+
                                                 switch (Math.abs(daNote.noteData))
 						{
 							case 0:
 							        dad.playAnim('singLEFT', true);
+                                                                camFollow.set(dad.getMidpoint().x, dad.getMidpoint().y);
 								camFollow.x = dad.getMidpoint().x - 30;
 								camFollow.y = dad.getMidpoint().y;
                                                         case 1:
 								dad.playAnim('singDOWN', true);
+                                                                camFollow.set(dad.getMidpoint().x, dad.getMidpoint().y);
 								camFollow.x = dad.getMidpoint().x;
 								camFollow.y = dad.getMidpoint().y + 30;
                                                         case 2:
 								dad.playAnim('singUP', true);
+                                                                camFollow.set(dad.getMidpoint().x, dad.getMidpoint().y);
 								camFollow.x = dad.getMidpoint().x + 30;
 								camFollow.y = dad.getMidpoint().y;
 							case 3:
 								dad.playAnim('singRIGHT', true);
+                                                                camFollow.set(dad.getMidpoint().x, dad.getMidpoint().y);
 								camFollow.x = dad.getMidpoint().x;
 								camFollow.y = dad.getMidpoint().y - 30;
 	                                        }
@@ -2776,18 +2790,22 @@ class PlayState extends MusicBeatState
 						{
 							case 0:
 							        boyfriend.playAnim('singLEFT', true);
+                                                                camFollow.set(boyfriend.getMidpoint().x, boyfriend.getMidpoint().y);
 								camFollow.x = boyfriend.getMidpoint().x - 30;
 								camFollow.y = boyfriend.getMidpoint().y;
                                                         case 1:
 								boyfriend.playAnim('singDOWN', true);
+                                                                camFollow.set(boyfriend.getMidpoint().x, boyfriend.getMidpoint().y);
 								camFollow.x = boyfriend.getMidpoint().x;
 								camFollow.y = boyfriend.getMidpoint().y + 30;
                                                         case 2:
 								boyfriend.playAnim('singUP', true);
+                                                                camFollow.set(boyfriend.getMidpoint().x, boyfriend.getMidpoint().y);
 								camFollow.x = boyfriend.getMidpoint().x + 30;
 								camFollow.y = boyfriend.getMidpoint().y;
 							case 3:
 								boyfriend.playAnim('singRIGHT', true);
+                                                                camFollow.set(boyfriend.getMidpoint().x, boyfriend.getMidpoint().y);
 								camFollow.x = boyfriend.getMidpoint().x;
 								camFollow.y = boyfriend.getMidpoint().y - 30;
 	                                        }
