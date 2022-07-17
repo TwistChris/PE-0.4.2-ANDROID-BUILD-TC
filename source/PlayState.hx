@@ -2540,7 +2540,7 @@ class PlayState extends MusicBeatState
 								camFollow.y = dad.getMidpoint().y - 30;
 	                                        }
 
-                                                switch (daNote.noteData)
+                                                switch (Math.abs(daNote.noteData))
 						{
 							case 0:
 							        boyfriend.playAnim('singLEFT', true);
@@ -2760,8 +2760,6 @@ class PlayState extends MusicBeatState
 
 				                var animToPlay:String = '';
 
-                                                camFollow.set(dad.getMidpoint().x, dad.getMidpoint().y);
-
                                                 switch (Math.abs(daNote.noteData))
 						{
 							case 0:
@@ -2786,7 +2784,7 @@ class PlayState extends MusicBeatState
 								camFollow.y = dad.getMidpoint().y - 30;
 	                                        }
 
-                                                switch (daNote.noteData)
+                                                switch (Math.abs(daNote.noteData))
 						{
 							case 0:
 							        boyfriend.playAnim('singLEFT', true);
