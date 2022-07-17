@@ -2513,69 +2513,54 @@ class PlayState extends MusicBeatState
 							if (SONG.notes[Math.floor(curStep / 16)].altAnim || daNote.noteType == 'Alt Animation') {
 								altAnim = '-alt';
 							}
-						}
 
-						var animToPlay:String = '';
+                                var animToPlay:String = '';
 
+                                if (songName == 'tutorial')
+			        {
+                                        if (dad.curCharacter == 'gf')
+                                        {
                                                 switch (Math.abs(daNote.noteData))
 						{
 							case 0:
-							        dad2.playAnim('singLEFT' + altAnim, true);
-								camFollow.x = -30;
-								camFollow.y = 0;
+							        dad.playAnim('singLEFT', true);
+								camFollow.x = dad.getMidpoint().x - 30;
+								camFollow.y = dad.getMidpoint().y;
                                                         case 1:
-								dad2.playAnim('singDOWN' + altAnim, true);
-								camFollow.x = 0;
-								camFollow.y = 30;
+								dad.playAnim('singDOWN', true);
+								camFollow.x = dad.getMidpoint().x;
+								camFollow.y = dad.getMidpoint().y + 30;
                                                         case 2:
-								dad2.playAnim('singUP' + altAnim, true);
-								camFollow.x = 30;
-								camFollow.y = 0;
+								dad.playAnim('singUP', true);
+								camFollow.x = dad.getMidpoint().x + 30;
+								camFollow.y = dad.getMidpoint().y;
 							case 3:
-								dad2.playAnim('singRIGHT' + altAnim, true);
-								camFollow.x = 0;
-								camFollow.y = -30;
+								dad.playAnim('singRIGHT', true);
+								camFollow.x = dad.getMidpoint().x;
+								camFollow.y = dad.getMidpoint().y - 30;
 						}
-
-                                                switch (Math.abs(daNote.noteData))
-						{
-							case 0:
-							        dad.playAnim('singLEFT' + altAnim, true);
-								camFollow.x = -30;
-								camFollow.y = 0;
-                                                        case 1:
-								dad.playAnim('singDOWN' + altAnim, true);
-								camFollow.x = 0;
-								camFollow.y = 30;
-                                                        case 2:
-								dad.playAnim('singUP' + altAnim, true);
-								camFollow.x = 30;
-								camFollow.y = 0;
-							case 3:
-								dad.playAnim('singRIGHT' + altAnim, true);
-								camFollow.x = 0;
-								camFollow.y = -30;
-						}
-
+                                        else
                                                 switch (Math.abs(daNote.noteData))
 						{
 							case 0:
 							        boyfriend.playAnim('singLEFT', true);
-								camFollow.x = -30;
-								camFollow.y = 0;
+								camFollow.x = boyfriend.getMidpoint().x - 30;
+								camFollow.y = boyfriend.getMidpoint().y;
                                                         case 1:
 								boyfriend.playAnim('singDOWN', true);
-								camFollow.x = 0;
-								camFollow.y = 30;
+								camFollow.x = boyfriend.getMidpoint().x;
+								camFollow.y = boyfriend.getMidpoint().y + 30;
                                                         case 2:
 								boyfriend.playAnim('singUP', true);
-								camFollow.x = 30;
-								camFollow.y = 0;
+								camFollow.x = boyfriend.getMidpoint().x + 30;
+								camFollow.y = boyfriend.getMidpoint().y;
 							case 3:
 								boyfriend.playAnim('singRIGHT', true);
-								camFollow.x = 0;
-								camFollow.y = -30;
+								camFollow.x = boyfriend.getMidpoint().x;
+								camFollow.y = boyfriend.getMidpoint().y - 30;
 						}
+                                        }
+                                }
 
 						switch (Math.abs(daNote.noteData))
 						{
@@ -2771,47 +2756,53 @@ class PlayState extends MusicBeatState
 							}
 						}
 
-						var animToPlay:String = '';
+				var animToPlay:String = '';
 
+                                if (songName == 'tutorial')
+			        {
+                                        if (dad.curCharacter == 'gf')
+                                        {
                                                 switch (Math.abs(daNote.noteData))
 						{
 							case 0:
-							        dad.playAnim('singLEFT' + altAnim, true);
-								camFollow.x = -30;
-								camFollow.y = 0;
+							        dad.playAnim('singLEFT', true);
+								camFollow.x = dad.getMidpoint().x - 30;
+								camFollow.y = dad.getMidpoint().y;
                                                         case 1:
-								dad.playAnim('singDOWN' + altAnim, true);
-								camFollow.x = 0;
-								camFollow.y = 30;
+								dad.playAnim('singDOWN', true);
+								camFollow.x = dad.getMidpoint().x;
+								camFollow.y = dad.getMidpoint().y + 30;
                                                         case 2:
-								dad.playAnim('singUP' + altAnim, true);
-								camFollow.x = 30;
-								camFollow.y = 0;
+								dad.playAnim('singUP', true);
+								camFollow.x = dad.getMidpoint().x + 30;
+								camFollow.y = dad.getMidpoint().y;
 							case 3:
-								dad.playAnim('singRIGHT' + altAnim, true);
-								camFollow.x = 0;
-								camFollow.y = -30;
+								dad.playAnim('singRIGHT', true);
+								camFollow.x = dad.getMidpoint().x;
+								camFollow.y = dad.getMidpoint().y - 30;
 						}
-
+                                        else
                                                 switch (Math.abs(daNote.noteData))
 						{
 							case 0:
 							        boyfriend.playAnim('singLEFT', true);
-								camFollow.x = -30;
-								camFollow.y = 0;
+								camFollow.x = boyfriend.getMidpoint().x - 30;
+								camFollow.y = boyfriend.getMidpoint().y;
                                                         case 1:
 								boyfriend.playAnim('singDOWN', true);
-								camFollow.x = 0;
-								camFollow.y = 30;
+								camFollow.x = boyfriend.getMidpoint().x;
+								camFollow.y = boyfriend.getMidpoint().y + 30;
                                                         case 2:
 								boyfriend.playAnim('singUP', true);
-								camFollow.x = 30;
-								camFollow.y = 0;
+								camFollow.x = boyfriend.getMidpoint().x + 30;
+								camFollow.y = boyfriend.getMidpoint().y;
 							case 3:
 								boyfriend.playAnim('singRIGHT', true);
-								camFollow.x = 0;
-								camFollow.y = -30;
+								camFollow.x = boyfriend.getMidpoint().x;
+								camFollow.y = boyfriend.getMidpoint().y - 30;
 						}
+                                        }
+                                }
 
 						switch (Math.abs(daNote.noteData))
 						{
