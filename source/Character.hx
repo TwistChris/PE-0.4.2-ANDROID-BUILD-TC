@@ -58,6 +58,9 @@ class Character extends FlxSprite
 	public var healthIcon:String = 'face';
 	public var animationsArray:Array<AnimArray> = [];
 
+        public var camFollowx:Int = 0;
+        public var camFollowy:Int = 0;
+
 	public var positionArray:Array<Float> = [0, 0];
 	public var cameraPosition:Array<Float> = [0, 0];
 
@@ -81,6 +84,8 @@ class Character extends FlxSprite
 		#end
 		curCharacter = character;
 		this.isPlayer = isPlayer;
+                camFollowx = PlayState.dadnoteMovementXoffset;
+                camFollowx = PlayState.dadnoteMovementXoffset
 		antialiasing = ClientPrefs.globalAntialiasing;
 
 		var library:String = null;
@@ -185,6 +190,30 @@ class Character extends FlxSprite
 				dance();
 			}
 
+                        if (curCharacter.startsWith('mom'))
+		        {
+			        if (animation.curAnim.name.startsWith('singLEFT'))
+			        {
+				        camFollowx = -30;
+                                        camFollowy = 0;
+			        }
+			        else if (animation.curAnim.name.startsWith('singDOWN'))
+			        {
+				        camFollowx = 0;
+                                        camFollowy = 30;
+			        }
+                                else if (animation.curAnim.name.startsWith('singUP'))
+			        {
+				        camFollowx = 0;
+                                        camFollowy = -30;
+			        }
+                                else if (animation.curAnim.name.startsWith('singRIGHT'))
+			        {
+				        camFollowx = 30;
+                                        camFollowy = 0;
+			        }
+		        }
+
 			if (!isPlayer)
 			{
 				if (animation.curAnim.name.startsWith('sing'))
@@ -243,6 +272,7 @@ class Character extends FlxSprite
 		}
 		else
 			offset.set(0, 0);
+                }
 
 		if (curCharacter.startsWith('gf'))
 		{
