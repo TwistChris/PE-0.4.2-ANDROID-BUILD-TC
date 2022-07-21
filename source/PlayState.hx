@@ -3309,6 +3309,11 @@ class PlayState extends MusicBeatState
 			camFollow.x += dad.cameraPosition[0];
 			camFollow.y += dad.cameraPosition[1];
 			tweenCamIn();
+
+                        if (songName == 'milf')
+			{
+                                defaultCamZoom = 0.9;
+                        }
 		} else {
 			camFollow.set(boyfriend.getMidpoint().x - 100, boyfriend.getMidpoint().y - 100);
 
@@ -3324,6 +3329,11 @@ class PlayState extends MusicBeatState
 			}
 			camFollow.x -= boyfriend.cameraPosition[0];
 			camFollow.y += boyfriend.cameraPosition[1];
+
+                        if (songName == 'milf')
+			{
+                                defaultCamZoom = 1.2;
+                        }
 
 			if (Paths.formatToSongPath(SONG.song) == 'tutorial' && cameraTwn == null && FlxG.camera.zoom != 1) {
 				cameraTwn = FlxTween.tween(FlxG.camera, {zoom: 1}, (Conductor.stepCrochet * 4 / 1000), {ease: FlxEase.elasticInOut, onComplete:
