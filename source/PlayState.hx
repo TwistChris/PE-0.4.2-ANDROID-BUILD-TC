@@ -2532,20 +2532,20 @@ class PlayState extends MusicBeatState
 						                                {
 							                               case 0:
 								                               dad2.playAnim('singLEFT' + altAnim, true);
-								                               dadnoteMovementXoffset = -40;
-								                               dadnoteMovementYoffset = 0;
+								                               dadnoteMovementXoffset = (dadnoteMovementXoffset - 40);
+								                               dadnoteMovementYoffset = (dadnoteMovementYoffset + 0);
                                                                                        case 1:
 								                               dad2.playAnim('singDOWN' + altAnim, true);
-								                               dadnoteMovementXoffset = 0;
-								                               dadnoteMovementYoffset = 40;
+								                               dadnoteMovementXoffset = (dadnoteMovementXoffset + 0);
+								                               dadnoteMovementYoffset = (dadnoteMovementYoffset + 40);
                                                                                        case 2:
 								                               dad2.playAnim('singUP' + altAnim, true);
-								                               dadnoteMovementXoffset = 0;
-								                               dadnoteMovementYoffset = -40;
+								                               dadnoteMovementXoffset = (dadnoteMovementXoffset + 0);
+								                               dadnoteMovementYoffset = (dadnoteMovementYoffset - 40);
                                                                                        case 3:
 								                               dad2.playAnim('singRIGHT' + altAnim, true);
-								                               dadnoteMovementXoffset = 40;
-								                               dadnoteMovementYoffset = 0;
+								                               dadnoteMovementXoffset = (dadnoteMovementXoffset + 40);
+								                               dadnoteMovementYoffset = (dadnoteMovementYoffset + 0);
                                                                                 }
                                                                 }
 								if (dadcansing)
@@ -2554,20 +2554,20 @@ class PlayState extends MusicBeatState
 						                                {
 							                               case 0:
 								                               dad.playAnim('singLEFT' + altAnim, true);
-								                               dadnoteMovementXoffset = -40;
-								                               dadnoteMovementYoffset = 0;
+								                               dadnoteMovementXoffset = (dadnoteMovementXoffset - 40);
+								                               dadnoteMovementYoffset = (dadnoteMovementYoffset + 0);
                                                                                        case 1:
 								                               dad.playAnim('singDOWN' + altAnim, true);
-								                               dadnoteMovementXoffset = 0;
-								                               dadnoteMovementYoffset = 40;
+								                               dadnoteMovementXoffset = (dadnoteMovementXoffset + 0);
+								                               dadnoteMovementYoffset = (dadnoteMovementYoffset + 40);
                                                                                        case 2:
 								                               dad.playAnim('singUP' + altAnim, true);
-								                               dadnoteMovementXoffset = 0;
-								                               dadnoteMovementYoffset = -40;
+								                               dadnoteMovementXoffset = (dadnoteMovementXoffset + 0);
+								                               dadnoteMovementYoffset = (dadnoteMovementYoffset - 40);
                                                                                        case 3:
 								                               dad.playAnim('singRIGHT' + altAnim, true);
-								                               dadnoteMovementXoffset = 40;
-								                               dadnoteMovementYoffset = 0;
+								                               dadnoteMovementXoffset = (dadnoteMovementXoffset + 40);
+								                               dadnoteMovementYoffset = (dadnoteMovementYoffset + 0);
                                                                                 }
                                                                 }
 						}
@@ -2777,20 +2777,20 @@ class PlayState extends MusicBeatState
 						                                {
 							                               case 0:
 								                               dad.playAnim('singLEFT' + altAnim, true);
-								                               dadnoteMovementXoffset = -40;
-								                               dadnoteMovementYoffset = 0;
+								                               dadnoteMovementXoffset = (dadnoteMovementXoffset - 40);
+								                               dadnoteMovementYoffset = (dadnoteMovementYoffset + 0);
                                                                                        case 1:
 								                               dad.playAnim('singDOWN' + altAnim, true);
-								                               dadnoteMovementXoffset = 0;
-								                               dadnoteMovementYoffset = 40;
+								                               dadnoteMovementXoffset = (dadnoteMovementXoffset + 0);
+								                               dadnoteMovementYoffset = (dadnoteMovementYoffset + 40);
                                                                                        case 2:
 								                               dad.playAnim('singUP' + altAnim, true);
-								                               dadnoteMovementXoffset = 0;
-								                               dadnoteMovementYoffset = -40;
+								                               dadnoteMovementXoffset = (dadnoteMovementXoffset + 0);
+								                               dadnoteMovementYoffset = (dadnoteMovementYoffset - 40);
                                                                                        case 3:
 								                               dad.playAnim('singRIGHT' + altAnim, true);
-								                               dadnoteMovementXoffset = 40;
-								                               dadnoteMovementYoffset = 0;
+								                               dadnoteMovementXoffset = (dadnoteMovementXoffset + 40);
+								                               dadnoteMovementYoffset = (dadnoteMovementYoffset + 0);
                                                                                 }
                                                                 }
 						}
