@@ -200,12 +200,12 @@ class Character extends FlxSprite
                                 else if (animation.curAnim.name.startsWith('singUP'))
 			        {
 				        PlayState.dadnoteMovementXoffset = 0;
-                                        PlayState.dadnoteMovementYoffset = -30
+                                        PlayState.dadnoteMovementYoffset = -30;
 			        }
                                 else if (animation.curAnim.name.startsWith('singRIGHT'))
 			        {
 				        PlayState.dadnoteMovementXoffset = 30;
-                                        PlayState.dadnoteMovementYoffset = 0
+                                        PlayState.dadnoteMovementYoffset = 0;
 			        }
 		        }
 
