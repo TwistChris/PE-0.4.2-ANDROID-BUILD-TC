@@ -3310,7 +3310,7 @@ class PlayState extends MusicBeatState
 			camFollow.y += dad.cameraPosition[1];
 			tweenCamIn();
 
-                        if (songName == 'milf')
+                        if (Paths.formatToSongPath(SONG.song) == 'milf')
 			{
                                 defaultCamZoom = 0.9;
                         }
@@ -3330,7 +3330,7 @@ class PlayState extends MusicBeatState
 			camFollow.x -= boyfriend.cameraPosition[0];
 			camFollow.y += boyfriend.cameraPosition[1];
 
-                        if (songName == 'milf')
+                        if (Paths.formatToSongPath(SONG.song) == 'milf')
 			{
                                 defaultCamZoom = 1.2;
                         }
