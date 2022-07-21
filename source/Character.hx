@@ -85,7 +85,7 @@ class Character extends FlxSprite
 		curCharacter = character;
 		this.isPlayer = isPlayer;
                 camFollowx = PlayState.dadnoteMovementXoffset;
-                camFollowx = PlayState.dadnoteMovementXoffset
+                camFollowy = PlayState.dadnoteMovementYoffset;
 		antialiasing = ClientPrefs.globalAntialiasing;
 
 		var library:String = null;
