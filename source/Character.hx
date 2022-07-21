@@ -185,30 +185,6 @@ class Character extends FlxSprite
 				dance();
 			}
 
-                        if (curCharacter.startsWith('mom'))
-		        {
-			        if (animation.curAnim.name.startsWith('singLEFT'))
-			        {
-				        PlayState.dadnoteMovementXoffset = -30;
-                                        PlayState.dadnoteMovementYoffset = 0;
-			        }
-			        else if (animation.curAnim.name.startsWith('singDOWN'))
-			        {
-				        PlayState.dadnoteMovementXoffset = 0;
-                                        PlayState.dadnoteMovementYoffset = 30;
-			        }
-                                else if (animation.curAnim.name.startsWith('singUP'))
-			        {
-				        PlayState.dadnoteMovementXoffset = 0;
-                                        PlayState.dadnoteMovementYoffset = -30;
-			        }
-                                else if (animation.curAnim.name.startsWith('singRIGHT'))
-			        {
-				        PlayState.dadnoteMovementXoffset = 30;
-                                        PlayState.dadnoteMovementYoffset = 0;
-			        }
-		        }
-
 			if (!isPlayer)
 			{
 				if (animation.curAnim.name.startsWith('sing'))
