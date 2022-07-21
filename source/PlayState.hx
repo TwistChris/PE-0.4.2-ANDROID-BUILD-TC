@@ -2528,22 +2528,22 @@ class PlayState extends MusicBeatState
 					        {
                                                                 if (dad2cansing)
 								{
-                                                                                switch (Math.abs(daNote.noteData))
-						                                {
+                                                                               switch (Math.abs(daNote.noteData))
+						                               {
 							                               case 0:
-								                               dad2.playAnim('singLEFT' + altAnim, true);
+								                               dad.playAnim('singLEFT' + altAnim, true);
 								                               dadnoteMovementXoffset = (dadnoteMovementXoffset - 40);
 								                               dadnoteMovementYoffset = (dadnoteMovementYoffset + 0);
                                                                                        case 1:
-								                               dad2.playAnim('singDOWN' + altAnim, true);
+								                               dad.playAnim('singDOWN' + altAnim, true);
 								                               dadnoteMovementXoffset = (dadnoteMovementXoffset + 0);
 								                               dadnoteMovementYoffset = (dadnoteMovementYoffset + 40);
                                                                                        case 2:
-								                               dad2.playAnim('singUP' + altAnim, true);
+								                               dad.playAnim('singUP' + altAnim, true);
 								                               dadnoteMovementXoffset = (dadnoteMovementXoffset + 0);
 								                               dadnoteMovementYoffset = (dadnoteMovementYoffset - 40);
                                                                                        case 3:
-								                               dad2.playAnim('singRIGHT' + altAnim, true);
+								                               dad.playAnim('singRIGHT' + altAnim, true);
 								                               dadnoteMovementXoffset = (dadnoteMovementXoffset + 40);
 								                               dadnoteMovementYoffset = (dadnoteMovementYoffset + 0);
                                                                                 }
