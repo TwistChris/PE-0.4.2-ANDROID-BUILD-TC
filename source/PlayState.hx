@@ -3391,8 +3391,8 @@ class PlayState extends MusicBeatState
 			camFollow.x += dad.cameraPosition[0];
 			camFollow.y += dad.cameraPosition[1];
 			tweenCamIn();
-                        camFollow.x = dadnoteMovementXoffset;
-                        camFollow.y = dadnoteMovementYoffset;
+                        dadnoteMovementXoffset = dad.getMidpoint().x + 150;
+                        dadnoteMovementYoffset = dad.getMidpoint().y + 100;
 
                         if (Paths.formatToSongPath(SONG.song) == 'milf')
 			{
