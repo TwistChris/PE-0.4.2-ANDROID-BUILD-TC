@@ -2523,24 +2523,53 @@ class PlayState extends MusicBeatState
 
 						var animToPlay:String = '';
 
-                                                switch (Math.abs(daNote.noteData))
-						{
-							case 2:
-								dad.playAnim('singUP' + altAnim, true);
-								dadnoteMovementYoffset = -40;
-								dadnoteMovementXoffset = 0;
-							case 3:
-								dad.playAnim('singRIGHT' + altAnim, true);
-								dadnoteMovementXoffset = 40;
-								dadnoteMovementYoffset = 0;	
-							case 1:
-								dad.playAnim('singDOWN' + altAnim, true);
-								dadnoteMovementYoffset = 40;
-								dadnoteMovementXoffset = 0;
-							case 0:
-								dad.playAnim('singLEFT' + altAnim, true);
-								dadnoteMovementXoffset = -40;
-								dadnoteMovementYoffset = 0;
+                                                if ((dadspecialanim.contains(dad.animation.curAnim.name) && dad.animation.curAnim.finished)
+								|| !dadspecialanim.contains(dad.animation.curAnim.name))
+					        {
+                                                                if (dad2cansing)
+								{
+                                                                                switch (Math.abs(daNote.noteData))
+						                                {
+							                               case 0:
+								                               dad2.playAnim('singLEFT' + altAnim, true);
+								                               dadnoteMovementXoffset = -40;
+								                               dadnoteMovementYoffset = 0;
+                                                                                       case 1:
+								                               dad2.playAnim('singDOWN' + altAnim, true);
+								                               dadnoteMovementXoffset = 0;
+								                               dadnoteMovementYoffset = 40;
+                                                                                       case 2:
+								                               dad2.playAnim('singUP' + altAnim, true);
+								                               dadnoteMovementXoffset = 0;
+								                               dadnoteMovementYoffset = -40;
+                                                                                       case 3:
+								                               dad2.playAnim('singRIGHT' + altAnim, true);
+								                               dadnoteMovementXoffset = 40;
+								                               dadnoteMovementYoffset = 0;
+                                                                                }
+                                                                }
+								if (dadcansing)
+								{
+                                                                                switch (Math.abs(daNote.noteData))
+						                                {
+							                               case 0:
+								                               dad.playAnim('singLEFT' + altAnim, true);
+								                               dadnoteMovementXoffset = -40;
+								                               dadnoteMovementYoffset = 0;
+                                                                                       case 1:
+								                               dad.playAnim('singDOWN' + altAnim, true);
+								                               dadnoteMovementXoffset = 0;
+								                               dadnoteMovementYoffset = 40;
+                                                                                       case 2:
+								                               dad.playAnim('singUP' + altAnim, true);
+								                               dadnoteMovementXoffset = 0;
+								                               dadnoteMovementYoffset = -40;
+                                                                                       case 3:
+								                               dad.playAnim('singRIGHT' + altAnim, true);
+								                               dadnoteMovementXoffset = 40;
+								                               dadnoteMovementYoffset = 0;
+                                                                                }
+                                                                }
 						}
 
 						switch (Math.abs(daNote.noteData))
@@ -2739,24 +2768,31 @@ class PlayState extends MusicBeatState
 
 						var animToPlay:String = '';
 
-                                                switch (Math.abs(daNote.noteData))
-						{
-							case 2:
-								dad.playAnim('singUP' + altAnim, true);
-								dadnoteMovementYoffset = -40;
-								dadnoteMovementXoffset = 0;
-							case 3:
-								dad.playAnim('singRIGHT' + altAnim, true);
-								dadnoteMovementXoffset = 40;
-								dadnoteMovementYoffset = 0;	
-							case 1:
-								dad.playAnim('singDOWN' + altAnim, true);
-								dadnoteMovementYoffset = 40;
-								dadnoteMovementXoffset = 0;
-							case 0:
-								dad.playAnim('singLEFT' + altAnim, true);
-								dadnoteMovementXoffset = -40;
-								dadnoteMovementYoffset = 0;
+                                                if ((dadspecialanim.contains(dad.animation.curAnim.name) && dad.animation.curAnim.finished)
+								|| !dadspecialanim.contains(dad.animation.curAnim.name))
+					        {
+								if (dadcansing)
+								{
+                                                                                switch (Math.abs(daNote.noteData))
+						                                {
+							                               case 0:
+								                               dad.playAnim('singLEFT' + altAnim, true);
+								                               dadnoteMovementXoffset = -40;
+								                               dadnoteMovementYoffset = 0;
+                                                                                       case 1:
+								                               dad.playAnim('singDOWN' + altAnim, true);
+								                               dadnoteMovementXoffset = 0;
+								                               dadnoteMovementYoffset = 40;
+                                                                                       case 2:
+								                               dad.playAnim('singUP' + altAnim, true);
+								                               dadnoteMovementXoffset = 0;
+								                               dadnoteMovementYoffset = -40;
+                                                                                       case 3:
+								                               dad.playAnim('singRIGHT' + altAnim, true);
+								                               dadnoteMovementXoffset = 40;
+								                               dadnoteMovementYoffset = 0;
+                                                                                }
+                                                                }
 						}
 
 						switch (Math.abs(daNote.noteData))
