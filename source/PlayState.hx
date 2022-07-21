@@ -281,6 +281,12 @@ class PlayState extends MusicBeatState
 	public static var seenCutscene:Bool = false;
 	public static var deathCounter:Int = 0;
 
+        var dadnoteMovementXoffset:Int = 0;
+	var dadnoteMovementYoffset:Int = 0;
+
+	var bfnoteMovementXoffset:Int = 0;
+	var bfnoteMovementYoffset:Int = 0;
+
 	public var defaultCamZoom:Float = 1.05;
 
 	// how big to stretch the pixel art assets
@@ -2517,6 +2523,26 @@ class PlayState extends MusicBeatState
 
 						var animToPlay:String = '';
 
+                                                switch (Math.abs(daNote.noteData))
+						{
+							case 2:
+								dad.playAnim('singUP' + altAnim, true);
+								dadnoteMovementYoffset = -40;
+								dadnoteMovementXoffset = 0;
+							case 3:
+								dad.playAnim('singRIGHT' + altAnim, true);
+								dadnoteMovementXoffset = 40;
+								dadnoteMovementYoffset = 0;	
+							case 1:
+								dad.playAnim('singDOWN' + altAnim, true);
+								dadnoteMovementYoffset = 40;
+								dadnoteMovementXoffset = 0;
+							case 0:
+								dad.playAnim('singLEFT' + altAnim, true);
+								dadnoteMovementXoffset = -40;
+								dadnoteMovementYoffset = 0;
+						}
+
 						switch (Math.abs(daNote.noteData))
 						{
 							case 0:
@@ -2712,6 +2738,26 @@ class PlayState extends MusicBeatState
 						}
 
 						var animToPlay:String = '';
+
+                                                switch (Math.abs(daNote.noteData))
+						{
+							case 2:
+								dad.playAnim('singUP' + altAnim, true);
+								dadnoteMovementYoffset = -40;
+								dadnoteMovementXoffset = 0;
+							case 3:
+								dad.playAnim('singRIGHT' + altAnim, true);
+								dadnoteMovementXoffset = 40;
+								dadnoteMovementYoffset = 0;	
+							case 1:
+								dad.playAnim('singDOWN' + altAnim, true);
+								dadnoteMovementYoffset = 40;
+								dadnoteMovementXoffset = 0;
+							case 0:
+								dad.playAnim('singLEFT' + altAnim, true);
+								dadnoteMovementXoffset = -40;
+								dadnoteMovementYoffset = 0;
+						}
 
 						switch (Math.abs(daNote.noteData))
 						{
@@ -3305,7 +3351,7 @@ class PlayState extends MusicBeatState
 		
 		
 		if(isDad) {
-			camFollow.set(dad.getMidpoint().x + 150, dad.getMidpoint().y - 100);
+			camFollow.set(dad.getMidpoint().x + 150 + dadnoteMovementXoffset, dad.getMidpoint().y - 100 + dadnoteMovementYoffset);
 			camFollow.x += dad.cameraPosition[0];
 			camFollow.y += dad.cameraPosition[1];
 			tweenCamIn();
