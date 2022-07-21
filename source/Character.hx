@@ -58,9 +58,6 @@ class Character extends FlxSprite
 	public var healthIcon:String = 'face';
 	public var animationsArray:Array<AnimArray> = [];
 
-        public var camFollowx:Int = 0;
-        public var camFollowy:Int = 0;
-
 	public var positionArray:Array<Float> = [0, 0];
 	public var cameraPosition:Array<Float> = [0, 0];
 
@@ -84,8 +81,6 @@ class Character extends FlxSprite
 		#end
 		curCharacter = character;
 		this.isPlayer = isPlayer;
-                camFollowx = PlayState.dadnoteMovementXoffset;
-                camFollowy = PlayState.dadnoteMovementYoffset;
 		antialiasing = ClientPrefs.globalAntialiasing;
 
 		var library:String = null;
@@ -194,23 +189,23 @@ class Character extends FlxSprite
 		        {
 			        if (animation.curAnim.name.startsWith('singLEFT'))
 			        {
-				        camFollowx = -30;
-                                        camFollowy = 0;
+				        PlayState.dadnoteMovementXoffset = -30;
+                                        PlayState.dadnoteMovementYoffset = 0;
 			        }
 			        else if (animation.curAnim.name.startsWith('singDOWN'))
 			        {
-				        camFollowx = 0;
-                                        camFollowy = 30;
+				        PlayState.dadnoteMovementXoffset = 0;
+                                        PlayState.dadnoteMovementYoffset = 30;
 			        }
                                 else if (animation.curAnim.name.startsWith('singUP'))
 			        {
-				        camFollowx = 0;
-                                        camFollowy = -30;
+				        PlayState.dadnoteMovementXoffset = 0;
+                                        PlayState.dadnoteMovementYoffset = -30
 			        }
                                 else if (animation.curAnim.name.startsWith('singRIGHT'))
 			        {
-				        camFollowx = 30;
-                                        camFollowy = 0;
+				        PlayState.dadnoteMovementXoffset = 30;
+                                        PlayState.dadnoteMovementYoffset = 0
 			        }
 		        }
 
