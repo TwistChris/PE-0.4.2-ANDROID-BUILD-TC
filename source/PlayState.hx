@@ -2532,20 +2532,16 @@ class PlayState extends MusicBeatState
 						                                {
 							                               case 0:
 								                               dad2.playAnim('singLEFT' + altAnim, true);
-								                               dadnoteMovementXoffset = -10;
-								                               dadnoteMovementYoffset = 0;
+                                                                                               camFollow.set(dad.getMidpoint().x + 150 - 40, dad.getMidpoint().y - 100 + 0);
                                                                                        case 1:
 								                               dad2.playAnim('singDOWN' + altAnim, true);
-								                               dadnoteMovementXoffset = 0;
-								                               dadnoteMovementYoffset = 10;
+                                                                                               camFollow.set(dad.getMidpoint().x + 150 + 0, dad.getMidpoint().y - 100 + 40);
                                                                                        case 2:
 								                               dad2.playAnim('singUP' + altAnim, true);
-								                               dadnoteMovementXoffset = 0;
-								                               dadnoteMovementYoffset = -10;
+                                                                                               camFollow.set(dad.getMidpoint().x + 150 + 0, dad.getMidpoint().y - 100 - 40);
                                                                                        case 3:
 								                               dad2.playAnim('singRIGHT' + altAnim, true);
-								                               dadnoteMovementXoffset = 10;
-								                               dadnoteMovementYoffset = 0;
+                                                                                               camFollow.set(dad.getMidpoint().x + 150 + 40, dad.getMidpoint().y - 100 + 0);
                                                                                 }
                                                                 }
 								if (dadcansing)
@@ -2554,20 +2550,16 @@ class PlayState extends MusicBeatState
 						                                {
 							                               case 0:
 								                               dad.playAnim('singLEFT' + altAnim, true);
-								                               dadnoteMovementXoffset = -10;
-								                               dadnoteMovementYoffset = 0;
+                                                                                               camFollow.set(dad.getMidpoint().x + 150 - 40, dad.getMidpoint().y - 100 + 0);
                                                                                        case 1:
 								                               dad.playAnim('singDOWN' + altAnim, true);
-								                               dadnoteMovementXoffset = 0;
-								                               dadnoteMovementYoffset = 10;
+                                                                                               camFollow.set(dad.getMidpoint().x + 150 + 0, dad.getMidpoint().y - 100 + 40);
                                                                                        case 2:
 								                               dad.playAnim('singUP' + altAnim, true);
-								                               dadnoteMovementXoffset = 0;
-								                               dadnoteMovementYoffset = -10;
+                                                                                               camFollow.set(dad.getMidpoint().x + 150 + 0, dad.getMidpoint().y - 100 - 40);
                                                                                        case 3:
 								                               dad.playAnim('singRIGHT' + altAnim, true);
-								                               dadnoteMovementXoffset = 10;
-								                               dadnoteMovementYoffset = 0;
+                                                                                               camFollow.set(dad.getMidpoint().x + 150 + 40, dad.getMidpoint().y - 100 + 0);
                                                                                 }
                                                                 }
 						}
@@ -2777,20 +2769,16 @@ class PlayState extends MusicBeatState
 						                                {
 							                               case 0:
 								                               dad.playAnim('singLEFT' + altAnim, true);
-								                               dadnoteMovementXoffset = -10;
-								                               dadnoteMovementYoffset = 0;
+                                                                                               camFollow.set(dad.getMidpoint().x + 150 - 40, dad.getMidpoint().y - 100 + 0);
                                                                                        case 1:
 								                               dad.playAnim('singDOWN' + altAnim, true);
-								                               dadnoteMovementXoffset = 0;
-								                               dadnoteMovementYoffset = 10;
+                                                                                               camFollow.set(dad.getMidpoint().x + 150 + 0, dad.getMidpoint().y - 100 + 40);
                                                                                        case 2:
 								                               dad.playAnim('singUP' + altAnim, true);
-								                               dadnoteMovementXoffset = 0;
-								                               dadnoteMovementYoffset = -10;
+                                                                                               camFollow.set(dad.getMidpoint().x + 150 + 0, dad.getMidpoint().y - 100 - 40);
                                                                                        case 3:
 								                               dad.playAnim('singRIGHT' + altAnim, true);
-								                               dadnoteMovementXoffset = 10;
-								                               dadnoteMovementYoffset = 0;
+                                                                                               camFollow.set(dad.getMidpoint().x + 150 + 40, dad.getMidpoint().y - 100 + 0);
                                                                                 }
                                                                 }
 						}
