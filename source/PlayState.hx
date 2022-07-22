@@ -4075,7 +4075,7 @@ class PlayState extends MusicBeatState
 
                                 if (gfcansing)
 				{
-                                        switch (Std.int(Math.abs(daNote.noteData)))
+                                        switch (Std.int(Math.abs(note.noteData)))
                                         {
 			                        case 0:
 					                gf.playAnim('singLEFT' + altAnim, true);
@@ -4096,7 +4096,7 @@ class PlayState extends MusicBeatState
 					if ((bfspecialanim.contains(boyfriend.animation.curAnim.name) && boyfriend.animation.curAnim.finished)
 							|| !bfspecialanim.contains(boyfriend.animation.curAnim.name))
 					{
-                                                        switch (Std.int(Math.abs(daNote.noteData)))
+                                                        switch (Std.int(Math.abs(note.noteData)))
                                                         {
 			                                        case 0:
 					                                boyfriend.playAnim('singLEFT' + altAnim, true);
