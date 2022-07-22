@@ -3385,7 +3385,7 @@ class PlayState extends MusicBeatState
                                 defaultCamZoom = 0.9;
                         }
 		} else {
-			camFollow.set(boyfriend.getMidpoint().x - 100, boyfriend.getMidpoint().y - 100);
+			camFollow.set(boyfriend.getMidpoint().x - 100 + 0, boyfriend.getMidpoint().y - 100 + 0);
 
 			switch (curStage)
 			{
@@ -4072,6 +4072,48 @@ class PlayState extends MusicBeatState
 				if(note.noteType == 'Alt Animation') daAlt = '-alt';
 	
 				var animToPlay:String = '';
+
+                                if (gfcansing)
+				{
+                                        switch (Std.int(Math.abs(daNote.noteData)))
+                                        {
+			                        case 0:
+					                gf.playAnim('singLEFT' + altAnim, true);
+                                                        camFollow.set(gf.getMidpoint().x + 150 - 40, gf.getMidpoint().y - 100 + 0);
+                                                case 1:
+					                gf.playAnim('singDOWN' + altAnim, true);
+                                                        camFollow.set(gf.getMidpoint().x + 150 + 0, gf.getMidpoint().y - 100 + 40);
+                                                case 2:
+			                                gf.playAnim('singUP' + altAnim, true);
+                                                        camFollow.set(gf.getMidpoint().x + 150 + 0, gf.getMidpoint().y - 100 - 40);
+                                                case 3:
+					                gf.playAnim('singRIGHT' + altAnim, true);
+                                                        camFollow.set(gf.getMidpoint().x + 150 + 40, gf.getMidpoint().y - 100 + 0);
+                                        }
+                                }
+                                if (bfcansing)
+				{
+					if ((bfspecialanim.contains(boyfriend.animation.curAnim.name) && boyfriend.animation.curAnim.finished)
+							|| !bfspecialanim.contains(boyfriend.animation.curAnim.name))
+					{
+                                                        switch (Std.int(Math.abs(daNote.noteData)))
+                                                        {
+			                                        case 0:
+					                                boyfriend.playAnim('singLEFT' + altAnim, true);
+                                                                        camFollow.set(boyfriend.getMidpoint().x + 150 - 40, boyfriend.getMidpoint().y - 100 + 0);
+                                                                case 1:
+					                                boyfriend.playAnim('singDOWN' + altAnim, true);
+                                                                        camFollow.set(boyfriend.getMidpoint().x + 150 + 0, boyfriend.getMidpoint().y - 100 + 40);
+                                                                case 2:
+			                                                boyfriend.playAnim('singUP' + altAnim, true);
+                                                                        camFollow.set(boyfriend.getMidpoint().x + 150 + 0, boyfriend.getMidpoint().y - 100 - 40);
+                                                                case 3:
+					                                boyfriend.playAnim('singRIGHT' + altAnim, true);
+                                                                        camFollow.set(boyfriend.getMidpoint().x + 150 + 40, boyfriend.getMidpoint().y - 100 + 0);
+                                                        }
+                                        }
+                                }
+
 				switch (Std.int(Math.abs(note.noteData)))
 				{
 					case 0:
