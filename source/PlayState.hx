@@ -4078,17 +4078,17 @@ class PlayState extends MusicBeatState
                                         switch (Std.int(Math.abs(note.noteData)))
                                         {
 			                        case 0:
-					                gf.playAnim('singLEFT' + daAlt, true);
-                                                        camFollow.set(gf.getMidpoint().x - 0 - 40, gf.getMidpoint().y - 0 + 0);
+                                                        camFollow.set(gf.getMidpoint().x - 100 - 40, gf.getMidpoint().y - 100 + 0);
+                                                        gf.playAnim('singLEFT' + daAlt, true);
                                                 case 1:
-					                gf.playAnim('singDOWN' + daAlt, true);
-                                                        camFollow.set(gf.getMidpoint().x - 0 + 0, gf.getMidpoint().y - 0 + 40);
+					                camFollow.set(gf.getMidpoint().x - 100 + 0, gf.getMidpoint().y - 100 + 40);
+                                                        gf.playAnim('singDOWN' + daAlt, true);
                                                 case 2:
-			                                gf.playAnim('singUP' + daAlt, true);
-                                                        camFollow.set(gf.getMidpoint().x - 0 + 0, gf.getMidpoint().y - 0 - 40);
+			                                camFollow.set(gf.getMidpoint().x - 100 + 0, gf.getMidpoint().y - 100 - 40);
+                                                        gf.playAnim('singUP' + daAlt, true);
                                                 case 3:
-					                gf.playAnim('singRIGHT' + daAlt, true);
-                                                        camFollow.set(gf.getMidpoint().x - 0 + 40, gf.getMidpoint().y - 0 + 0);
+					                camFollow.set(gf.getMidpoint().x - 100 + 40, gf.getMidpoint().y - 100 + 0);
+                                                        gf.playAnim('singRIGHT' + daAlt, true);
                                         }
                                 }
                                 if (bfcansing)
@@ -4099,17 +4099,17 @@ class PlayState extends MusicBeatState
                                                         switch (Std.int(Math.abs(note.noteData)))
                                                         {
 			                                        case 0:
-					                                boyfriend.playAnim('singLEFT' + daAlt, true);
-                                                                        camFollow.set(boyfriend.getMidpoint().x - 0 - 40, boyfriend.getMidpoint().y - 0 + 0);
+                                                                        camFollow.set(boyfriend.getMidpoint().x - 100 - 40, boyfriend.getMidpoint().y - 100 + 0);
+                                                                        boyfriend.playAnim('singLEFT' + daAlt, true);
                                                                 case 1:
-					                                boyfriend.playAnim('singDOWN' + daAlt, true);
-                                                                        camFollow.set(boyfriend.getMidpoint().x - 0 + 0, boyfriend.getMidpoint().y - 0 + 40);
+                                                                        camFollow.set(boyfriend.getMidpoint().x - 100 + 0, boyfriend.getMidpoint().y - 100 + 40);
+                                                                        boyfriend.playAnim('singDOWN' + daAlt, true);
                                                                 case 2:
-			                                                boyfriend.playAnim('singUP' + daAlt, true);
-                                                                        camFollow.set(boyfriend.getMidpoint().x - 0 + 0, boyfriend.getMidpoint().y - 0 - 40);
+                                                                        camFollow.set(boyfriend.getMidpoint().x - 100 + 0, boyfriend.getMidpoint().y - 100 - 40);
+                                                                        boyfriend.playAnim('singUP' + daAlt, true);
                                                                 case 3:
-					                                boyfriend.playAnim('singRIGHT' + daAlt, true);
-                                                                        camFollow.set(boyfriend.getMidpoint().x - 0 + 40, boyfriend.getMidpoint().y - 0 + 0);
+                                                                        camFollow.set(boyfriend.getMidpoint().x - 100 + 40, boyfriend.getMidpoint().y - 100 + 0);
+                                                                        boyfriend.playAnim('singRIGHT' + daAlt, true);
                                                         }
                                         }
                                 }
