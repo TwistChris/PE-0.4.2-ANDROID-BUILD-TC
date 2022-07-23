@@ -4075,7 +4075,7 @@ class PlayState extends MusicBeatState
 
                                 if (gfcansing)
 				{
-                                        switch (Std.int(Math.abs(note.noteData)))
+                                        switch (note.noteData)
                                         {
 			                        case 0:
                                                         camFollow.set(gf.getMidpoint().x - 100 - 40, gf.getMidpoint().y - 100 + 0);
@@ -4096,7 +4096,7 @@ class PlayState extends MusicBeatState
 					if ((bfspecialanim.contains(boyfriend.animation.curAnim.name) && boyfriend.animation.curAnim.finished)
 							|| !bfspecialanim.contains(boyfriend.animation.curAnim.name))
 					{
-                                                        switch (Std.int(Math.abs(note.noteData)))
+                                                        switch (note.noteData)
                                                         {
 			                                        case 0:
                                                                         camFollow.set(boyfriend.getMidpoint().x - 100 - 40, boyfriend.getMidpoint().y - 100 + 0);
