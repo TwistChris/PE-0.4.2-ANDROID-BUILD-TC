@@ -4078,16 +4078,36 @@ class PlayState extends MusicBeatState
                                         switch (note.noteData)
                                         {
 			                        case 0:
+                                                        if (gf.animation.curAnim.finished)
+                                                        {
+                                                                isCameraOnForcedPos = false;
+                                                        }
                                                         camFollow.set(gf.getMidpoint().x - 100 - 40, gf.getMidpoint().y - 100 + 0);
+                                                        isCameraOnForcedPos = true;
                                                         gf.playAnim('singLEFT' + daAlt, true);
                                                 case 1:
+                                                        if (gf.animation.curAnim.finished)
+                                                        {
+                                                                isCameraOnForcedPos = false;
+                                                        }
 					                camFollow.set(gf.getMidpoint().x - 100 + 0, gf.getMidpoint().y - 100 + 40);
+                                                        isCameraOnForcedPos = true;
                                                         gf.playAnim('singDOWN' + daAlt, true);
                                                 case 2:
+                                                        if (gf.animation.curAnim.finished)
+                                                        {
+                                                                isCameraOnForcedPos = false;
+                                                        }
 			                                camFollow.set(gf.getMidpoint().x - 100 + 0, gf.getMidpoint().y - 100 - 40);
+                                                        isCameraOnForcedPos = true;
                                                         gf.playAnim('singUP' + daAlt, true);
                                                 case 3:
+                                                        if (gf.animation.curAnim.finished)
+                                                        {
+                                                                isCameraOnForcedPos = false;
+                                                        }
 					                camFollow.set(gf.getMidpoint().x - 100 + 40, gf.getMidpoint().y - 100 + 0);
+                                                        isCameraOnForcedPos = true;
                                                         gf.playAnim('singRIGHT' + daAlt, true);
                                         }
                                 }
@@ -4099,16 +4119,36 @@ class PlayState extends MusicBeatState
                                                         switch (note.noteData)
                                                         {
 			                                        case 0:
+                                                                        if (boyfriend.animation.curAnim.finished)
+                                                                        {
+                                                                                isCameraOnForcedPos = false;
+                                                                        }
                                                                         camFollow.set(boyfriend.getMidpoint().x - 100 - 40, boyfriend.getMidpoint().y - 100 + 0);
+                                                                        isCameraOnForcedPos = true;
                                                                         boyfriend.playAnim('singLEFT' + daAlt, true);
                                                                 case 1:
+                                                                        if (boyfriend.animation.curAnim.finished)
+                                                                        {
+                                                                                isCameraOnForcedPos = false;
+                                                                        }
                                                                         camFollow.set(boyfriend.getMidpoint().x - 100 + 0, boyfriend.getMidpoint().y - 100 + 40);
+                                                                        isCameraOnForcedPos = true;
                                                                         boyfriend.playAnim('singDOWN' + daAlt, true);
                                                                 case 2:
+                                                                        if (boyfriend.animation.curAnim.finished)
+                                                                        {
+                                                                                isCameraOnForcedPos = false;
+                                                                        }
                                                                         camFollow.set(boyfriend.getMidpoint().x - 100 + 0, boyfriend.getMidpoint().y - 100 - 40);
+                                                                        isCameraOnForcedPos = true;
                                                                         boyfriend.playAnim('singUP' + daAlt, true);
                                                                 case 3:
+                                                                        if (boyfriend.animation.curAnim.finished)
+                                                                        {
+                                                                                isCameraOnForcedPos = false;
+                                                                        }
                                                                         camFollow.set(boyfriend.getMidpoint().x - 100 + 40, boyfriend.getMidpoint().y - 100 + 0);
+                                                                        isCameraOnForcedPos = true;
                                                                         boyfriend.playAnim('singRIGHT' + daAlt, true);
                                                         }
                                         }
