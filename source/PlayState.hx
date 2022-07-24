@@ -4078,16 +4078,16 @@ class PlayState extends MusicBeatState
                                         switch (Std.int(Math.abs(note.noteData)))
                                         {
 			                        case 0:
-                                                        camFollow.set(gf.getMidpoint().x - 140 - 40, gf.getMidpoint().y - 140 - 0);
+                                                        camFollow.set(gf.getMidpoint().x - 150 - 40, gf.getMidpoint().y - 150 - 0);
                                                         gf.playAnim('singLEFT' + daAlt, true);
                                                 case 1:
-					                camFollow.set(gf.getMidpoint().x - 60 - 0, gf.getMidpoint().y - 60 + 40);
+					                camFollow.set(gf.getMidpoint().x - 150 - 0, gf.getMidpoint().y - 150 + 40);
                                                         gf.playAnim('singDOWN' + daAlt, true);
                                                 case 2:
-			                                camFollow.set(gf.getMidpoint().x - 100 - 0, gf.getMidpoint().y - 100 - 40);
+			                                camFollow.set(gf.getMidpoint().x - 150 - 0, gf.getMidpoint().y - 150 - 40);
                                                         gf.playAnim('singUP' + daAlt, true);
                                                 case 3:
-					                camFollow.set(gf.getMidpoint().x - 100 + 40, gf.getMidpoint().y - 100 - 0);
+					                camFollow.set(gf.getMidpoint().x - 150 + 40, gf.getMidpoint().y - 150 - 0);
                                                         gf.playAnim('singRIGHT' + daAlt, true);
                                         }
                                 }
@@ -4099,16 +4099,16 @@ class PlayState extends MusicBeatState
                                                         switch (Std.int(Math.abs(note.noteData)))
                                                         {
 			                                        case 0:
-                                                                        camFollow.set(boyfriend.getMidpoint().x - 140 - 40, boyfriend.getMidpoint().y - 140 - 0);
+                                                                        camFollow.set(boyfriend.getMidpoint().x - 150 - 40, boyfriend.getMidpoint().y - 150 - 0);
                                                                         boyfriend.playAnim('singLEFT' + daAlt, true);
                                                                 case 1:
-                                                                        camFollow.set(boyfriend.getMidpoint().x - 60 - 0, boyfriend.getMidpoint().y - 60 + 40);
+                                                                        camFollow.set(boyfriend.getMidpoint().x - 150 - 0, boyfriend.getMidpoint().y - 150 + 40);
                                                                         boyfriend.playAnim('singDOWN' + daAlt, true);
                                                                 case 2:
-                                                                        camFollow.set(boyfriend.getMidpoint().x - 100 - 0, boyfriend.getMidpoint().y - 100 - 40);
+                                                                        camFollow.set(boyfriend.getMidpoint().x - 150 - 0, boyfriend.getMidpoint().y - 150 - 40);
                                                                         boyfriend.playAnim('singUP' + daAlt, true);
                                                                 case 3:
-                                                                        camFollow.set(boyfriend.getMidpoint().x - 100 + 40, boyfriend.getMidpoint().y - 100 - 0);
+                                                                        camFollow.set(boyfriend.getMidpoint().x - 150 + 40, boyfriend.getMidpoint().y - 150 - 0);
                                                                         boyfriend.playAnim('singRIGHT' + daAlt, true);
                                                         }
                                         }
