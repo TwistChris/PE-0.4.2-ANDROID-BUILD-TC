@@ -877,7 +877,6 @@ class PlayState extends MusicBeatState
 		strumLine.scrollFactor.set();
 
 		timeTxt = new FlxText(STRUM_X + (FlxG.width / 2) - 248, 20, 400, "", 32);
-		timeTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		timeTxt.scrollFactor.set();
 		timeTxt.alpha = 0;
 		timeTxt.borderSize = 2;
@@ -903,7 +902,6 @@ class PlayState extends MusicBeatState
 		timeBar.alpha = 0;
 		timeBar.visible = !ClientPrefs.hideTime;
 		add(timeBar);
-		add(timeTxt);
 		timeBarBG.sprTracker = timeBar;
 
 		strumLineNotes = new FlxTypedGroup<StrumNote>();
@@ -1084,26 +1082,45 @@ class PlayState extends MusicBeatState
  
                 var creditTxt:FlxText = new FlxText(876, 648,  348); 
                 creditTxt.text = 'PORTED BY\nTWIST CHRIS';
-                creditTxt.setFormat(Paths.font("vcr.ttf"), 30, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK); 
                 creditTxt.scrollFactor.set();
-                add(creditTxt);
     
 		scoreTxt = new FlxText(0, healthBarBG.y + 36, FlxG.width, "", 20);
-		scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		scoreTxt.scrollFactor.set();
 		scoreTxt.borderSize = 1.25;
 		scoreTxt.visible = !ClientPrefs.hideHud;
-		add(scoreTxt);
 
 		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "BOTPLAY", 32);
-		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		botplayTxt.scrollFactor.set();
 		botplayTxt.borderSize = 1.25;
 		botplayTxt.visible = cpuControlled;
-		add(botplayTxt);
 		if(ClientPrefs.downScroll) {
 			botplayTxt.y = timeBarBG.y - 78;
 		}
+
+                if (isPixelStage == true) {
+                        timeTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER);
+			creditTxt.setFormat(Paths.font("vcr.ttf"), 30, FlxColor.WHITE, RIGHT);
+                        scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER);
+                        botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER);
+                        timeTxt.setBorderStyle(OUTLINE, 0xFF000000, 2, 1);
+                        creditTxt.setBorderStyle(OUTLINE, 0xFF000000, 2, 1);
+                        scoreTxt.setBorderStyle(OUTLINE, 0xFF000000, 2, 1);
+                        botplayTxt.setBorderStyle(OUTLINE, 0xFF000000, 2, 1);
+                else
+                        timeTxt.setFormat(Paths.font("fullphanmuff.ttf"), 32, FlxColor.WHITE, CENTER);
+                        creditTxt.setFormat(Paths.font("fullphanmuff.ttf"), 30, FlxColor.WHITE, RIGHT);
+                        scoreTxt.setFormat(Paths.font("fullphanmuff.ttf"), 20, FlxColor.WHITE, CENTER);
+                        botplayTxt.setFormat(Paths.font("fullphanmuff.ttf"), 32, FlxColor.WHITE, CENTER);
+                        timeTxt.setBorderStyle(OUTLINE, 0xFF000000, 2, 0);
+                        creditTxt.setBorderStyle(OUTLINE, 0xFF000000, 2, 0);
+                        scoreTxt.setBorderStyle(OUTLINE, 0xFF000000, 2, 0);
+                        botplayTxt.setBorderStyle(OUTLINE, 0xFF000000, 2, 0);
+                }
+
+                add(timeTxt);
+                add(creditTxt);
+		add(scoreTxt);
+		add(botplayTxt);
 
 		strumLineNotes.cameras = [camHUD];
 		grpNoteSplashes.cameras = [camHUD];
