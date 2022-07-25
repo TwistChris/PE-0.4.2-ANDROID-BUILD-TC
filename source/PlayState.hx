@@ -1106,7 +1106,7 @@ class PlayState extends MusicBeatState
                         creditTxt.setBorderStyle(OUTLINE, 0xFF000000, 2, 1);
                         scoreTxt.setBorderStyle(OUTLINE, 0xFF000000, 2, 1);
                         botplayTxt.setBorderStyle(OUTLINE, 0xFF000000, 2, 1);
-                else
+                } else {
                         timeTxt.setFormat(Paths.font("fullphanmuff.ttf"), 32, FlxColor.WHITE, CENTER);
                         creditTxt.setFormat(Paths.font("fullphanmuff.ttf"), 30, FlxColor.WHITE, RIGHT);
                         scoreTxt.setFormat(Paths.font("fullphanmuff.ttf"), 20, FlxColor.WHITE, CENTER);
