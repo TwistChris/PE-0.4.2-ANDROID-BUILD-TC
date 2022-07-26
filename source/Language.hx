@@ -16,6 +16,9 @@ using StringTools;
 
 typedef LanguageFile =
 {
+        //flashing
+        var flashingInfo:String;
+
 	//update
 	var updateInfoP1:String;
 	var updateInfoP2:String;
@@ -150,6 +153,9 @@ typedef LanguageFile =
 
 class Language
 {
+        //flashing
+        public static var flashingInfo:String;
+
 	//update
 	public static var updateInfoP1:String;
 	public static var updateInfoP2:String;
@@ -287,6 +293,9 @@ class Language
 		var languagePath = Assets.getText(Paths.getPreloadPath('languages/' + lang + '.json'));
 
 		var languageJson:LanguageFile = cast Json.parse(languagePath);
+
+                //update
+                flashingInfo = languageJson.flashingInfo;
 
 		//update
 		updateInfoP1 = languageJson.updateInfoP1;
