@@ -18,9 +18,7 @@ class TranslateState extends MusicBeatState
 
     var bg:FlxSprite;
 
-    var language:Array<String> = ['en', 'fr'];
-
-    var lang:Array<Array<String>> = [];
+    var lang:Array<String> = ['en', 'fr'];
 
     public static var onComplete:() -> Void;
 
@@ -28,15 +26,6 @@ class TranslateState extends MusicBeatState
     
     override function create()
     {
-        var fullText:String = Assets.getText(Paths.txt('langList'));
-	
-	var firstArray:Array<String> = fullText.split('\n');
-	
-	for (i in firstArray)
-	{
-		lang.push(i.split('--'));
-	}
-
         bg = new FlxSprite().loadGraphic(Paths.image("menuDesat"));
 		bg.color = 0xFFea71fd;
 		bg.setGraphicSize(Std.int(bg.width * 1.1));
@@ -59,7 +48,7 @@ class TranslateState extends MusicBeatState
 	warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
         warnText.text = 'You can always choose the language that you want in the options.';
 	warnText.screenCenter(X);
-        warnText.y += 70;
+        warnText.y += 130;
 	add(warnText);
 
         charSelHeaderText = new FlxText(0, 0, FlxG.width, '', 50);
@@ -100,10 +89,10 @@ class TranslateState extends MusicBeatState
                        FlxTransitionableState.skipNextTransOut = true;
                        ClientPrefs.translate = false;
 
-                       ClientPrefs.language = lang[curSelected][1];
-		       Reflect.setProperty(ClientPrefs, 'language', lang[curSelected][1]);
+                       ClientPrefs.language = lang[curSelected];
+		       Reflect.setProperty(ClientPrefs, 'language', lang[curSelected]);
 		       ClientPrefs.saveSettings();
-		       Language.regenerateLang(lang[curSelected][1]);
+		       Language.regenerateLang(lang[curSelected]);
 		       FlxG.sound.play(Paths.sound('confirmMenu'));
 		       MusicBeatState.switchState(new FlashingState());
                 }
@@ -127,7 +116,7 @@ class TranslateState extends MusicBeatState
 
     function charCheck()
     {
-         var langcurselc:String = language[curSelected];
+         var langcurselc:String = lang[curSelected];
 
          switch (langcurselc)
          {
