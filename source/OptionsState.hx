@@ -31,34 +31,10 @@ using StringTools;
 // TO DO: Redo the menu creation system for not being as dumb
 class OptionsState extends MusicBeatState
 {
-	var options:Array<Array<String>> = [ 
-                ['Notes', Language.note],
-                ['Keyboard Controls', Language.keycontrols],
-                ['Mobile Controls', Language.androidcontrols],
-                ['Language Select', Language.language],
-                ['Preferences', Language.preferences]
-        ];
-
+	var options:Array<String> = ['Notes', 'Keyboard Controls', 'Mobile Controls', 'Language Select', 'Preferences'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
-	public static var menuBG:FlxSprite;
-
-        function openSelectedSubstate(label:String)
-	{
-		switch (label)
-		{
-			case 'Notes':
-				openSubState(new NotesSubstate());
-			case 'Keyboard Controls':                                        
-				openSubState(new ControlsSubstate());
-			case 'Mobile Controls':
-				MusicBeatState.switchState(new options.CustomControlsState());					
-                        case 'Language Select':
-				LoadingState.loadAndSwitchState(new options.LanguageState());					
-			case 'Preferences':                                        
-				openSubState(new PreferencesSubstate());	
-		}
-	}
+	public static var menuBG:FlxSprite;		
 
 	override function create() {
 		#if desktop
@@ -78,7 +54,7 @@ class OptionsState extends MusicBeatState
 
 		for (i in 0...options.length)
 		{
-			var optionText:Alphabet = new Alphabet(0, 0, options[0][1], true, false);
+			var optionText:Alphabet = new Alphabet(0, 0, options[i], true, false);
 			optionText.screenCenter();
 			optionText.y += (100 * (i - (options.length / 2))) + 50;
 			grpOptions.add(optionText);
@@ -113,9 +89,23 @@ class OptionsState extends MusicBeatState
 			MusicBeatState.switchState(new MainMenuState());
 		}
 
-		if (controls.ACCEPT)
-		{
-			openSelectedSubstate(options[curSelected][0]);
+		if (controls.ACCEPT) {
+			for (item in grpOptions.members) {
+				item.alpha = 0;
+			}
+
+			switch(options[curSelected]) {
+				case 'Notes':
+				 	openSubState(new NotesSubstate());
+				case 'Keyboard Controls':                                        
+					openSubState(new ControlsSubstate());
+				case 'Mobile Controls':
+					MusicBeatState.switchState(new options.CustomControlsState());					
+                                case 'Language Select':
+					LoadingState.loadAndSwitchState(new options.LanguageState());					
+				case 'Preferences':                                        
+					openSubState(new PreferencesSubstate());									
+			}
 		}
 	}
 	
