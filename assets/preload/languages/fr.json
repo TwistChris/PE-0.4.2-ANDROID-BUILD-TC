@@ -45,13 +45,11 @@
 	
 	"_commentary5": "Option Menu",
 	
-	"language": "Langue",
-	"noteColors": "Couleurs des notes",
-	"controls": "Controles",
-	"delayCombo": "Adjuster Delais et Combo",
-	"graphics": "Graphiques",
-	"visualsUI": "Visuel et interface",
-	"gameplay": "Gameplay",
+        "language": "Sélection des langues",
+	"note": "Note",
+	"keycontrols": "Commandes du clavier",
+        "androidcontrols": "Commandes de Android",
+	"preferences": "Préférences",
 	
 	"_commentary6": "Note colors Menu",
 	
