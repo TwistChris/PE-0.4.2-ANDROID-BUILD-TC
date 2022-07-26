@@ -44,15 +44,12 @@
 	"restartCut": "Restart With Cutscenes",
 	
 	
-	"language": "Language",
-	"noteColors": "Note Colors",
-	"controls": "Controls",
-	"delayCombo": "Adjust Delay and Combo",
-	"graphics": "Graphics",
-	"visualsUI": "Visuals and UI",
-	"gameplay": "Gameplay",
-	
-	
+	"language": "Language Select",
+	"note": "Note",
+	"keycontrols": "Keyboard Controls",
+        "androidcontrols": "Android Controls",
+	"preferences": "Preferences",
+
 	"noteColorsSettings": "Hue    Saturation  Brightness",
 	
 	
