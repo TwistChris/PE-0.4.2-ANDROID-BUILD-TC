@@ -122,7 +122,18 @@ class LanguageState extends MusicBeatState
 			ClientPrefs.saveSettings();
 			Language.regenerateLang(lang[curSelected]);
 			FlxG.sound.play(Paths.sound('confirmMenu'));
-			MusicBeatState.switchState(new OptionsState());
+
+                        var langcurselc:String = lang[curSelected];
+
+                        switch (langcurselc)
+                        {
+                                case 'en':
+                                      MusicBeatState.switchState(new OptionsState());
+                                case 'fr':
+                                      MusicBeatState.switchState(new OptionsStateFr());
+                                default:
+                                      MusicBeatState.switchState(new OptionsState());
+                        }
 		}
 	}
 
