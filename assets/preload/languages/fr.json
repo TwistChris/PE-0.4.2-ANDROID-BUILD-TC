@@ -1,7 +1,7 @@
 {
 	"language-name": "francais",
 	
-        "warnText": "Hé, attention!\nCet mod contient des lumières clignotantes!\nAppuyez sur ENTER (la touche d'entrée) pour les désactiver maintenant ou accédez au menu Options.\nAppuyez sur ÉCHAP (la touche d'échappement) pour ignorer ce message.\nTu as été prévenu!",
+        "flashingInfo": "Hé, attention!\nCet mod contient des lumières clignotantes!\nAppuyez sur ENTER (la touche d'entrée) pour les désactiver maintenant ou accédez au menu Options.\nAppuyez sur ÉCHAP (la touche d'échappement) pour ignorer ce message.\nTu as été prévenu!",
 
 	"_commentary": "_commentary arent useful for the game, it is just a guide",
 	
