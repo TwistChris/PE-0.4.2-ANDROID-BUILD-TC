@@ -53,12 +53,10 @@ typedef LanguageFile =
 
 	//options
 	var language:String;
-	var noteColors:String;
-	var controls:String;
-	var delayCombo:String;
-	var graphics:String;
-	var visualsUI:String;
-	var gameplay:String;
+	var note:String;
+	var keycontrols:String;
+	var androidcontrols:String;
+	var preferences:String;
 
 	var noteColorsSettings:String;
 
