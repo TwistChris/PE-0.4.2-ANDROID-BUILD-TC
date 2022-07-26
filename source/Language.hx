@@ -57,6 +57,8 @@ typedef LanguageFile =
 	var keycontrols:String;
 	var androidcontrols:String;
 	var preferences:String;
+        var noteColors:String;
+	var controls:String;
         var delayCombo:String;
 	var graphics:String;
 	var visualsUI:String;
