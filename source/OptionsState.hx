@@ -101,7 +101,7 @@ class OptionsState extends MusicBeatState
 				item.alpha = 0;
 			}
 
-			switch(options[curSelected]) {
+			switch(options[curSelected][1]) {
 				case 'Notes':
 				 	openSubState(new NotesSubstate());
 				case 'Keyboard Controls':                                        
