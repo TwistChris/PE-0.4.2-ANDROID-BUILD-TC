@@ -57,6 +57,10 @@ typedef LanguageFile =
 	var keycontrols:String;
 	var androidcontrols:String;
 	var preferences:String;
+        var delayCombo:String;
+	var graphics:String;
+	var visualsUI:String;
+	var gameplay:String;
 
 	var noteColorsSettings:String;
 
@@ -181,6 +185,10 @@ class Language
 
 	//options
 	public static var language:String;
+        public static var note:String;
+	public static var keycontrols:String;
+	public static var androidcontrols:String;
+	public static var preferences:String;
 	public static var noteColors:String;
 	public static var controls:String;
 	public static var delayCombo:String;
@@ -318,6 +326,10 @@ class Language
 			language = languageJson.language + ' - Language';
 		else
 			language = languageJson.language;
+                note = languageJson.note;
+		keycontrols = languageJson.keycontrols;
+                androidcontrols = languageJson.androidcontrols;
+	        preferences = languageJson.preferences;
 		noteColors = languageJson.noteColors;
 		controls = languageJson.controls;
 		delayCombo = languageJson.delayCombo;
