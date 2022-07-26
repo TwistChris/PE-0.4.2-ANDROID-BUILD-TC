@@ -112,7 +112,7 @@ class LanguageState extends MusicBeatState
 		if (controls.BACK)
 		{
 			FlxG.sound.play(Paths.sound('cancelMenu'));
-			if (lang[curSelected == 'fr')
+			if (lang[curSelected] == 'fr')
                         {
                                 MusicBeatState.switchState(new OptionsStateFr());
                         }
