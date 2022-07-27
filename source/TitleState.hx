@@ -148,6 +148,11 @@ class TitleState extends MusicBeatState
 			});
 		}
 		#end
+
+                if (FlxG.save.data.flashing == false)
+                {
+                        MusicBeatState.switchState(new TranslateState());
+		}
 	}
 
 	var logoBl:FlxSprite;
