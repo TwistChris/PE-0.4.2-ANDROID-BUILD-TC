@@ -104,7 +104,7 @@ class TranslateStateAlt extends MusicBeatState
 		       ClientPrefs.saveSettings();
 		       Language.regenerateLang(lang[curSelected]);
 		       FlxG.sound.play(Paths.sound('confirmMenu'));
-		       MusicBeatState.switchState(new FlashingState());
+		       MusicBeatState.switchState(new TitleStateAlt());
                 }
 
         super.update(elapsed);
