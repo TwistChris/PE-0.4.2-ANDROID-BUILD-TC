@@ -112,14 +112,7 @@ class LanguageState extends MusicBeatState
 		if (controls.BACK)
 		{
 			FlxG.sound.play(Paths.sound('cancelMenu'));
-			if (lang[curSelected] == 'fr')
-                        {
-                                MusicBeatState.switchState(new OptionsStateFr());
-                        }
-                        else
-                        {
-                                MusicBeatState.switchState(new OptionsStateFr());
-                        }
+			MusicBeatState.switchState(new OptionsState());
 		}
 
 		if (controls.ACCEPT)
@@ -129,14 +122,7 @@ class LanguageState extends MusicBeatState
 			ClientPrefs.saveSettings();
 			Language.regenerateLang(lang[curSelected]);
 			FlxG.sound.play(Paths.sound('confirmMenu'));
-                        if (lang[curSelected] == 'fr')
-                        {
-                                MusicBeatState.switchState(new OptionsStateFr());
-                        }
-                        else
-                        {
-                                MusicBeatState.switchState(new OptionsStateFr());
-                        }
+			MusicBeatState.switchState(new OptionsState());
 		}
 	}
 
