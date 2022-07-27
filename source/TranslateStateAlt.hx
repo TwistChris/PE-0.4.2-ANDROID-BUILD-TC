@@ -8,7 +8,7 @@ import flixel.util.FlxColor;
 import lime.utils.Assets;
 import flixel.addons.transition.FlxTransitionableState;
 
-class TranslateStateAlt extends MusicBeatState
+class TranslateState extends MusicBeatState
 {
     public static var leftState:Bool = false;
 
@@ -18,6 +18,8 @@ class TranslateStateAlt extends MusicBeatState
 
     var bg:FlxSprite;
 
+    var bglines:FlxSprite;
+
     var lang:Array<String> = ['en', 'fr'];
 
     public static var onComplete:() -> Void;
@@ -26,7 +28,15 @@ class TranslateStateAlt extends MusicBeatState
     
     override function create()
     {
-        bg = new FlxSprite().loadGraphic(Paths.image("menuDesat"));
+        bg = new FlxSprite().loadGraphic(Paths.image("fragEn"));
+		bg.color = 0xFFea71fd;
+		bg.setGraphicSize(Std.int(bg.width * 1.1));
+		bg.updateHitbox();
+		bg.screenCenter();
+		bg.antialiasing = FlxG.save.data.antialiasing;
+		add(bg);
+
+        bglines = new FlxSprite().loadGraphic(Paths.image("blackLines"));
 		bg.color = 0xFFea71fd;
 		bg.setGraphicSize(Std.int(bg.width * 1.1));
 		bg.updateHitbox();
@@ -35,7 +45,7 @@ class TranslateStateAlt extends MusicBeatState
 		add(bg);
 
         text = new FlxText();
-        text.setFormat(Paths.font('vcr.ttf'), 32, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        text.setFormat(Paths.font('fullphanmuff.ttf'), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         text.text = '< Ъуъ >';
         text.screenCenter(X);
         text.screenCenter(Y);
@@ -45,17 +55,17 @@ class TranslateStateAlt extends MusicBeatState
         warnText = new FlxText(0, 0, FlxG.width,
 	        '',
 		32);
-	warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
+	warnText.setFormat(Paths.font('fullphanmuff.ttf'), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         warnText.text = 'You can always choose the language that you want in the options.';
 	warnText.screenCenter(X);
-        warnText.y += 130;
+        warnText.y += 400;
 	add(warnText);
 
-        charSelHeaderText = new FlxText(0, 0, FlxG.width, '', 50);
+        charSelHeaderText = new FlxText(0, 0, FlxG.width, '', 32);
         charSelHeaderText.text = 'Language Select';
-        warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
+        charSelHeaderText.setFormat(Paths.font('fullphanmuff.ttf'), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         charSelHeaderText.screenCenter(X);
-        warnText.y += 20;
+        charSelHeaderText.y += 50;
         add(charSelHeaderText);
 
         #if mobileC
@@ -94,7 +104,7 @@ class TranslateStateAlt extends MusicBeatState
 		       ClientPrefs.saveSettings();
 		       Language.regenerateLang(lang[curSelected]);
 		       FlxG.sound.play(Paths.sound('confirmMenu'));
-		       MusicBeatState.switchState(new TitleState());
+		       MusicBeatState.switchState(new FlashingState());
                 }
 
         super.update(elapsed);
@@ -121,12 +131,15 @@ class TranslateStateAlt extends MusicBeatState
          switch (langcurselc)
          {
                 case 'en':
+                      bg.loadGraphic(Paths.image('fragEn'));
                       warnText.text = 'You can always choose the language that you want in the options.';
                       charSelHeaderText.text = 'Language Select';
                 case 'fr':
+                      bg.loadGraphic(Paths.image('fragFr'));
                       warnText.text = 'Tu peux toujours la langue que tu veux dans les options.';
                       charSelHeaderText.text = 'Selection de la langue';
                 default:
+                      bg.loadGraphic(Paths.image('fragEn'));
                       warnText.text = 'You can always choose the language that you want in the options.';
                       charSelHeaderText.text = 'Language Select';
          }
