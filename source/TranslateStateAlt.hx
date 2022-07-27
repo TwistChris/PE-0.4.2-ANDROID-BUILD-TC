@@ -8,7 +8,7 @@ import flixel.util.FlxColor;
 import lime.utils.Assets;
 import flixel.addons.transition.FlxTransitionableState;
 
-class TranslateState extends MusicBeatState
+class TranslateStateAlt extends MusicBeatState
 {
     public static var leftState:Bool = false;
 
