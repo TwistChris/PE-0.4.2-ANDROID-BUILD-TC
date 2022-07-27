@@ -31,7 +31,7 @@ using StringTools;
 // TO DO: Redo the menu creation system for not being as dumb
 class OptionsState extends MusicBeatState
 {
-	var options:Array<Array<String>> = [ 
+	var options:Array<Dynamic> = [ 
                 ['Notes', Language.note],
                 ['Keyboard Controls', Language.keycontrols],
                 ['Mobile Controls', Language.androidcontrols],
