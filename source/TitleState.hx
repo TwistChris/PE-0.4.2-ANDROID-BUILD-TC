@@ -151,7 +151,7 @@ class TitleState extends MusicBeatState
 
                 if (FlxG.save.data.flashing == false)
                 {
-                        MusicBeatState.switchState(new TranslateState());
+                        MusicBeatState.switchState(new TranslateStateAlt());
 		}
 	}
 
