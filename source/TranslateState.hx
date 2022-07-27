@@ -90,6 +90,7 @@ class TranslateState extends MusicBeatState
                        ClientPrefs.translate = false;
 
                        ClientPrefs.language = lang[curSelected];
+                       ClientPrefs.language = !ClientPrefs.language;
 		       Reflect.setProperty(ClientPrefs, 'language', lang[curSelected]);
 		       ClientPrefs.saveSettings();
 		       Language.regenerateLang(lang[curSelected]);
