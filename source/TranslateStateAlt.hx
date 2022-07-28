@@ -29,7 +29,6 @@ class TranslateStateAlt extends MusicBeatState
     override function create()
     {
         bg = new FlxSprite().loadGraphic(Paths.image("fragEn"));
-		bg.color = 0xFFea71fd;
 		bg.setGraphicSize(Std.int(bg.width * 1.1));
 		bg.updateHitbox();
 		bg.screenCenter();
@@ -37,11 +36,10 @@ class TranslateStateAlt extends MusicBeatState
 		add(bg);
 
         bglines = new FlxSprite().loadGraphic(Paths.image("blackLines"));
-		bg.color = 0xFFea71fd;
-		bg.setGraphicSize(Std.int(bg.width * 1.1));
-		bg.updateHitbox();
-		bg.screenCenter();
-		bg.antialiasing = FlxG.save.data.antialiasing;
+		bglines.setGraphicSize(Std.int(bg.width * 1.1));
+		bglines.updateHitbox();
+		bglines.screenCenter();
+		bglines.antialiasing = FlxG.save.data.antialiasing;
 		add(bg);
 
         text = new FlxText();
@@ -58,7 +56,7 @@ class TranslateStateAlt extends MusicBeatState
 	warnText.setFormat(Paths.font('fullphanmuff.ttf'), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         warnText.text = 'You can always choose the language that you want in the options.';
 	warnText.screenCenter(X);
-        warnText.y += 400;
+        warnText.y += 850;
 	add(warnText);
 
         charSelHeaderText = new FlxText(0, 0, FlxG.width, '', 32);
@@ -104,7 +102,7 @@ class TranslateStateAlt extends MusicBeatState
 		       ClientPrefs.saveSettings();
 		       Language.regenerateLang(lang[curSelected]);
 		       FlxG.sound.play(Paths.sound('confirmMenu'));
-		       MusicBeatState.switchState(new TitleStateAlt());
+		       MusicBeatState.switchState(new FlashingState());
                 }
 
         super.update(elapsed);
