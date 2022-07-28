@@ -1,4 +1,4 @@
-package;
+package options;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -12,7 +12,6 @@ class TranslateStateAlt extends MusicBeatState
 {
     public static var leftState:Bool = false;
 
-    var warnText:FlxText;
     var text:FlxText;
     var charSelHeaderText:FlxText;
 
@@ -20,7 +19,7 @@ class TranslateStateAlt extends MusicBeatState
 
     var bglines:FlxSprite;
 
-    var lang:Array<String> =  ['english', 'francais'];;
+    var lang:Array<String> = ['english', 'francais'];
 
     public static var onComplete:() -> Void;
 
@@ -49,15 +48,6 @@ class TranslateStateAlt extends MusicBeatState
         text.screenCenter(Y);
         text.scrollFactor.set();
         add(text);
-
-        warnText = new FlxText(0, 0, FlxG.width,
-	        '',
-		32);
-	warnText.setFormat(Paths.font('fullphanmuff.ttf'), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-        warnText.text = 'You can always choose the language that you want in the options.';
-	warnText.screenCenter(X);
-        warnText.y += 850;
-	add(warnText);
 
         charSelHeaderText = new FlxText(0, 0, FlxG.width, '', 32);
         charSelHeaderText.text = 'Language Select';
@@ -130,15 +120,12 @@ class TranslateStateAlt extends MusicBeatState
          {
                 case 'en':
                       bg.loadGraphic(Paths.image('fragEn'));
-                      warnText.text = 'You can always choose the language that you want in the options.';
                       charSelHeaderText.text = 'Language Select';
                 case 'fr':
                       bg.loadGraphic(Paths.image('fragFr'));
-                      warnText.text = 'Tu peux toujours la langue que tu veux dans les options.';
                       charSelHeaderText.text = 'Selection de la langue';
                 default:
                       bg.loadGraphic(Paths.image('fragEn'));
-                      warnText.text = 'You can always choose the language that you want in the options.';
                       charSelHeaderText.text = 'Language Select';
          }
     }
