@@ -43,7 +43,7 @@ class TranslateState extends MusicBeatState
 		add(bglines);
 
         text = new FlxText();
-        text.setFormat(Paths.font('fullphanmuff.ttf'), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        text.setFormat(Paths.font('fullphanmuff.ttf'), 29, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         text.text = '< Ъуъ >';
         text.screenCenter(X);
         text.screenCenter(Y);
@@ -56,7 +56,7 @@ class TranslateState extends MusicBeatState
 	warnText.setFormat(Paths.font('fullphanmuff.ttf'), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         warnText.text = 'You can always choose the language that you want in the options.';
 	warnText.screenCenter(X);
-        warnText.y += 850;
+        warnText.y += 650;
 	add(warnText);
 
         charSelHeaderText = new FlxText(0, 0, FlxG.width, '', 32);
@@ -128,11 +128,11 @@ class TranslateState extends MusicBeatState
 
          switch (langcurselc)
          {
-                case 'en':
+                case 'english':
                       bg.loadGraphic(Paths.image('fragEn'));
                       warnText.text = 'You can always choose the language that you want in the options.';
                       charSelHeaderText.text = 'Language Select';
-                case 'fr':
+                case 'francais':
                       bg.loadGraphic(Paths.image('fragFr'));
                       warnText.text = 'Tu peux toujours la langue que tu veux dans les options.';
                       charSelHeaderText.text = 'Selection de la langue';
