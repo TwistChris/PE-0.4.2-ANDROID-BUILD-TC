@@ -63,7 +63,7 @@ class TranslateState extends MusicBeatState
         charSelHeaderText.text = 'Language Select';
         charSelHeaderText.setFormat(Paths.font('fullphanmuff.ttf'), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         charSelHeaderText.screenCenter(X);
-        charSelHeaderText.y += 50;
+        charSelHeaderText.y += 20;
         add(charSelHeaderText);
 
         #if mobileC
