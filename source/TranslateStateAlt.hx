@@ -12,6 +12,7 @@ class TranslateStateAlt extends MusicBeatState
 {
     public static var leftState:Bool = false;
 
+    var warnText:FlxText;
     var text:FlxText;
     var charSelHeaderText:FlxText;
 
@@ -41,13 +42,22 @@ class TranslateStateAlt extends MusicBeatState
 		bglines.antialiasing = FlxG.save.data.antialiasing;
 		add(bglines);
 
-        text = new FlxText();
+        text = new FlxText(0, 0, FlxG.width, '', 32);
         text.setFormat(Paths.font('fullphanmuff.ttf'), 29, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         text.text = '< Ъуъ >';
         text.screenCenter(X);
         text.screenCenter(Y);
         text.scrollFactor.set();
         add(text);
+
+        warnText = new FlxText(0, 0, FlxG.width,
+	        '',
+		32);
+	warnText.setFormat(Paths.font('fullphanmuff.ttf'), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        warnText.text = 'You can always choose the language that you want in the options.';
+	warnText.screenCenter(X);
+        warnText.y += 650;
+	add(warnText);
 
         charSelHeaderText = new FlxText(0, 0, FlxG.width, '', 32);
         charSelHeaderText.text = 'Language Select';
@@ -120,12 +130,15 @@ class TranslateStateAlt extends MusicBeatState
          {
                 case 'english':
                       bg.loadGraphic(Paths.image('fragEn'));
+                      warnText.text = 'You can always choose the language that you want in the options.';
                       charSelHeaderText.text = 'Language Select';
                 case 'francais':
                       bg.loadGraphic(Paths.image('fragFr'));
+                      warnText.text = 'Tu peux toujours la langue que tu veux dans les options.';
                       charSelHeaderText.text = 'Selection de la langue';
                 default:
                       bg.loadGraphic(Paths.image('fragEn'));
+                      warnText.text = 'You can always choose the language that you want in the options.';
                       charSelHeaderText.text = 'Language Select';
          }
     }
