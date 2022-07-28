@@ -43,7 +43,7 @@ class TranslateStateAlt extends MusicBeatState
 		add(bglines);
 
         text = new FlxText(0, 0, FlxG.width, '', 32);
-        text.setFormat(Paths.font('fullphanmuff.ttf'), 29, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        text.setFormat(Paths.font('fullphanmuff.ttf'), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         text.text = '< Ъуъ >';
         text.screenCenter(X);
         text.screenCenter(Y);
