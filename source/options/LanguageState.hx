@@ -40,7 +40,7 @@ class LanguageState extends MusicBeatState
 		bglines.updateHitbox();
 		bglines.screenCenter();
 		bglines.antialiasing = FlxG.save.data.antialiasing;
-		add(bg);
+		add(bglines);
 
         text = new FlxText();
         text.setFormat(Paths.font('fullphanmuff.ttf'), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
