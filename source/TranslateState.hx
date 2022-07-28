@@ -42,8 +42,8 @@ class TranslateState extends MusicBeatState
 		bglines.antialiasing = FlxG.save.data.antialiasing;
 		add(bglines);
 
-        text = new FlxText();
-        text.setFormat(Paths.font('fullphanmuff.ttf'), 29, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        text = new FlxText(0, 0, FlxG.width, '', 32);
+        text.setFormat(Paths.font('fullphanmuff.ttf'), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         text.text = '< Ъуъ >';
         text.screenCenter(X);
         text.screenCenter(Y);
