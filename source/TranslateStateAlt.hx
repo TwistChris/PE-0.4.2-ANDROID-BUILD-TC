@@ -42,7 +42,7 @@ class TranslateStateAlt extends MusicBeatState
 		add(bglines);
 
         text = new FlxText();
-        text.setFormat(Paths.font('fullphanmuff.ttf'), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        text.setFormat(Paths.font('fullphanmuff.ttf'), 29, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         text.text = '< Ъуъ >';
         text.screenCenter(X);
         text.screenCenter(Y);
@@ -53,7 +53,7 @@ class TranslateStateAlt extends MusicBeatState
         charSelHeaderText.text = 'Language Select';
         charSelHeaderText.setFormat(Paths.font('fullphanmuff.ttf'), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         charSelHeaderText.screenCenter(X);
-        charSelHeaderText.y += 50;
+        charSelHeaderText.y += 20;
         add(charSelHeaderText);
 
         #if mobileC
@@ -118,10 +118,10 @@ class TranslateStateAlt extends MusicBeatState
 
          switch (langcurselc)
          {
-                case 'en':
+                case 'english':
                       bg.loadGraphic(Paths.image('fragEn'));
                       charSelHeaderText.text = 'Language Select';
-                case 'fr':
+                case 'francais':
                       bg.loadGraphic(Paths.image('fragFr'));
                       charSelHeaderText.text = 'Selection de la langue';
                 default:
