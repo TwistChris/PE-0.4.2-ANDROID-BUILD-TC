@@ -29,6 +29,22 @@
 	"botplay": "Botplay",
 	
 	
+
+        "scorePlayState": "Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingString";
+
+        "scorePlayState2": "Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingString + ' (' + Math.floor(ratingPercent * 100) + '%)";
+
+        "youSuck": "YouSuck",
+	"shit": "Shit",
+	"bad": "Bad",
+	"bruh": "Bruh",
+	"meh": "Meh",
+	"nice": "Nice",
+	"good": "Good",
+	"great": "Great",
+	"sick": "Sick!",
+        "perfect": "Perfect!!",
+
 	"resume": "Resume",
 	"restart": "Restart Song",
 	"changeDiff": "Change Difficulty",
