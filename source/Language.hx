@@ -43,6 +43,20 @@ typedef LanguageFile =
 	var practice:String;
 	var botplay:String;
 
+        //gameplay score
+	var scorePlayState:String;
+	var scorePlayState2:String;
+	var youSuck:String;
+	var shit:String;
+	var bad:String;
+	var bruh:String;
+	var meh:String;
+	var nice:String;
+	var good:String;
+        var great:String;
+	var sick:String;
+	var perfect:String;
+
 	//pause //not working for them moment
 	var resume:String;
 	var restart:String;
@@ -179,6 +193,20 @@ class Language
 	public static var instakill:String;
 	public static var practice:String;
 	public static var botplay:String;
+
+        //gameplay score
+        public static var scorePlayState:String;
+	public static var scorePlayState2:String;
+	public static var youSuck:String;
+	public static var shit:String;
+	public static var bad:String;
+	public static var bruh:String;
+	public static var meh:String;
+	public static var nice:String;
+	public static var good:String;
+        public static var great:String;
+	public static var sick:String;
+	public static var perfect:String;
 
 	//pause //not working for them moment
 	public static var resume:String;
@@ -320,6 +348,20 @@ class Language
 		instakill = languageJson.instakill;
 		practice = languageJson.practice;
 		botplay = languageJson.botplay;
+
+                //gameplay score
+                scorePlayState = languageJson.scorePlayState;
+	        scorePlayState2 = languageJson.scorePlayState2;
+	        youSuck = languageJson.youSuck;
+	        shit = languageJson.shit;
+	        bad = languageJson.bad;
+	        bruh = languageJson.bruh;
+	        meh = languageJson.meh;
+	        nice = languageJson.nice;
+	        good = languageJson.good;
+                great = languageJson.great;
+	        sick = languageJson.sick;
+	        perfect = languageJson.perfec6;
 
 		//pause //not working for them moment
 		resume = languageJson.resume;
