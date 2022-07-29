@@ -33,6 +33,22 @@
 	
 	"_commentary4": "Pause Menu",
 	
+
+        "scorePlayState": "Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingString";
+
+        "scorePlayState2": "Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingString" + ' (' + Math.floor(ratingPercent * 100) + '%)';
+
+        "youSuck": "Tu crains!",
+	"shit": "Crotte",
+	"bad": "Mauvais",
+	"bruh": "Bruh",
+	"meh": "Meh",
+	"nice": "Joli",
+	"good": "Bon",
+	"great": "Genial",
+	"sick": "Malade!",
+        "perfect": "Parfait!!",
+
 	"resume": "Reprendre",
 	"restart": "Recommencer la chanson",
 	"changeDiff": "Changer de difficulte",
