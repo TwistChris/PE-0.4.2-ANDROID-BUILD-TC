@@ -361,7 +361,7 @@ class Language
 	        good = languageJson.good;
                 great = languageJson.great;
 	        sick = languageJson.sick;
-	        perfect = languageJson.perfec6;
+	        perfect = languageJson.perfect;
 
 		//pause //not working for them moment
 		resume = languageJson.resume;
