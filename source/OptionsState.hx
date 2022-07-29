@@ -443,7 +443,7 @@ class ControlsSubstate extends MusicBeatSubstate {
 		[Language.up, 'ui_up'],
 		[Language.right, 'ui_right'],
 		[''],
-		[Language.rewt, 'reset'],
+		[Language.reset, 'reset'],
 		[Language.accept, 'accept'],
 		[Language.back, 'back'],
 		[Language.pause, 'pause'],
