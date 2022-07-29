@@ -32,11 +32,10 @@
 	"botplay": "Botplay",
 	
 	"_commentary4": "Pause Menu",
-	
 
-        "scorePlayState": "Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Évaluation: ' + ratingString";
+        "scorePlayState": "Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Évaluation: ' + ratingString",
 
-        "scorePlayState2": "Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Évaluation: ' + ratingString + ' (' + Math.floor(ratingPercent * 100) + '%)";
+        "scorePlayState2": "Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Évaluation: ' + ratingString + ' (' + Math.floor(ratingPercent * 100) + '%)",
 
         "youSuck": "Tu crains!",
 	"shit": "Crotte",
