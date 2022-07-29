@@ -2163,9 +2163,9 @@ class PlayState extends MusicBeatState
                 {
                         case 'Français':
                                 if(ratingString == '?') {
-			                scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingStringFr;
+			                scoreTxt.text = 'Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Evaluation: ' + ratingStringFr;
 		                } else {
-			                scoreTxt.text = 'Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Évaluation: ' + ratingStringFr + ' (' + Math.floor(ratingPercent * 100) + '%)';
+			                scoreTxt.text = 'Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Evaluation: ' + ratingStringFr + ' (' + Math.floor(ratingPercent * 100) + '%)';
                                 }
 
                         case 'English':
@@ -2196,6 +2196,7 @@ class PlayState extends MusicBeatState
 				persistentUpdate = false;
 				persistentDraw = true;
 				paused = true;
+
 				// 1 / 1000 chance for Gitaroo Man easter egg
 				if (FlxG.random.bool(0.1))
 				{
