@@ -46,6 +46,7 @@ typedef LanguageFile =
         //gameplay score
 	var scorePlayState:String;
 	var scorePlayState2:String;
+        var scorePlayState3:String;
 	var youSuck:String;
 	var shit:String;
 	var bad:String;
@@ -197,6 +198,7 @@ class Language
         //gameplay score
         public static var scorePlayState:String;
 	public static var scorePlayState2:String;
+        public static var scorePlayState3:String;
 	public static var youSuck:String;
 	public static var shit:String;
 	public static var bad:String;
@@ -352,6 +354,7 @@ class Language
                 //gameplay score
                 scorePlayState = languageJson.scorePlayState;
 	        scorePlayState2 = languageJson.scorePlayState2;
+                scorePlayState3 = languageJson.scorePlayState3;
 	        youSuck = languageJson.youSuck;
 	        shit = languageJson.shit;
 	        bad = languageJson.bad;
