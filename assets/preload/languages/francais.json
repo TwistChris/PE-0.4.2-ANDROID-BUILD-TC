@@ -33,9 +33,11 @@
 	
 	"_commentary4": "Pause Menu",
 
-        "scorePlayState": "Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Évaluation: ' + ratingString",
+        "scorePlayState": "Score",
 
-        "scorePlayState2": "Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Évaluation: ' + ratingString + ' (' + Math.floor(ratingPercent * 100) + '%)",
+        "scorePlayState2": "Ratés",
+
+        "scorePlayState3": "Évaluation",
 
         "youSuck": "Tu crains!",
 	"shit": "Crotte",
