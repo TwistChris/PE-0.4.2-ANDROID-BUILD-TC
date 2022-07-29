@@ -69,16 +69,16 @@ class PlayState extends MusicBeatState
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
 	public static var ratingStuff:Array<Dynamic> = [
-		[langYouSuck, 0.2], //From 0% to 19%
-		[langShit, 0.4], //From 20% to 39%
-		[langBad, 0.5], //From 40% to 49%
-		[langBruh, 0.6], //From 50% to 59%
-		[langMeh, 0.69], //From 60% to 68%
-		[langNice, 0.7], //69%
-		[langGood, 0.8], //From 70% to 79%
-		[langGreat, 0.9], //From 80% to 89%
-		[langSick, 1], //From 90% to 99%
-		[langPerfect, 1] //The value on this one isn't used actually, since Perfect is always "1"
+		[Language.youSuck, 0.2], //From 0% to 19%
+		[Language.shit, 0.4], //From 20% to 39%
+		[Language.bad, 0.5], //From 40% to 49%
+		[Language.bruh, 0.6], //From 50% to 59%
+		[Language.meh, 0.69], //From 60% to 68%
+		[Language.nice, 0.7], //69%
+		[Language.good, 0.8], //From 70% to 79%
+		[Language.great, 0.9], //From 80% to 89%
+		[Language.sick, 1], //From 90% to 99%
+		[Language.perfect, 1] //The value on this one isn't used actually, since Perfect is always "1"
 	];
 
         public static var ratingStuffFr:Array<Dynamic> = [
@@ -142,26 +142,6 @@ class PlayState extends MusicBeatState
         public static var hasPlayedOnce:Bool = false;
 
         public static var scorefr:Bool = false;
-
-        public static var langYouSuck:String = '';
-
-        public static var langShit:String = '';
-
-        public static var langBad:String = '';
-
-        public static var langBruh:String = '';
-
-        public static var langMeh:String = '';
-
-        public static var langNice:String = '';
-
-        public static var langGood:String = '';
-
-        public static var langGreat:String = '';
-
-        public static var langSick:String = '';
-
-        public static var langPerfect:String = '';
 
         public static var bfsel:String = '';
 
@@ -2183,7 +2163,7 @@ class PlayState extends MusicBeatState
                 {
                         case 'Français':
                                 if(ratingString == '?') {
-			                scoreTxt.text = 'Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Évaluation: ' + ratingStringFr;
+			                scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingStringFr;
 		                } else {
 			                scoreTxt.text = 'Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Évaluation: ' + ratingStringFr + ' (' + Math.floor(ratingPercent * 100) + '%)';
                                 }
@@ -2197,9 +2177,9 @@ class PlayState extends MusicBeatState
       
                         default:
                                 if(ratingString == '?') {
-			                scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingString;
+			                scoreTxt.text = Language.scorePlayState;
 		                } else {
-			                scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingString + ' (' + Math.floor(ratingPercent * 100) + '%)';
+			                scoreTxt.text = Language.scorePlayState2;
 		                }
 		}
 
@@ -2216,7 +2196,6 @@ class PlayState extends MusicBeatState
 				persistentUpdate = false;
 				persistentDraw = true;
 				paused = true;
-
 				// 1 / 1000 chance for Gitaroo Man easter egg
 				if (FlxG.random.bool(0.1))
 				{
