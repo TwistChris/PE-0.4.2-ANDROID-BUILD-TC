@@ -28,9 +28,11 @@
 	"practice": "Practice Mode",
 	"botplay": "Botplay",
 	
-        "scorePlayState": "Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingString",
+        "scorePlayState": "Score",
 
-        "scorePlayState2": "Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingString + ' (' + Math.floor(ratingPercent * 100) + '%)",
+        "scorePlayState2": "Misses",
+
+        "scorePlayState3": "Rating",
 
         "youSuck": "YouSuck",
 	"shit": "Shit",
