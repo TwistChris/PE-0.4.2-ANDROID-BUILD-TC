@@ -34,9 +34,9 @@
 	"_commentary4": "Pause Menu",
 	
 
-        "scorePlayState": "Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingString";
+        "scorePlayState": "Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Évaluation: ' + ratingString";
 
-        "scorePlayState2": "Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingString" + ' (' + Math.floor(ratingPercent * 100) + '%)';
+        "scorePlayState2": "Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Évaluation: ' + ratingString + ' (' + Math.floor(ratingPercent * 100) + '%)";
 
         "youSuck": "Tu crains!",
 	"shit": "Crotte",
