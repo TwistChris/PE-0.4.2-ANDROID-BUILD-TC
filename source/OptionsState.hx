@@ -146,6 +146,7 @@ class NotesSubstate extends MusicBeatSubstate
 {
 	private static var curSelected:Int = 0;
 	private static var typeSelected:Int = 0;
+        public static var menuBG:FlxSprite;
 	private var grpNumbers:FlxTypedGroup<Alphabet>;
 	private var grpNotes:FlxTypedGroup<FlxSprite>;
 	private var shaderArray:Array<ColorSwap> = [];
@@ -157,6 +158,15 @@ class NotesSubstate extends MusicBeatSubstate
 	var posX = 250;
 	public function new() {
 		super();	
+
+
+                menuBG = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		menuBG.color = 0xFFea71fd;
+		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
+		menuBG.updateHitbox();
+		menuBG.screenCenter();
+		menuBG.antialiasing = ClientPrefs.globalAntialiasing;
+		add(menuBG);
 
 		grpNotes = new FlxTypedGroup<FlxSprite>();
 		add(grpNotes);
@@ -421,22 +431,22 @@ class ControlsSubstate extends MusicBeatSubstate {
 	private var bindLength:Int = 0;
 
 	var optionShit:Array<Dynamic> = [
-		['NOTES'],
-		['Left', 'note_left'],
-		['Down', 'note_down'],
-		['Up', 'note_up'],
-		['Right', 'note_right'],
+		[Language.notes],
+		[Language.left, 'note_left'],
+		[Language.down, 'note_down'],
+		[Language.up, 'note_up'],
+		[Language.right, 'note_right'],
 		[''],
 		['UI'],
-		['Left', 'ui_left'],
-		['Down', 'ui_down'],
-		['Up', 'ui_up'],
-		['Right', 'ui_right'],
+		[Language.left, 'ui_left'],
+		[Language.down, 'ui_down'],
+		[Language.up, 'ui_up'],
+		[Language.right, 'ui_right'],
 		[''],
-		['Reset', 'reset'],
-		['Accept', 'accept'],
-		['Back', 'back'],
-		['Pause', 'pause'],
+		[Language.rewt, 'reset'],
+		[Language.accept, 'accept'],
+		[Language.back, 'back'],
+		[Language.pause, 'pause'],
 	];
 
 	private var grpOptions:FlxTypedGroup<Alphabet>;
