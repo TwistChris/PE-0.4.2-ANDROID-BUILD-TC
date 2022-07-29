@@ -28,9 +28,9 @@
 	"practice": "Practice Mode",
 	"botplay": "Botplay",
 	
-        "scorePlayState": "Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingString";
+        "scorePlayState": "Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingString",
 
-        "scorePlayState2": "Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingString + ' (' + Math.floor(ratingPercent * 100) + '%)";
+        "scorePlayState2": "Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingString + ' (' + Math.floor(ratingPercent * 100) + '%)",
 
         "youSuck": "YouSuck",
 	"shit": "Shit",
