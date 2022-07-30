@@ -2177,9 +2177,9 @@ class PlayState extends MusicBeatState
       
                         default:
                                 if(ratingString == '?') {
-			                scoreTxt.text = Language.scorePlayState + songScore + | Language.scorePlayState2 + songMisses + | Language.scorePlayState3 + ratingString;
+			                scoreTxt.text = Language.scorePlayState: ' + songScore + ' Language.scorePlayState2: ' + songMisses + ' | Language.scorePlayState3: ' + ratingString;
 		                } else {
-			                scoreTxt.text = Language.scorePlayState + songScore + | Language.scorePlayState2 + songMisses + | Language.scorePlayState3 + ratingString + ' (' + Math.floor(ratingPercent * 100) + '%)';
+			                scoreTxt.text = Language.scorePlayState: ' + songScore + ' Language.scorePlayState2: ' + songMisses +   | Language.scorePlayState3: ' + ratingString + ' (' + Math.floor(ratingPercent * 100) + '%)';
 		                }
 		}
 
