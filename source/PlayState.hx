@@ -4585,8 +4585,15 @@ class PlayState extends MusicBeatState
 			} else {
 				for (i in 0...ratingStuff.length-1) {
 					if(ratingPercent < ratingStuff[i][1]) {
-						ratingString = ratingStuff[i][0];
-						break;
+						switch (languagescore)
+                                                {
+                                                        case 'english':
+						                ratingString = ratingStuff[i][0];
+						                break;
+                                                        case 'francais':
+						                ratingString = ratingStuffFr[i][2];
+						                break;
+                                                }
 					}
 				}
 			}
