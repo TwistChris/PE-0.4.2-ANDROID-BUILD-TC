@@ -69,16 +69,16 @@ class PlayState extends MusicBeatState
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
 	public static var ratingStuff:Array<Dynamic> = [
-		[Language.youSuck, 0.2], //From 0% to 19%
-		[Language.shit, 0.4], //From 20% to 39%
-		[Language.bad, 0.5], //From 40% to 49%
-		[Language.bruh, 0.6], //From 50% to 59%
-		[Language.meh, 0.69], //From 60% to 68%
-		[Language.nice, 0.7], //69%
-		[Language.good, 0.8], //From 70% to 79%
-		[Language.great, 0.9], //From 80% to 89%
-		['Sick', 1], //From 90% to 99%
-		[Language.perfect, 1] //The value on this one isn't used actually, since Perfect is always "1"
+		['You Suck', 0.2, Language.youSuck], //From 0% to 19%
+		['Shit', 0.4, Language.shit], //From 20% to 39%
+		['Bad', 0.5, Language.bad], //From 40% to 49%
+		['Bruh', 0.6, Language.bruh], //From 50% to 59%
+		['Meh', 0.69, Language.meh], //From 60% to 68%
+		['Nice', 0.7, Language.nice], //69%
+		['Good', 0.8, Language.good], //From 70% to 79%
+		['Great', 0.9, Language.great], //From 80% to 89%
+		['Sick!', 1, Language.sick], //From 90% to 99%
+		['Perfect!!', 1, Language.perfert] //The value on this one isn't used actually, since Perfect is always "1"
 	];
 
         public static var ratingStuffFr:Array<Dynamic> = [
@@ -4603,7 +4603,7 @@ class PlayState extends MusicBeatState
 			} else {
 				for (i in 0...ratingStuff.length-1) {
 					if(ratingPercent < ratingStuff[i][1]) {
-						ratingString = ratingStuff[i][0];
+						ratingString = ratingStuff[i][2];
 						break;
 					}
 				}
