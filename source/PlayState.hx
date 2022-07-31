@@ -77,7 +77,7 @@ class PlayState extends MusicBeatState
 		[Language.nice, 0.7], //69%
 		[Language.good, 0.8], //From 70% to 79%
 		[Language.great, 0.9], //From 80% to 89%
-		[Language.sick, 1], //From 90% to 99%
+		['Sick', 1], //From 90% to 99%
 		[Language.perfect, 1] //The value on this one isn't used actually, since Perfect is always "1"
 	];
 
@@ -4583,7 +4583,6 @@ class PlayState extends MusicBeatState
 	}
 
 	public var ratingString:String;
-        public var ratingStringFr:String;
 	public var ratingPercent:Float;
 	public function RecalculateRating() {
 		setOnLuas('score', songScore);
@@ -4607,20 +4606,6 @@ class PlayState extends MusicBeatState
 						ratingString = ratingStuff[i][0];
 						break;
 					}
-				}
-			}
-
-                        if(Math.isNaN(ratingPercent)) {
-				ratingStringFr = '?';
-			} else if(ratingPercent >= 1) {
-				ratingPercent = 1;
-				ratingStringFr = ratingStuffFr[ratingStuffFr.length-1][0]; //Uses last string
-			} else {
-				for (i in 0...ratingStuffFr.length-1) {
-					if(ratingPercent < ratingStuff[i][1]) {
-						ratingString = ratingStuff[i][0];
-						break;
-                                        }
 				}
 			}
 
