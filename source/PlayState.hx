@@ -3,6 +3,9 @@ package;
 #if desktop
 import Discord.DiscordClient;
 #end
+#if android
+import Discord.DiscordClient;
+#end
 import Section.SwagSection;
 import Song.SwagSong;
 import WiggleEffect.WiggleEffectType;
@@ -2163,9 +2166,9 @@ class PlayState extends MusicBeatState
                 {
                         case 'Français':
                                 if(ratingString == '?') {
-			                scoreTxt.text = 'Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Evaluation: ' + ratingStringFr;
+			                scoreTxt.text = 'Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Evaluation: ' + ratingString;
 		                } else {
-			                scoreTxt.text = 'Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Evaluation: ' + ratingStringFr + ' (' + Math.floor(ratingPercent * 100) + '%)';
+			                scoreTxt.text = 'Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Evaluation: ' + ratingString + ' (' + Math.floor(ratingPercent * 100) + '%)';
                                 }
 
                         case 'English':
