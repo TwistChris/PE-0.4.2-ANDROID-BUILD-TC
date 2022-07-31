@@ -69,16 +69,16 @@ class PlayState extends MusicBeatState
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
 	public static var ratingStuff:Array<Dynamic> = [
-		['You Suck', 0.2, Language.youSuck], //From 0% to 19%
-		['Shit', 0.4, Language.shit], //From 20% to 39%
-		['Bad', 0.5, Language.bad], //From 40% to 49%
-		['Bruh', 0.6, Language.bruh], //From 50% to 59%
-		['Meh', 0.69, Language.meh], //From 60% to 68%
-		['Nice', 0.7, Language.nice], //69%
-		['Good', 0.8, Language.good], //From 70% to 79%
-		['Great', 0.9, Language.great], //From 80% to 89%
-		['Sick!', 1, Language.sick], //From 90% to 99%
-		['Perfect!!', 1, Language.perfect] //The value on this one isn't used actually, since Perfect is always "1"
+		['You Suck', 0.2, 'Tu crains'], //From 0% to 19%
+		['Shit', 0.4, 'Crotte'], //From 20% to 39%
+		['Bad', 0.5, 'Mauvais'], //From 40% to 49%
+		['Bruh', 0.6, 'Bruh', //From 50% to 59%
+		['Meh', 0.69, 'Meh'], //From 60% to 68%
+		['Nice', 0.7, 'Joli'], //69%
+		['Good', 0.8, 'Bon'], //From 70% to 79%
+		['Great', 0.9, 'Génial'], //From 80% to 89%
+		['Sick!', 1, 'Malade!'], //From 90% to 99%
+		['Perfect!!', 1, 'Parfait!!'] //The value on this one isn't used actually, since Perfect is always "1"
 	];
 
         public static var ratingStuffFr:Array<Dynamic> = [
@@ -2158,29 +2158,11 @@ class PlayState extends MusicBeatState
 		}
 
 		super.update(elapsed);
-
-                switch (languagescore)
-                {
-                        case 'Français':
-                                if(ratingString == '?') {
-			                scoreTxt.text = 'Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Evaluation: ' + ratingString;
-		                } else {
-			                scoreTxt.text = 'Score: ' + songScore + ' | Ratés: ' + songMisses + ' | Evaluation: ' + ratingString + ' (' + Math.floor(ratingPercent * 100) + '%)';
-                                }
-
-                        case 'English':
-                                if(ratingString == '?') {
-			                scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingString;
-		                } else {
-			                scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingString + ' (' + Math.floor(ratingPercent * 100) + '%)';
-		                }
-      
-                        default:
-                                if(ratingString == '?') {
-			                scoreTxt.text = Language.scorePlayState + ':' + songScore + ' | ' + Language.scorePlayState2 + ':' + songMisses + ' | ' + Language.scorePlayState3 + ':' + ratingString;
-		                } else {
-			                scoreTxt.text = Language.scorePlayState + ':' + songScore + ' | ' + Language.scorePlayState2 + ':' + songMisses + ' | ' + Language.scorePlayState3 + ':' + ratingString + ' (' + Math.floor(ratingPercent * 100) + '%)';
-		                }
+                
+                if(ratingString == '?') {
+			scoreTxt.text = Language.scorePlayState + ':' + songScore + ' | ' + Language.scorePlayState2 + ':' + songMisses + ' | ' + Language.scorePlayState3 + ':' + ratingString;
+		} else {
+	                scoreTxt.text = Language.scorePlayState + ':' + songScore + ' | ' + Language.scorePlayState2 + ':' + songMisses + ' | ' + Language.scorePlayState3 + ':' + ratingString + ' (' + Math.floor(ratingPercent * 100) + '%)';
 		}
 
 		if(cpuControlled) {
@@ -4603,8 +4585,14 @@ class PlayState extends MusicBeatState
 			} else {
 				for (i in 0...ratingStuff.length-1) {
 					if(ratingPercent < ratingStuff[i][1]) {
-						ratingString = ratingStuff[i][2];
-						break;
+                                                switch (languagescore)
+                                                {
+                                                        case 'english':
+						                ratingString = ratingStuff[i][0];
+						                break;
+                                                        case 'francais':
+						                ratingString = ratingStuff[i][2];
+						                break;
 					}
 				}
 			}
