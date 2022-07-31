@@ -4584,7 +4584,7 @@ class PlayState extends MusicBeatState
 				ratingString = ratingStuff[ratingStuff.length-1][0]; //Uses last string
 			} else {
 				for (i in 0...ratingStuff.length-1) {
-					if(ratingPercent < ratingStuff[i][1]);
+					if(ratingPercent < ratingStuff[i][1]) {
 						ratingString = ratingStuff[i][0];
 						break;
 					}
