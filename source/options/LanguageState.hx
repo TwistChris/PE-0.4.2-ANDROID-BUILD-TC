@@ -90,7 +90,7 @@ class LanguageState extends MusicBeatState
                        ClientPrefs.language = lang[curSelected];
 		       Reflect.setProperty(ClientPrefs, 'language', lang[curSelected]);
 		       ClientPrefs.saveSettings();
-		       Language.regenerateLang(lang[curSelected]);
+		       languagescore = lang[curSelected];
 		       FlxG.sound.play(Paths.sound('confirmMenu'));
 		       MusicBeatState.switchState(new OptionsState());
                 }
