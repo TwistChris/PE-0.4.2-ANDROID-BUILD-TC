@@ -884,35 +884,35 @@ class PreferencesSubstate extends MusicBeatSubstate
 		'GRAPHICS',
 		'GAMEPLAY'
 	];
-	static var noCheckbox:Array<String> = [
+	static var noCheckbox:Array<Dynamic> = [
 		'Framerate',
 		'Note Delay',
 		'Scroll Speed',
 		'Note Size'
 	];
 
-	static var options:Array<String> = [
-		'GRAPHICS',
-		'Low Quality',
-		'Anti-Aliasing',
-		'Persistent Cached Data',
+	static var options:Array<Dynamic> = [
+		['GRAPHICS', Language.note]
+		['Low Quality', Language.lowQuality]
+		['Anti-Aliasing', Language.globalAntialiasing]
+		['Persistent Cached Data', 'chepa']
 		#if !html5
-		'Framerate', //Apparently 120FPS isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
+		['Framerate', Language.framerate]//Apparently 120FPS isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
 		#end
-		'GAMEPLAY',
-		'Downscroll',
-		'Middlescroll',
-		'Ghost Tapping',
-		'Note Delay',
-		'Note Splashes',
-		'Note Size',
-		'Custom Scroll Speed',
-		'Scroll Speed',
-		'Hide HUD',
-		'Hide Song Length',
-		'Flashing Lights',
-		'Camera Zooms',
-		'FPS Counter'
+		['GAMEPLAY', chepa]
+		['Downscroll', Language.downScroll]
+		['Middlescroll', Language.middleScroll]
+		['Ghost Tapping', Language.ghostTapping]
+		['Note Delay', 'chepa']
+		['Note Splashes', Language.noteSplashes]
+		['Note Size', 'chepa']
+		['Custom Scroll Speed', 'chrpa']
+		['Scroll Speed', 'chepa']
+		['Hide HUD', Language.hideHUD]
+		['Hide Song Length', 'chepa']
+		['Flashing Lights', 'chepa']
+		['Camera Zooms', Language.cameraZoom]
+		['FPS Counter', Language.showFPS]
 
 	];
 
@@ -946,7 +946,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 		for (i in 0...options.length)
 		{
 			var isCentered:Bool = unselectableCheck(i);
-			var optionText:Alphabet = new Alphabet(0, 70 * i, options[i], false, false);
+			var optionText:Alphabet = new Alphabet(0, 70 * i, options[i][1], false, false);
 			optionText.isMenuItem = true;
 			if(isCentered) {
 				optionText.screenCenter(X);
