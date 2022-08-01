@@ -78,7 +78,7 @@ class PlayState extends MusicBeatState
 		['Good', 0.8, 'Bon'], //From 70% to 79%
 		['Great', 0.9, 'Génial'], //From 80% to 89%
 		['Sick!', 1 'Malade!'], //From 90% to 99%
-		['Perfect!!', 1 'Parfait!!'] //The value on this one isn't used actually, since Perfect is always "1"
+		['Perfect!!', 1] //The value on this one isn't used actually, since Perfect is always "1"
 	];
 
         public static var ratingStuffFr:Array<Dynamic> = [
