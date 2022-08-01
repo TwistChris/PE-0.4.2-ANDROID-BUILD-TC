@@ -427,6 +427,7 @@ class ControlsSubstate extends MusicBeatSubstate {
 	private static var curSelected:Int = -1;
 	private static var curAlt:Bool = false;
 
+        public static var menuBG:FlxSprite;
 	private static var defaultKey:String = 'Reset to Default Keys';
 	private var bindLength:Int = 0;
 
@@ -458,6 +459,15 @@ class ControlsSubstate extends MusicBeatSubstate {
 
 	public function new() {
 		super();
+
+
+                menuBG = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		menuBG.color = 0xFFea71fd;
+		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
+		menuBG.updateHitbox();
+		menuBG.screenCenter();
+		menuBG.antialiasing = ClientPrefs.globalAntialiasing;
+		add(menuBG);
 
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
