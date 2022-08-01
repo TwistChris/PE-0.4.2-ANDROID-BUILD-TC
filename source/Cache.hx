@@ -51,7 +51,7 @@ class Cache extends MusicBeatState
 		menuBG.screenCenter();
 		add(menuBG);
 
-		shitz = new FlxText(12, 12, 0, "Loading...", 12);
+		shitz = new FlxText(12, 12, 0, "L", 12);
 		shitz.scrollFactor.set();
 		shitz.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(shitz);
