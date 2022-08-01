@@ -892,28 +892,27 @@ class PreferencesSubstate extends MusicBeatSubstate
 	];
 
 	static var options:Array<Dynamic> = [
-		['GRAPHICS', Language.note]
-		['Low Quality', Language.lowQuality]
-		['Anti-Aliasing', Language.globalAntialiasing]
-		['Persistent Cached Data', 'chepa']
+		['GRAPHICS', Language.note],
+		['Low Quality', Language.lowQuality],
+		['Anti-Aliasing', Language.globalAntialiasing],
+		['Persistent Cached Data', 'chepa'],
 		#if !html5
-		['Framerate', Language.framerate]//Apparently 120FPS isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
+		['Framerate', Language.framerate],//Apparently 120FPS isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
 		#end
-		['GAMEPLAY', chepa]
-		['Downscroll', Language.downScroll]
-		['Middlescroll', Language.middleScroll]
-		['Ghost Tapping', Language.ghostTapping]
-		['Note Delay', 'chepa']
-		['Note Splashes', Language.noteSplashes]
-		['Note Size', 'chepa']
-		['Custom Scroll Speed', 'chrpa']
-		['Scroll Speed', 'chepa']
-		['Hide HUD', Language.hideHUD]
-		['Hide Song Length', 'chepa']
-		['Flashing Lights', 'chepa']
-		['Camera Zooms', Language.cameraZoom]
-		['FPS Counter', Language.showFPS]
-
+		['GAMEPLAY', 'chepa'],
+		['Downscroll', Language.downScroll],
+		['Middlescroll', Language.middleScroll],
+		['Ghost Tapping', Language.ghostTapping],
+		['Note Delay', 'chepa'],
+		['Note Splashes', Language.noteSplashes],
+		['Note Size', 'chepa'],
+		['Custom Scroll Speed', 'chrpa'],
+		['Scroll Speed', 'chepa'],
+		['Hide HUD', Language.hideHUD],
+		['Hide Song Length', 'chepa'],
+		['Flashing Lights', 'chepa'],
+		['Camera Zooms', Language.cameraZoom],
+		['FPS Counter', Language.showFPS],
 	];
 
 	private var grpOptions:FlxTypedGroup<Alphabet>;
