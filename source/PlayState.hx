@@ -69,16 +69,16 @@ class PlayState extends MusicBeatState
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
 	public static var ratingStuff:Array<Dynamic> = [
-		['You Suck', 0.2, 'picol'], //From 0% to 19%
-		['Shit', 0.4], //From 20% to 39%
-		['Bad', 0.5], //From 40% to 49%
-		['Bruh', 0.6], //From 50% to 59%
-		['Meh', 0.69], //From 60% to 68%
-		['Nice', 0.7], //69%
-		['Good', 0.8], //From 70% to 79%
-		['Great', 0.9], //From 80% to 89%
-		['Sick!', 1], //From 90% to 99%
-		['Perfect!!', 1] //The value on this one isn't used actually, since Perfect is always "1"
+		['You Suck', 0.2, 'Tu crains!'], //From 0% to 19%
+		['Shit', 0.4, 'Crotte'], //From 20% to 39%
+		['Bad', 0.5, 'Mauvais'], //From 40% to 49%
+		['Bruh', 0.6, 'Bruh'], //From 50% to 59%
+		['Meh', 0.69, 'Meh'], //From 60% to 68%
+		['Nice', 0.7, 'Joli'], //69%
+		['Good', 0.8, 'Bon'], //From 70% to 79%
+		['Great', 0.9, 'Génial'], //From 80% to 89%
+		['Sick!', 1 'Malade!'], //From 90% to 99%
+		['Perfect!!', 1 'Parfait!!'] //The value on this one isn't used actually, since Perfect is always "1"
 	];
 
         public static var ratingStuffFr:Array<Dynamic> = [
@@ -88,7 +88,7 @@ class PlayState extends MusicBeatState
 		['Bruh', 0.6], //From 50% to 59%
 		['Meh', 0.69], //From 60% to 68%
 		['Joli', 0.7], //69%
-		['Bon', 0.8], //From 70% to 79%
+		['Bon' 0.8], //From 70% to 79%
 		['Génial', 0.9], //From 80% to 89%
 		['Malade!', 1], //From 90% to 99%
 		['Parfait!!', 1] //The value on this one isn't used actually, since Perfect is always "1"
