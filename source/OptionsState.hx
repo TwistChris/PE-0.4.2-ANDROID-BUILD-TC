@@ -36,7 +36,8 @@ class OptionsState extends MusicBeatState
                 ['Keyboard Controls', Language.keycontrols],
                 ['Mobile Controls', Language.androidcontrols],
                 ['Language Select', Language.language],
-                ['Preferences', Language.preferences]
+                ['Graphics, Language.graphics],
+                ['Gameplay, Language.gameplay],
         ];
 
 	private var grpOptions:FlxTypedGroup<Alphabet>;
@@ -55,8 +56,10 @@ class OptionsState extends MusicBeatState
 				MusicBeatState.switchState(new options.CustomControlsState());					
                         case 'Language Select':
 				LoadingState.loadAndSwitchState(new options.LanguageState());					
-			case 'Preferences':                                        
-				openSubState(new PreferencesSubstate());	
+			case 'Graphics':                                        
+				openSubState(new options.GraphicsSettingsSubState());
+                        case 'Gameplay':                                        
+				openSubState(new options.GameplaySettingsSubState());
 		}
 	}
 
