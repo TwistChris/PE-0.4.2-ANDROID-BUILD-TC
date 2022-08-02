@@ -91,10 +91,10 @@ class LanguageState extends MusicBeatState
 
                        switch (langcurselc)
                        {
-                               case 'english';
+                               case 'english':
 		                      PlayState.enscore = true;
                                       PlayState.frscore = false;
-                               case 'francais';
+                               case 'francais':
                                       PlayState.frscore = true;
                                       PlayState.enscore = false;
                        }
