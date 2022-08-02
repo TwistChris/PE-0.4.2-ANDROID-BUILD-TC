@@ -97,18 +97,7 @@ class TranslateState extends MusicBeatState
                        FlxTransitionableState.skipNextTransOut = true;
                        ClientPrefs.translate = false;
 
-                       var langcurselc:String = lang[curSelected];
-
-                       switch (langcurselc)
-                       {
-                               case 'english':
-		                      PlayState.enscore = true;
-                                      PlayState.frscore = false;
-                               case 'francais':
-                                      PlayState.frscore = true;
-                                      PlayState.enscore = false;
-                       }
-
+                       PlayState.languagescore = lang[curSelected];
                        ClientPrefs.language = lang[curSelected];
 		       Reflect.setProperty(ClientPrefs, 'language', lang[curSelected]);
 		       ClientPrefs.saveSettings();
