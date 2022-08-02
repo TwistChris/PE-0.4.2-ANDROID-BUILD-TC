@@ -897,7 +897,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 		['Anti-Aliasing', 'Anticrenelage'],
 		['Persistent Cached Data', 'bruh'],
 		#if !html5
-		['Framerate', 'Frequence d'images'],//Apparently 120FPS isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
+		['Framerate', 'Frequence dimages'],//Apparently 120FPS isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
 		#end
 		['GAMEPLAY'],
 		['Downscroll', 'Downscroll'],
@@ -908,7 +908,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 		['Note Size', 'bruh'],
 		['Custom Scroll Speed', 'bruh'],
 		['Scroll Speed', 'bruh'],
-		['Hide HUD', 'Cacher l'HUD''],
+		['Hide HUD', 'Cacher lHUD''],
 		['Hide Song Length', 'bruh'],
 		['Flashing Lights', 'bruh'],
 		['Camera Zooms', 'Zooms de camera'],
