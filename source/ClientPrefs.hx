@@ -25,6 +25,7 @@ class ClientPrefs {
 	public static var speed:Float = 2;
 	public static var noteSize:Float = 0.7;
 	public static var scroll:Bool = false;
+        public static var hitsoundVolume:Float = 0;
 	public static var arrowHSV:Array<Array<Int>> = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]];
 	public static var imagesPersist:Bool = false;
 	public static var ghostTapping:Bool = true;
@@ -71,6 +72,7 @@ class ClientPrefs {
 		//FlxG.save.data.violence = violence;
 		FlxG.save.data.speed = speed;
 		FlxG.save.data.scroll = scroll;
+                FlxG.save.data.hitsoundVolume = hitsoundVolume;
 		FlxG.save.data.noteSize = noteSize;
 		FlxG.save.data.camZooms = camZooms;
 		FlxG.save.data.noteOffset = noteOffset;
@@ -154,6 +156,9 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.scroll != null) {
 			scroll = FlxG.save.data.scroll;
+		}
+                if(FlxG.save.data.hitsoundVolume != null) {
+			hitsoundVolume = FlxG.save.data.hitsoundVolume;
 		}
 		if(FlxG.save.data.noteSize != null) {
 			noteSize = FlxG.save.data.noteSize;
