@@ -87,21 +87,11 @@ class LanguageState extends MusicBeatState
                        FlxTransitionableState.skipNextTransOut = true;
                        ClientPrefs.translate = false;
 
-                       var langcurselc:String = lang[curSelected];
-
-                       switch (langcurselc)
-                       {
-                               case 'english':
-		                      PlayState.enscore = true;
-                                      PlayState.frscore = false;
-                               case 'francais':
-                                      PlayState.frscore = true;
-                                      PlayState.enscore = false;
-                       }
-
+                       languagescore = lang[curSelected];
                        ClientPrefs.language = lang[curSelected];
 		       Reflect.setProperty(ClientPrefs, 'language', lang[curSelected]);
 		       ClientPrefs.saveSettings();
+                       Language.regenerateLang(lang[curSelected]);
 		       FlxG.sound.play(Paths.sound('confirmMenu'));
 		       MusicBeatState.switchState(new OptionsState());
                 }
