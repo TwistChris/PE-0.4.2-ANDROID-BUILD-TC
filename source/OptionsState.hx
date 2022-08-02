@@ -893,27 +893,29 @@ class PreferencesSubstate extends MusicBeatSubstate
 
 	static var options:Array<Dynamic> = [
 		['GRAPHICS'],
-		['Low Quality', Language.lowQuality],
-		['Anti-Aliasing', Language.globalAntialiasing],
-		['Persistent Cached Data', Language.bruh],
+		['Low Quality', 'Basse Qualite'],
+		['Anti-Aliasing', 'Anticrenelage'],
+		['Persistent Cached Data', 'bruh'],
 		#if !html5
-		['Framerate', Language.framerate],//Apparently 120FPS isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
+		['Framerate', 'Frequence d'images'],//Apparently 120FPS isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
 		#end
 		['GAMEPLAY'],
-		['Downscroll', Language.downScroll],
-		['Middlescroll', Language.middleScroll],
-		['Ghost Tapping', Language.ghostTapping],
-		['Note Delay', Language.bruh],
-		['Note Splashes', Language.noteSplashes],
-		['Note Size', Language.bruh],
-		['Custom Scroll Speed', Language.bruh],
-		['Scroll Speed', Language.bruh],
-		['Hide HUD', Language.hideHUD],
-		['Hide Song Length', Language.bruh],
-		['Flashing Lights', Language.bruh],
-		['Camera Zooms', Language.cameraZoom],
-		['FPS Counter', Language.showFPS],
+		['Downscroll', 'Downscroll'],
+		['Middlescroll', 'middleScroll'],
+		['Ghost Tapping', 'ghostTapping'],
+		['Note Delay', 'bruh'],
+		['Note Splashes', 'Eclabousure des notes'],
+		['Note Size', 'bruh'],
+		['Custom Scroll Speed', 'bruh'],
+		['Scroll Speed', 'bruh'],
+		['Hide HUD', 'Cacher l'HUD'],
+		['Hide Song Length', 'bruh'],
+		['Flashing Lights', 'bruh'],
+		['Camera Zooms', 'Zooms de camera'],
+		['FPS Counter', 'Compteur de FPS'],
 	];
+
+        static var languagescore:String = '';
 
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private var checkboxArray:Array<CheckboxThingie> = [];
@@ -1047,7 +1049,15 @@ class PreferencesSubstate extends MusicBeatSubstate
 		for (i in 0...options.length)
 		{
 			var isCentered:Bool = unselectableCheck(i);
-			var optionText:Alphabet = new Alphabet(0, 70 * i, options[i][1], false, false);
+
+                        switch (languagescore)
+                        {
+                                case 'english':
+			                var optionText:Alphabet = new Alphabet(0, 70 * i, options[i][0], false, false);
+                                case 'francais':
+			                var optionText:Alphabet = new Alphabet(0, 70 * i, options[i][1], false, false);
+                        }
+
 			optionText.isMenuItem = true;
 			if(isCentered) {
 				optionText.screenCenter(X);
