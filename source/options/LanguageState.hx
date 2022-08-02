@@ -87,7 +87,7 @@ class LanguageState extends MusicBeatState
                        FlxTransitionableState.skipNextTransOut = true;
                        ClientPrefs.translate = false;
 
-                       PreferencesSubstate.languagescore = lang[curSelected];
+                       OptionsState.languagescore = lang[curSelected];
                        PlayState.languagescore = lang[curSelected];
                        ClientPrefs.language = lang[curSelected];
 		       Reflect.setProperty(ClientPrefs, 'language', lang[curSelected]);
