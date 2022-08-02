@@ -64,7 +64,8 @@
 	"note": "Note",
 	"keycontrols": "Keyboard Controls",
         "androidcontrols": "Android Controls",
-	"preferences": "Preferences",
+	"graphics": "Graphics",
+        "gameplay": "Gameplay",
 
 	"noteColorsSettings": "Hue    Saturation  Brightness",
 	
