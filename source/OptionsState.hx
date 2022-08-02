@@ -915,8 +915,6 @@ class PreferencesSubstate extends MusicBeatSubstate
 		['FPS Counter', 'Compteur de FPS'],
 	];
 
-        static var languagescore:String = '';
-
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private var checkboxArray:Array<CheckboxThingie> = [];
 	private var checkboxNumber:Array<Int> = [];
@@ -1050,7 +1048,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 		{
 			var isCentered:Bool = unselectableCheck(i);
 
-                        switch (languagescore)
+                        switch (LanguageState.languagescore)
                         {
                                 case 'english':
 			                var optionText:Alphabet = new Alphabet(0, 70 * i, options[i][0], false, false);
