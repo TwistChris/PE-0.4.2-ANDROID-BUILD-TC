@@ -145,9 +145,7 @@ class PlayState extends MusicBeatState
 
         public static var bfsel:String = '';
 
-        public static var enscore:Bool = false;
-
-        public static var frscore:Bool = false;
+        public static var languagescore:String = '';
 
         var bfcansing:Bool = true;
 	var dadcansing:Bool = true;
@@ -4587,16 +4585,14 @@ class PlayState extends MusicBeatState
 			} else {
 				for (i in 0...ratingStuff.length-1) {
 					if(ratingPercent < ratingStuff[i][1]) {
-						if (enscore)
+						switch (languagescore)
                                                 {
-						        ratingString = ratingStuff[i][0];
-						        break;
-                                                }
-
-                                                if (frscore)
-                                                {
-						        ratingString = ratingStuff[i][2];
-						        break;
+						        case 'english':
+						                ratingString = ratingStuff[i][0];
+						                break;
+                                                        case 'francais':
+						                ratingString = ratingStuff[i][2];
+						                break;
                                                 }
 					}
 				}
