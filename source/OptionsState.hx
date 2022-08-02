@@ -891,28 +891,28 @@ class PreferencesSubstate extends MusicBeatSubstate
 		'Note Size'
 	];
 
-	static var optionsgo:Array<Dynamic> = [
+	static var options:Array<Dynamic> = [
 		['GRAPHICS'],
-		['Low Quality', 'Basse Qualite'],
-		['Anti-Aliasing', 'Anticrenelage'],
-		['Persistent Cached Data', 'bruh'],
+		['Low Quality', Language.lowQuality],
+		['Anti-Aliasing', Language.globalAntialiasing],
+		['Persistent Cached Data', Language.bruh],
 		#if !html5
-		['Framerate', 'Frequence dimages'],//Apparently 120FPS isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
+		['Framerate', Language.framerate],//Apparently 120FPS isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
 		#end
 		['GAMEPLAY'],
-		['Downscroll', 'Downscroll'],
-		['Middlescroll', 'middleScroll'],
-		['Ghost Tapping', 'ghostTapping'],
-		['Note Delay', 'bruh'],
-		['Note Splashes', 'Eclabousure des notes'],
-		['Note Size', 'bruh'],
-		['Custom Scroll Speed', 'bruh'],
-		['Scroll Speed', 'bruh'],
-		['Hide HUD', 'Cacher lHUD'],
-		['Hide Song Length', 'bruh'],
-		['Flashing Lights', 'bruh'],
-		['Camera Zooms', 'Zooms de camera'],
-		['FPS Counter', 'Compteur de FPS'],
+		['Downscroll', Language.downScroll],
+		[Language.left, Language.middleScroll],
+		['Ghost Tapping', Language.ghostTapping],
+		['Note Delay', Language.bruh],
+		['Note Splashes', Language.noteSplashes],
+		['Note Size', Language.bruh],
+		['Custom Scroll Speed', Language.bruh],
+		['Scroll Speed', Language.bruh],
+		['Hide HUD', Language.hideHUD],
+		['Hide Song Length', Language.bruh],
+		['Flashing Lights', Language.bruh],
+		['Camera Zooms', Language.cameraZoom],
+		['FPS Counter', Language.showFPS],
 	];
 
 	private var grpOptions:FlxTypedGroup<Alphabet>;
@@ -1044,18 +1044,10 @@ class PreferencesSubstate extends MusicBeatSubstate
 		grpTexts = new FlxTypedGroup<AttachedText>();
 		add(grpTexts);
 
-		for (i in 0...optionsgo.length)
+		for (i in 0...options.length)
 		{
 			var isCentered:Bool = unselectableCheck(i);
-
-                        switch (options.Language.languagescore)
-                        {
-                                case 'english':
-			                var optionText:Alphabet = new Alphabet(0, 70 * i, optionsgo[i][0], false, false);
-                                case 'francais':
-			                var optionText:Alphabet = new Alphabet(0, 70 * i, optionsgo[i][1], false, false);
-                        }
-
+			var optionText:Alphabet = new Alphabet(0, 70 * i, options[i][0], false, false);
 			optionText.isMenuItem = true;
 			if(isCentered) {
 				optionText.screenCenter(X);
@@ -1098,7 +1090,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 		descText.borderSize = 2.4;
 		add(descText);
 
-		for (i in 0...optionsgo.length) {
+		for (i in 0...options.length) {
 			if(!unselectableCheck(i)) {
 				curSelected = i;
 				break;
@@ -1156,7 +1148,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 
 		if(usesCheckbox) {
 			if(controls.ACCEPT && nextAccept <= 0) {	
-				openSelectedSubstate(optionsgo[curSelected][0]);
+				openSelectedSubstate(options[curSelected][0]);
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				reloadValues();
 			}
@@ -1164,7 +1156,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 			if(controls.UI_LEFT || controls.UI_RIGHT) {
 				var add:Int = controls.UI_LEFT ? -1 : 1;
 				if(holdTime > 0.5 || controls.UI_LEFT_P || controls.UI_RIGHT_P)
-				openSelectedSubstate2(optionsgo[curSelected]);
+				openSelectedSubstate2(options[curSelected]);
 				reloadValues();
 
 				if(holdTime <= 0) FlxG.sound.play(Paths.sound('scrollMenu'));
@@ -1189,13 +1181,13 @@ class PreferencesSubstate extends MusicBeatSubstate
 		do {
 			curSelected += change;
 			if (curSelected < 0)
-				curSelected = optionsgo.length - 1;
-			if (curSelected >= optionsgo.length)
+				curSelected = options.length - 1;
+			if (curSelected >= options.length)
 				curSelected = 0;
 		} while(unselectableCheck(curSelected));
 
 		var daText:String = '';
-		switch(optionsgo[curSelected]) {
+		switch(options[curSelected]) {
 			case 'Framerate':
 				daText = "Pretty self explanatory, isn't it?\nDefault value is 60.";
 			case 'Note Delay':
@@ -1268,7 +1260,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 			}
 		}
 
-		showCharacter.visible = (optionsgo[curSelected] == 'Anti-Aliasing' | 'Anticrenelage');
+		showCharacter.visible = (options[curSelected] == 'Anti-Aliasing');
 		FlxG.sound.play(Paths.sound('scrollMenu'));
 	}
 
@@ -1277,7 +1269,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 			var checkbox:CheckboxThingie = checkboxArray[i];
 			if(checkbox != null) {
 				var daValue:Bool = false;
-				switch(optionsgo[checkboxNumber[i]]) {
+				switch(options[checkboxNumber[i]]) {
 					case 'FPS Counter':
 						daValue = ClientPrefs.showFPS;
 					case 'Low Quality':
@@ -1316,7 +1308,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 			var text:AttachedText = grpTexts.members[i];
 			if(text != null) {
 				var daText:String = '';
-				switch(optionsgo[textNumber[i]]) {
+				switch(options[textNumber[i]]) {
 					case 'Framerate':
 						daText = '' + ClientPrefs.framerate;
 					case 'Note Delay':
@@ -1341,6 +1333,6 @@ class PreferencesSubstate extends MusicBeatSubstate
 				return true;
 			}
 		}
-		return optionsgo[num] == null || optionsgo[num].length < 1;
+		return options[num] == null || options[num].length < 1;
 	}
 }
