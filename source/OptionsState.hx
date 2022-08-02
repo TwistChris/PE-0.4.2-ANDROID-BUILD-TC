@@ -36,8 +36,8 @@ class OptionsState extends MusicBeatState
                 ['Keyboard Controls', Language.keycontrols],
                 ['Mobile Controls', Language.androidcontrols],
                 ['Language Select', Language.language],
-                ['Graphics, Language.graphics],
-                ['Gameplay, Language.gameplay],
+                ['Graphics', Language.graphics],
+                ['Gameplay', Language.gameplay]
         ];
 
 	private var grpOptions:FlxTypedGroup<Alphabet>;
