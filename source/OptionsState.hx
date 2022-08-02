@@ -908,7 +908,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 		['Note Size', 'bruh'],
 		['Custom Scroll Speed', 'bruh'],
 		['Scroll Speed', 'bruh'],
-		['Hide HUD', 'Cacher lHUD''],
+		['Hide HUD', 'Cacher lHUD'],
 		['Hide Song Length', 'bruh'],
 		['Flashing Lights', 'bruh'],
 		['Camera Zooms', 'Zooms de camera'],
