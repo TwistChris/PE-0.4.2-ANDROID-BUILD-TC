@@ -1044,7 +1044,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 		grpTexts = new FlxTypedGroup<AttachedText>();
 		add(grpTexts);
 
-		for (i in 0...optionsgi.length)
+		for (i in 0...optionsgo.length)
 		{
 			var isCentered:Bool = unselectableCheck(i);
 
@@ -1098,7 +1098,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 		descText.borderSize = 2.4;
 		add(descText);
 
-		for (i in 0...optionsgi.length) {
+		for (i in 0...optionsgo.length) {
 			if(!unselectableCheck(i)) {
 				curSelected = i;
 				break;
@@ -1189,13 +1189,13 @@ class PreferencesSubstate extends MusicBeatSubstate
 		do {
 			curSelected += change;
 			if (curSelected < 0)
-				curSelected = options.length - 1;
-			if (curSelected >= options.length)
+				curSelected = optionsgo.length - 1;
+			if (curSelected >= optionsgo.length)
 				curSelected = 0;
 		} while(unselectableCheck(curSelected));
 
 		var daText:String = '';
-		switch(options[curSelected]) {
+		switch(optionsgo[curSelected]) {
 			case 'Framerate':
 				daText = "Pretty self explanatory, isn't it?\nDefault value is 60.";
 			case 'Note Delay':
@@ -1277,7 +1277,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 			var checkbox:CheckboxThingie = checkboxArray[i];
 			if(checkbox != null) {
 				var daValue:Bool = false;
-				switch(options[checkboxNumber[i]]) {
+				switch(optionsgo[checkboxNumber[i]]) {
 					case 'FPS Counter':
 						daValue = ClientPrefs.showFPS;
 					case 'Low Quality':
@@ -1316,7 +1316,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 			var text:AttachedText = grpTexts.members[i];
 			if(text != null) {
 				var daText:String = '';
-				switch(options[textNumber[i]]) {
+				switch(optionsgo[textNumber[i]]) {
 					case 'Framerate':
 						daText = '' + ClientPrefs.framerate;
 					case 'Note Delay':
@@ -1341,6 +1341,6 @@ class PreferencesSubstate extends MusicBeatSubstate
 				return true;
 			}
 		}
-		return options[num] == null || options[num].length < 1;
+		return optionsgo[num] == null || optionsgo[num].length < 1;
 	}
 }
