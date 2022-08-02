@@ -892,25 +892,25 @@ class PreferencesSubstate extends MusicBeatSubstate
 	];
 
 	static var options:Array<Dynamic> = [
-		['GRAPHICS', Language.note],
+		['GRAPHICS'],
 		['Low Quality', Language.lowQuality],
 		['Anti-Aliasing', Language.globalAntialiasing],
-		['Persistent Cached Data', 'chepa'],
+		['Persistent Cached Data', Language.bruh],
 		#if !html5
 		['Framerate', Language.framerate],//Apparently 120FPS isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
 		#end
-		['GAMEPLAY', 'chepa'],
+		['GAMEPLAY'],
 		['Downscroll', Language.downScroll],
 		['Middlescroll', Language.middleScroll],
 		['Ghost Tapping', Language.ghostTapping],
-		['Note Delay', 'chepa'],
+		['Note Delay', 'Language.bruh],
 		['Note Splashes', Language.noteSplashes],
-		['Note Size', 'chepa'],
-		['Custom Scroll Speed', 'chrpa'],
-		['Scroll Speed', 'chepa'],
+		['Note Size', Language.bruh],
+		['Custom Scroll Speed', Language.bruh],
+		['Scroll Speed', Language.bruh],
 		['Hide HUD', Language.hideHUD],
-		['Hide Song Length', 'chepa'],
-		['Flashing Lights', 'chepa'],
+		['Hide Song Length', Language.bruh],
+		['Flashing Lights', Language.bruh],
 		['Camera Zooms', Language.cameraZoom],
 		['FPS Counter', Language.showFPS],
 	];
@@ -1022,6 +1022,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 						if(ClientPrefs.noteOffset < 0) ClientPrefs.noteOffset = 0;
 						else if(ClientPrefs.noteOffset > 500) ClientPrefs.noteOffset = 500;
 		}
+        }
 
 	public function new()
 	{
