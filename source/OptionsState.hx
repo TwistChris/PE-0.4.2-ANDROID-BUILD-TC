@@ -1048,7 +1048,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 		{
 			var isCentered:Bool = unselectableCheck(i);
 
-                        switch (LanguageState.languagescore)
+                        switch (options.Language.languagescore)
                         {
                                 case 'english':
 			                var optionText:Alphabet = new Alphabet(0, 70 * i, options[i][0], false, false);
