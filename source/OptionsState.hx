@@ -891,7 +891,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 		'Note Size'
 	];
 
-	static var options:Array<Dynamic> = [
+	static var optionsgo:Array<Dynamic> = [
 		['GRAPHICS'],
 		['Low Quality', 'Basse Qualite'],
 		['Anti-Aliasing', 'Anticrenelage'],
@@ -1044,16 +1044,16 @@ class PreferencesSubstate extends MusicBeatSubstate
 		grpTexts = new FlxTypedGroup<AttachedText>();
 		add(grpTexts);
 
-		for (i in 0...options.length)
+		for (i in 0...optionsgi.length)
 		{
 			var isCentered:Bool = unselectableCheck(i);
 
                         switch (options.Language.languagescore)
                         {
                                 case 'english':
-			                var optionText:Alphabet = new Alphabet(0, 70 * i, options[i][0], false, false);
+			                var optionText:Alphabet = new Alphabet(0, 70 * i, optionsgo[i][0], false, false);
                                 case 'francais':
-			                var optionText:Alphabet = new Alphabet(0, 70 * i, options[i][1], false, false);
+			                var optionText:Alphabet = new Alphabet(0, 70 * i, optionsgo[i][1], false, false);
                         }
 
 			optionText.isMenuItem = true;
@@ -1098,7 +1098,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 		descText.borderSize = 2.4;
 		add(descText);
 
-		for (i in 0...options.length) {
+		for (i in 0...optionsgi.length) {
 			if(!unselectableCheck(i)) {
 				curSelected = i;
 				break;
@@ -1156,7 +1156,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 
 		if(usesCheckbox) {
 			if(controls.ACCEPT && nextAccept <= 0) {	
-				openSelectedSubstate(options[curSelected][0]);
+				openSelectedSubstate(optionsgo[curSelected][0]);
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				reloadValues();
 			}
@@ -1164,7 +1164,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 			if(controls.UI_LEFT || controls.UI_RIGHT) {
 				var add:Int = controls.UI_LEFT ? -1 : 1;
 				if(holdTime > 0.5 || controls.UI_LEFT_P || controls.UI_RIGHT_P)
-				openSelectedSubstate2(options[curSelected]);
+				openSelectedSubstate2(optionsgo[curSelected]);
 				reloadValues();
 
 				if(holdTime <= 0) FlxG.sound.play(Paths.sound('scrollMenu'));
@@ -1268,7 +1268,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 			}
 		}
 
-		showCharacter.visible = (options[curSelected] == 'Anti-Aliasing');
+		showCharacter.visible = (optionsgo[curSelected] == 'Anti-Aliasing' | 'Anticrenelage';);
 		FlxG.sound.play(Paths.sound('scrollMenu'));
 	}
 
