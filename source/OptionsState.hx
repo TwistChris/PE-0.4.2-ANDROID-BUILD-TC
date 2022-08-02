@@ -1268,7 +1268,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 			}
 		}
 
-		showCharacter.visible = (optionsgo[curSelected] == 'Anti-Aliasing' | 'Anticrenelage';);
+		showCharacter.visible = (optionsgo[curSelected] == 'Anti-Aliasing' | 'Anticrenelage');
 		FlxG.sound.play(Paths.sound('scrollMenu'));
 	}
 
