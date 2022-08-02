@@ -924,6 +924,105 @@ class PreferencesSubstate extends MusicBeatSubstate
 	private var showCharacter:Character = null;
 	private var descText:FlxText;
 
+        function openSelectedSubstate(label:String)
+	{
+                switch(label) {
+				case 'FPS Counter':
+					ClientPrefs.showFPS = !ClientPrefs.showFPS;
+					if(Main.fpsVar != null)
+						Main.fpsVar.visible = ClientPrefs.showFPS;
+
+				case 'Low Quality':
+					ClientPrefs.lowQuality = !ClientPrefs.lowQuality;
+
+				case 'Anti-Aliasing':
+					ClientPrefs.globalAntialiasing = !ClientPrefs.globalAntialiasing;
+					showCharacter.antialiasing = ClientPrefs.globalAntialiasing;
+					for (item in grpOptions) {
+						item.antialiasing = ClientPrefs.globalAntialiasing;
+					}
+					for (i in 0...checkboxArray.length) {
+						var spr:CheckboxThingie = checkboxArray[i];
+						if(spr != null) {
+							spr.antialiasing = ClientPrefs.globalAntialiasing;
+						}
+					}
+					OptionsState.menuBG.antialiasing = ClientPrefs.globalAntialiasing;
+
+				case 'Note Splashes':
+					ClientPrefs.noteSplashes = !ClientPrefs.noteSplashes;
+
+				case 'Flashing Lights':
+					ClientPrefs.flashing = !ClientPrefs.flashing;
+
+				case 'Violence':
+					ClientPrefs.violence = !ClientPrefs.violence;
+
+				case 'Swearing':
+					ClientPrefs.cursing = !ClientPrefs.cursing;
+
+				case 'Downscroll':
+					ClientPrefs.downScroll = !ClientPrefs.downScroll;
+
+				case 'Middlescroll':
+					ClientPrefs.middleScroll = !ClientPrefs.middleScroll;
+
+				case 'Ghost Tapping':
+					ClientPrefs.ghostTapping = !ClientPrefs.ghostTapping;
+
+				case 'Camera Zooms':
+					ClientPrefs.camZooms = !ClientPrefs.camZooms;
+
+				case 'Hide HUD':
+					ClientPrefs.hideHud = !ClientPrefs.hideHud;
+
+				case 'Custom Scroll Speed':
+					ClientPrefs.scroll = !ClientPrefs.scroll;
+
+				case 'Persistent Cached Data':
+					ClientPrefs.imagesPersist = !ClientPrefs.imagesPersist;
+					FlxGraphic.defaultPersist = ClientPrefs.imagesPersist;
+					
+				case 'Hide Song Length':
+					ClientPrefs.hideTime = !ClientPrefs.hideTime;
+	        }
+        }
+
+        function openSelectedSubstate2(label:String)
+	{
+                switch(label) {
+				        case 'Framerate':
+						ClientPrefs.framerate += add;
+						if(ClientPrefs.framerate < 60) ClientPrefs.framerate = 60;
+						else if(ClientPrefs.framerate > 240) ClientPrefs.framerate = 240;
+
+						if(ClientPrefs.framerate > FlxG.drawFramerate) {
+							FlxG.updateFramerate = ClientPrefs.framerate;
+							FlxG.drawFramerate = ClientPrefs.framerate;
+						} else {
+							FlxG.drawFramerate = ClientPrefs.framerate;
+							FlxG.updateFramerate = ClientPrefs.framerate;
+						}
+					case 'Scroll Speed':
+						ClientPrefs.speed += add/10;
+						if(ClientPrefs.speed < 0.5) ClientPrefs.speed = 0.5;
+						else if(ClientPrefs.speed > 4) ClientPrefs.speed = 4;
+
+					case 'Note Size':
+						ClientPrefs.noteSize += add/20;
+						if(ClientPrefs.noteSize < 0.5) ClientPrefs.noteSize = 0.5;
+						else if(ClientPrefs.noteSize > 1.5) ClientPrefs.noteSize = 1.5;
+
+					case 'Note Delay':
+						var mult:Int = 1;
+						if(holdTime > 1.5) { //Double speed after 1.5 seconds holding
+							mult = 2;
+						}
+						ClientPrefs.noteOffset += add * mult;
+						if(ClientPrefs.noteOffset < 0) ClientPrefs.noteOffset = 0;
+						else if(ClientPrefs.noteOffset > 500) ClientPrefs.noteOffset = 500;
+		}
+
 	public function new()
 	{
 		super();
@@ -1045,67 +1144,8 @@ class PreferencesSubstate extends MusicBeatSubstate
 		}
 
 		if(usesCheckbox) {
-			if(controls.ACCEPT && nextAccept <= 0) {
-				switch(options[curSelected]) {
-					case 'FPS Counter':
-						ClientPrefs.showFPS = !ClientPrefs.showFPS;
-						if(Main.fpsVar != null)
-							Main.fpsVar.visible = ClientPrefs.showFPS;
-
-					case 'Low Quality':
-						ClientPrefs.lowQuality = !ClientPrefs.lowQuality;
-
-					case 'Anti-Aliasing':
-						ClientPrefs.globalAntialiasing = !ClientPrefs.globalAntialiasing;
-						showCharacter.antialiasing = ClientPrefs.globalAntialiasing;
-						for (item in grpOptions) {
-							item.antialiasing = ClientPrefs.globalAntialiasing;
-						}
-						for (i in 0...checkboxArray.length) {
-							var spr:CheckboxThingie = checkboxArray[i];
-							if(spr != null) {
-								spr.antialiasing = ClientPrefs.globalAntialiasing;
-							}
-						}
-						OptionsState.menuBG.antialiasing = ClientPrefs.globalAntialiasing;
-
-					case 'Note Splashes':
-						ClientPrefs.noteSplashes = !ClientPrefs.noteSplashes;
-
-					case 'Flashing Lights':
-						ClientPrefs.flashing = !ClientPrefs.flashing;
-
-					case 'Violence':
-						ClientPrefs.violence = !ClientPrefs.violence;
-
-					case 'Swearing':
-						ClientPrefs.cursing = !ClientPrefs.cursing;
-
-					case 'Downscroll':
-						ClientPrefs.downScroll = !ClientPrefs.downScroll;
-
-					case 'Middlescroll':
-						ClientPrefs.middleScroll = !ClientPrefs.middleScroll;
-
-					case 'Ghost Tapping':
-						ClientPrefs.ghostTapping = !ClientPrefs.ghostTapping;
-
-					case 'Camera Zooms':
-						ClientPrefs.camZooms = !ClientPrefs.camZooms;
-
-					case 'Hide HUD':
-						ClientPrefs.hideHud = !ClientPrefs.hideHud;
-
-					case 'Custom Scroll Speed':
-						ClientPrefs.scroll = !ClientPrefs.scroll;
-
-					case 'Persistent Cached Data':
-						ClientPrefs.imagesPersist = !ClientPrefs.imagesPersist;
-						FlxGraphic.defaultPersist = ClientPrefs.imagesPersist;
-					
-					case 'Hide Song Length':
-						ClientPrefs.hideTime = !ClientPrefs.hideTime;
-				}
+			if(controls.ACCEPT && nextAccept <= 0) {	
+				openSelectedSubstate(options[curSelected][0]);
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				reloadValues();
 			}
@@ -1113,38 +1153,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 			if(controls.UI_LEFT || controls.UI_RIGHT) {
 				var add:Int = controls.UI_LEFT ? -1 : 1;
 				if(holdTime > 0.5 || controls.UI_LEFT_P || controls.UI_RIGHT_P)
-				switch(options[curSelected]) {
-					case 'Framerate':
-						ClientPrefs.framerate += add;
-						if(ClientPrefs.framerate < 60) ClientPrefs.framerate = 60;
-						else if(ClientPrefs.framerate > 240) ClientPrefs.framerate = 240;
-
-						if(ClientPrefs.framerate > FlxG.drawFramerate) {
-							FlxG.updateFramerate = ClientPrefs.framerate;
-							FlxG.drawFramerate = ClientPrefs.framerate;
-						} else {
-							FlxG.drawFramerate = ClientPrefs.framerate;
-							FlxG.updateFramerate = ClientPrefs.framerate;
-						}
-					case 'Scroll Speed':
-						ClientPrefs.speed += add/10;
-						if(ClientPrefs.speed < 0.5) ClientPrefs.speed = 0.5;
-						else if(ClientPrefs.speed > 4) ClientPrefs.speed = 4;
-
-					case 'Note Size':
-						ClientPrefs.noteSize += add/20;
-						if(ClientPrefs.noteSize < 0.5) ClientPrefs.noteSize = 0.5;
-						else if(ClientPrefs.noteSize > 1.5) ClientPrefs.noteSize = 1.5;
-
-					case 'Note Delay':
-						var mult:Int = 1;
-						if(holdTime > 1.5) { //Double speed after 1.5 seconds holding
-							mult = 2;
-						}
-						ClientPrefs.noteOffset += add * mult;
-						if(ClientPrefs.noteOffset < 0) ClientPrefs.noteOffset = 0;
-						else if(ClientPrefs.noteOffset > 500) ClientPrefs.noteOffset = 500;
-				}
+				openSelectedSubstate2(options[curSelected]);
 				reloadValues();
 
 				if(holdTime <= 0) FlxG.sound.play(Paths.sound('scrollMenu'));
