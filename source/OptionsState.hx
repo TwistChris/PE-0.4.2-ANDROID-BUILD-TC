@@ -990,6 +990,8 @@ class PreferencesSubstate extends MusicBeatSubstate
 
         function openSelectedSubstate2(label:String)
 	{
+                var add:Int = controls.UI_LEFT ? -1 : 1;
+                if(holdTime > 0.5 || controls.UI_LEFT_P || controls.UI_RIGHT_P)
                 switch(label) {
 				        case 'Framerate':
 						ClientPrefs.framerate += add;
