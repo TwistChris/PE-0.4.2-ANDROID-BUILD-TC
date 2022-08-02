@@ -903,7 +903,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 		['Downscroll', Language.downScroll],
 		['Middlescroll', Language.middleScroll],
 		['Ghost Tapping', Language.ghostTapping],
-		['Note Delay', 'Language.bruh],
+		['Note Delay', Language.bruh],
 		['Note Splashes', Language.noteSplashes],
 		['Note Size', Language.bruh],
 		['Custom Scroll Speed', Language.bruh],
