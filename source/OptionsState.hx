@@ -57,9 +57,9 @@ class OptionsState extends MusicBeatState
                         case 'Language Select':
 				LoadingState.loadAndSwitchState(new options.LanguageState());					
 			case 'Graphics':                                        
-				openSubState(new options.GraphicsSettingsSubState());
+				MusicBeatState.switchState(new options.GraphicsSettingsSubState());
                         case 'Gameplay':                                        
-				openSubState(new options.GameplaySettingsSubState());
+				MusicBeatState.switchState(new options.GameplaySettingsSubState());
 		}
 	}
 
