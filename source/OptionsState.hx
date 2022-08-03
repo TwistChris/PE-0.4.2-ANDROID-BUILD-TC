@@ -40,6 +40,7 @@ class OptionsState extends MusicBeatState
                 ['Gameplay', Language.gameplay]
         ];
 
+        public static var languagescore:String = '';
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
@@ -56,8 +57,14 @@ class OptionsState extends MusicBeatState
 				MusicBeatState.switchState(new options.CustomControlsState());					
                         case 'Language Select':
 				LoadingState.loadAndSwitchState(new options.LanguageState());					
-			case 'Graphics':                                        
-				MusicBeatState.switchState(new options.GraphicsSettingsSubState());
+			case 'Graphics':       
+                                switch (languagescore)
+                                {
+				        case 'english':
+                                                openSubState(new ControlsSubstate());
+                                        case 'francais':
+                                                openSubState(new NotesSubstate());
+                                }
                         case 'Gameplay':                                        
 				MusicBeatState.switchState(new options.GameplaySettingsSubState());
 		}
